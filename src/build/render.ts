@@ -82,7 +82,7 @@ export function renderDocument(definition: PageDefinition): string {
   <body>
     <div class="shell pb-20 pt-6 sm:pt-8">
       <div class="${definition.sidebar ? "site-layout" : ""}">
-        ${definition.sidebar ? `<aside class="site-sidebar">${definition.sidebar}</aside>` : ""}
+        ${definition.sidebar ? `<aside class="site-sidebar hidden xl:block">${definition.sidebar}</aside>` : ""}
         <div class="site-main">
           ${renderHeader()}
           <main class="shell-grid py-8 sm:py-10">
@@ -116,6 +116,13 @@ function renderHeader(): string {
         <button class="header-search-button" type="submit">Go</button>
       </form>
     </div>
+    <nav class="mobile-nav flex gap-2 overflow-x-auto pt-4 xl:hidden" aria-label="Main navigation">
+      <a href="/apis/" class="nav-pill whitespace-nowrap">All APIs</a>
+      <a href="/capability/" class="nav-pill whitespace-nowrap">Capabilities</a>
+      <a href="/collections/" class="nav-pill whitespace-nowrap">Collections</a>
+      <a href="/category/" class="nav-pill whitespace-nowrap">Sections</a>
+      <a href="/topic/" class="nav-pill whitespace-nowrap">Categories</a>
+    </nav>
   </header>`;
 }
 
@@ -184,7 +191,7 @@ function renderHero(title: string, eyebrow: string, description: string, actions
   return `<section class="hero-panel">
     <div class="space-y-5">
       <p class="meta-label">${eyebrow}</p>
-      <h1 class="max-w-4xl text-3xl font-black uppercase tracking-[-0.04em] text-white sm:text-4xl lg:text-[2.75rem]">${title}</h1>
+      <h1 class="max-w-4xl text-2xl font-black uppercase tracking-[-0.04em] text-white sm:text-4xl lg:text-[2.75rem]">${title}</h1>
       <p class="max-w-3xl text-sm leading-8 text-ink-300 sm:text-base">${description}</p>
       ${actions ?? ""}
     </div>
@@ -196,12 +203,12 @@ function renderSearchHero(site: SiteData): string {
     <div class="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(250px,0.9fr)] lg:items-end">
       <div class="space-y-5">
         <p class="meta-label">${site.apis.length} free APIs. ${site.topics.length} categories. Open data.</p>
-        <h1 class="max-w-4xl text-3xl font-black uppercase tracking-[-0.04em] text-white sm:text-4xl lg:text-[2.75rem]">${SITE_TAGLINE}</h1>
+        <h1 class="max-w-4xl text-2xl font-black uppercase tracking-[-0.04em] text-white sm:text-4xl lg:text-[2.75rem]">${SITE_TAGLINE}</h1>
         <p class="max-w-3xl text-sm leading-8 text-ink-300 sm:text-base">
           Discover free APIs across AI, search, browser automation, developer tools, messaging, maps, payments, and infrastructure.
         </p>
       </div>
-      <div class="grid gap-3 sm:grid-cols-2">
+      <div class="grid grid-cols-2 gap-3">
         <div class="hero-stat">
           <span class="meta-label">APIs</span>
           <strong>${site.apis.length}</strong>
