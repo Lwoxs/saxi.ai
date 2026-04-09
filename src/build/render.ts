@@ -85,7 +85,7 @@ export function renderDocument(definition: PageDefinition): string {
         ${definition.sidebar ? `<aside class="site-sidebar hidden xl:block">${definition.sidebar}</aside>` : ""}
         <div class="site-main">
           ${renderHeader()}
-          <main class="shell-grid py-8 sm:py-10">
+          <main class="shell-grid py-6">
             ${definition.body}
           </main>
           ${renderFooter()}
