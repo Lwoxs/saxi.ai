@@ -4,10 +4,23 @@
   "main": "src/worker.ts",
   "compatibility_date": "2026-04-09",
   "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": true,
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
   },
+  "routes": [
+    {
+      "pattern": "saxi.ai/*",
+      "zone_name": "saxi.ai"
+    },
+    {
+      "pattern": "www.saxi.ai",
+      "zone_name": "saxi.ai",
+      "custom_domain": true
+    }
+  ],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
