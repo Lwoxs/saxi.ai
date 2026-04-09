@@ -1,12 +1,12 @@
 # saxi.ai
 
-<p align="center">
+<p>
   <a href="https://adanos.org/">
     <img alt="Sponsored by Adanos" src="https://img.shields.io/badge/Sponsored%20by-Adanos-9FE870?style=for-the-badge&labelColor=0B1220&color=9FE870" />
   </a>
 </p>
 
-<p align="center">
+<p>
   Sponsored by <a href="https://adanos.org/">adanos.org</a>
 </p>
 
