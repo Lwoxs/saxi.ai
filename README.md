@@ -50,7 +50,7 @@ Recommended production path:
 - run `npm run screenshots:capture -- --concurrency=10`
 - then run `npm run build`
 
-The deploy workflow restores and saves `.cache/screenshots`, installs Chromium, refreshes missing/stale screenshots, and then deploys.
+The deploy workflow restores and saves `.cache/screenshots`, installs Chromium, refreshes missing screenshots plus screenshots older than 90 days, and then deploys.
 
 ## Deploy
 

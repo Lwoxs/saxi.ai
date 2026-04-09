@@ -11,7 +11,7 @@ import type { ApiEntry } from "./types.js";
 const CACHE_DIR = ".cache/screenshots";
 const DEFAULT_CONCURRENCY = 10;
 const DEFAULT_TIMEOUT_MS = 20_000;
-const DEFAULT_STALE_DAYS = 30;
+const DEFAULT_STALE_DAYS = 90;
 const VIEWPORT = { width: 1440, height: 960 };
 
 interface Options {
