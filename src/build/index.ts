@@ -7,6 +7,7 @@ import { buildSiteData, normalizeRecords } from "./normalize.js";
 import {
   renderApisArchivePage,
   renderApisLandingPage,
+  renderApiManifest,
   renderCapabilityPage,
   renderCategoryPage,
   renderCollectionPage,
@@ -14,7 +15,13 @@ import {
   renderFaviconSvg,
   renderHomePage,
   renderLlmTxt,
+  renderLlmsTxt,
   renderNotFoundPage,
+  renderPublicApis,
+  renderPublicCapabilities,
+  renderPublicCollections,
+  renderPublicTopics,
+  renderPublicUpdates,
   renderRobotsTxt,
   renderSearchIndex,
   renderSitemapXml,
@@ -96,8 +103,15 @@ async function buildSite(): Promise<void> {
   await writeOutputFile("favicon.svg", renderFaviconSvg());
   await writeOutputFile("social-card.svg", renderSocialCardSvg());
   await writeOutputFile("llm.txt", renderLlmTxt(site));
+  await writeOutputFile("llms.txt", renderLlmsTxt(site));
   await writeOutputFile("robots.txt", renderRobotsTxt());
   await writeOutputFile("search-index.json", renderSearchIndex(site));
+  await writeOutputFile("api/index.json", renderApiManifest(site));
+  await writeOutputFile("api/apis.json", renderPublicApis(site));
+  await writeOutputFile("api/topics.json", renderPublicTopics(site));
+  await writeOutputFile("api/capabilities.json", renderPublicCapabilities(site));
+  await writeOutputFile("api/collections.json", renderPublicCollections(site));
+  await writeOutputFile("api/updates.json", renderPublicUpdates(site));
 
   const archivePages = chunk(site.apis, PAGE_SIZE);
   for (const [index, apis] of archivePages.entries()) {

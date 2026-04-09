@@ -16,7 +16,7 @@ import {
   SITE_TAGLINE
 } from "./constants.js";
 import type { ApiEntry, CollectionPage, SiteData, TaxonomyPage } from "./types.js";
-import { compareStrings, escapeHtml } from "./utils.js";
+import { compareStrings, escapeHtml, slugify } from "./utils.js";
 
 interface PageDefinition {
   title: string;
@@ -1030,9 +1030,12 @@ export function renderSearchIndex(site: SiteData): string {
       generatedAt: site.generatedAt,
       total: site.apis.length,
       apis: site.apis.map((api) => ({
+        id: api.id,
+        slug: api.slug,
         name: api.name,
         description: api.description,
         docsUrl: api.docsUrl,
+        websiteUrl: api.websiteUrl,
         screenshotPath: api.screenshotPath,
         primaryCategory: api.primaryCategory,
         sourceCategories: api.sourceCategories,
@@ -1051,6 +1054,220 @@ export function renderSearchIndex(site: SiteData): string {
     null,
     2
   );
+}
+
+function absoluteUrl(path: string): string {
+  return `${SITE_ORIGIN}${path}`;
+}
+
+function renderJson(value: unknown): string {
+  return JSON.stringify(value, null, 2);
+}
+
+function buildCollectionMembership(site: SiteData): Map<string, CollectionPage[]> {
+  const membership = new Map<string, CollectionPage[]>();
+
+  for (const collection of site.collections) {
+    for (const api of collection.apis) {
+      membership.set(api.id, [...(membership.get(api.id) ?? []), collection]);
+    }
+  }
+
+  return membership;
+}
+
+export function renderApiManifest(site: SiteData): string {
+  return renderJson({
+    schemaVersion: "1.0",
+    generatedAt: site.generatedAt,
+    site: {
+      name: SITE_NAME,
+      url: SITE_ORIGIN,
+      description: "Free public API directory for AI agents and developers."
+    },
+    summary: {
+      apis: site.apis.length,
+      topics: site.topics.length,
+      capabilities: site.capabilities.length,
+      collections: site.collections.length
+    },
+    endpoints: {
+      manifest: absoluteUrl("/api/index.json"),
+      apis: absoluteUrl("/api/apis.json"),
+      topics: absoluteUrl("/api/topics.json"),
+      capabilities: absoluteUrl("/api/capabilities.json"),
+      collections: absoluteUrl("/api/collections.json"),
+      updates: absoluteUrl("/api/updates.json"),
+      searchIndex: absoluteUrl("/search-index.json"),
+      llmTxt: absoluteUrl("/llm.txt"),
+      llmsTxt: absoluteUrl("/llms.txt"),
+      sitemap: absoluteUrl("/sitemap.xml"),
+      robots: absoluteUrl("/robots.txt")
+    },
+    notes: [
+      "Use /api/apis.json for stable machine-readable ingestion.",
+      "Use /search-index.json only for lightweight UI-style search and ranking.",
+      "saxi.ai currently publishes full snapshots, not incremental diffs."
+    ]
+  });
+}
+
+export function renderPublicApis(site: SiteData): string {
+  const collectionMembership = buildCollectionMembership(site);
+
+  return renderJson({
+    schemaVersion: "1.0",
+    generatedAt: site.generatedAt,
+    total: site.apis.length,
+    apis: site.apis.map((api) => {
+      const sectionSlug = slugify(api.primaryCategory);
+      const collections = (collectionMembership.get(api.id) ?? []).map((collection) => ({
+        slug: collection.slug,
+        title: collection.title,
+        url: absoluteUrl(`/collections/${collection.slug}/`)
+      }));
+
+      return {
+        id: api.id,
+        slug: api.slug,
+        name: api.name,
+        description: api.description,
+        docsUrl: api.docsUrl,
+        websiteUrl: api.websiteUrl,
+        screenshotUrl: absoluteUrl(api.screenshotPath),
+        screenshotTargetUrl: api.screenshotTargetUrl,
+        domain: api.domain,
+        section: {
+          slug: sectionSlug,
+          title: api.primaryCategory,
+          url: absoluteUrl(`/category/${sectionSlug}/`)
+        },
+        categories: api.sourceCategories.map((title) => {
+          const slug = slugify(title);
+          return {
+            slug,
+            title,
+            url: absoluteUrl(`/topic/${slug}/`)
+          };
+        }),
+        capabilities: api.capabilities.map((title) => {
+          const slug = slugify(title);
+          return {
+            slug,
+            title,
+            url: absoluteUrl(`/capability/${slug}/`)
+          };
+        }),
+        collections,
+        authType: api.authType,
+        https: api.https,
+        cors: api.cors,
+        hasOpenApi: api.hasOpenApi,
+        protocols: api.protocols,
+        isOfficial: api.isOfficial,
+        isFree: api.isFree,
+        sourceLabels: api.sourceLabels,
+        sourceRepos: api.sourceRepos,
+        sourceLicenses: api.sourceLicenses,
+        indexedAt: site.generatedAt
+      };
+    })
+  });
+}
+
+export function renderPublicTopics(site: SiteData): string {
+  return renderJson({
+    schemaVersion: "1.0",
+    generatedAt: site.generatedAt,
+    total: site.topics.length,
+    topics: site.topics.map((topic) => ({
+      slug: topic.slug,
+      title: topic.title,
+      url: absoluteUrl(`/topic/${topic.slug}/`),
+      description: topic.description,
+      intro: topic.intro,
+      editorialSections: topic.editorialSections,
+      count: topic.count,
+      topApis: topic.apis.slice(0, 12).map((api) => ({
+        id: api.id,
+        slug: api.slug,
+        name: api.name,
+        docsUrl: api.docsUrl
+      }))
+    }))
+  });
+}
+
+export function renderPublicCapabilities(site: SiteData): string {
+  return renderJson({
+    schemaVersion: "1.0",
+    generatedAt: site.generatedAt,
+    total: site.capabilities.length,
+    capabilities: site.capabilities.map((capability) => ({
+      slug: capability.slug,
+      title: capability.title,
+      url: absoluteUrl(`/capability/${capability.slug}/`),
+      description: capability.description,
+      intro: capability.intro,
+      editorialSections: capability.editorialSections,
+      count: capability.count,
+      topApis: capability.apis.slice(0, 12).map((api) => ({
+        id: api.id,
+        slug: api.slug,
+        name: api.name,
+        docsUrl: api.docsUrl
+      }))
+    }))
+  });
+}
+
+export function renderPublicCollections(site: SiteData): string {
+  return renderJson({
+    schemaVersion: "1.0",
+    generatedAt: site.generatedAt,
+    total: site.collections.length,
+    collections: site.collections.map((collection) => ({
+      slug: collection.slug,
+      title: collection.title,
+      url: absoluteUrl(`/collections/${collection.slug}/`),
+      description: collection.description,
+      intro: collection.intro,
+      editorialSections: collection.editorialSections,
+      count: collection.apis.length,
+      topApis: collection.apis.slice(0, 16).map((api) => ({
+        id: api.id,
+        slug: api.slug,
+        name: api.name,
+        docsUrl: api.docsUrl
+      }))
+    }))
+  });
+}
+
+export function renderPublicUpdates(site: SiteData): string {
+  return renderJson({
+    schemaVersion: "1.0",
+    generatedAt: site.generatedAt,
+    snapshotId: site.generatedAt,
+    updateType: "full_snapshot",
+    summary: {
+      apis: site.apis.length,
+      topics: site.topics.length,
+      capabilities: site.capabilities.length,
+      collections: site.collections.length
+    },
+    endpoints: {
+      manifest: absoluteUrl("/api/index.json"),
+      apis: absoluteUrl("/api/apis.json"),
+      topics: absoluteUrl("/api/topics.json"),
+      capabilities: absoluteUrl("/api/capabilities.json"),
+      collections: absoluteUrl("/api/collections.json")
+    },
+    notes: [
+      "This endpoint currently announces full catalog snapshots only.",
+      "Incremental add/change/remove diffs are not published yet."
+    ]
+  });
 }
 
 export function renderRobotsTxt(): string {
@@ -1079,6 +1296,12 @@ export function renderLlmTxt(site: SiteData): string {
     `contact: ${CONTACT_EMAIL}`,
     `sitemap: ${SITE_ORIGIN}/sitemap.xml`,
     `robots: ${SITE_ORIGIN}/robots.txt`,
+    `manifest: ${SITE_ORIGIN}/api/index.json`,
+    `api_feed: ${SITE_ORIGIN}/api/apis.json`,
+    `topics_feed: ${SITE_ORIGIN}/api/topics.json`,
+    `capabilities_feed: ${SITE_ORIGIN}/api/capabilities.json`,
+    `collections_feed: ${SITE_ORIGIN}/api/collections.json`,
+    `updates_feed: ${SITE_ORIGIN}/api/updates.json`,
     `search_index: ${SITE_ORIGIN}/search-index.json`,
     "",
     "overview:",
@@ -1102,6 +1325,57 @@ export function renderLlmTxt(site: SiteData): string {
     ...topCapabilities,
     "",
     "collections:",
+    ...collections,
+    "",
+    "machine_feeds:",
+    `- Manifest: ${SITE_ORIGIN}/api/index.json`,
+    `- APIs: ${SITE_ORIGIN}/api/apis.json`,
+    `- Topics: ${SITE_ORIGIN}/api/topics.json`,
+    `- Capabilities: ${SITE_ORIGIN}/api/capabilities.json`,
+    `- Collections: ${SITE_ORIGIN}/api/collections.json`,
+    `- Updates: ${SITE_ORIGIN}/api/updates.json`,
+    "",
+    "notes_for_agents:",
+    "- Use /api/apis.json for stable structured ingestion.",
+    "- Use /search-index.json for lightweight search only; it is optimized for the website UI.",
+    "- Prefer docsUrl for execution and the static saxi.ai taxonomy pages for browsing and citation."
+  ].join("\n");
+}
+
+export function renderLlmsTxt(site: SiteData): string {
+  const collections = site.collections
+    .slice(0, 8)
+    .map((collection) => `- ${collection.title}: ${SITE_ORIGIN}/collections/${collection.slug}/`);
+
+  return [
+    `# ${SITE_NAME}`,
+    "",
+    "Free public API directory for AI agents and developers.",
+    "",
+    "## Canonical HTML pages",
+    `- Home: ${SITE_ORIGIN}/`,
+    `- All APIs: ${SITE_ORIGIN}/apis/`,
+    `- Categories: ${SITE_ORIGIN}/topic/`,
+    `- Sections: ${SITE_ORIGIN}/category/`,
+    `- Capabilities: ${SITE_ORIGIN}/capability/`,
+    `- Collections: ${SITE_ORIGIN}/collections/`,
+    "",
+    "## Machine-readable feeds",
+    `- Manifest: ${SITE_ORIGIN}/api/index.json`,
+    `- APIs: ${SITE_ORIGIN}/api/apis.json`,
+    `- Topics: ${SITE_ORIGIN}/api/topics.json`,
+    `- Capabilities: ${SITE_ORIGIN}/api/capabilities.json`,
+    `- Collections: ${SITE_ORIGIN}/api/collections.json`,
+    `- Updates: ${SITE_ORIGIN}/api/updates.json`,
+    `- Search Index: ${SITE_ORIGIN}/search-index.json`,
+    "",
+    "## Notes for agents",
+    "- The site indexes free public APIs only.",
+    "- Use /api/apis.json as the stable structured catalog.",
+    "- Use /search-index.json only for light search or ranking signals.",
+    "- Prefer docsUrl when selecting execution targets.",
+    "",
+    "## Featured collections",
     ...collections
   ].join("\n");
 }
