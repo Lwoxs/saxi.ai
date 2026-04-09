@@ -700,6 +700,16 @@
       "checkedAt": "2026-04-09T12:49:33.353Z"
     },
     {
+      "id": "funtranslations::funtranslations.com",
+      "name": "FunTranslations",
+      "docsUrl": "https://api.funtranslations.com/",
+      "reason": "manual_removal_offline",
+      "checkedAt": "2026-04-09T15:34:00.000Z",
+      "status": 403,
+      "finalUrl": "https://api.funtranslations.com/",
+      "title": "Attention Required! | Cloudflare"
+    },
+    {
       "id": "fun-facts::asli-fun-fact-api.herokuapp.com",
       "name": "Fun Facts",
       "docsUrl": "https://asli-fun-fact-api.herokuapp.com/",
