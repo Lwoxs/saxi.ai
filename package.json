@@ -17,6 +17,7 @@
     "cf:typegen": "wrangler types",
     "dev": "npm run build && wrangler dev",
     "screenshots:capture": "tsx src/build/capture-screenshots.ts",
+    "screenshots:report": "tsx src/build/report-screenshots.ts",
     "typecheck": "tsc --noEmit",
     "verify:links": "node ./src/build/verify-links.mjs"
   },
