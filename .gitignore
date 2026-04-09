@@ -2,5 +2,6 @@ node_modules
 dist
 .wrangler
 .cache
+.claude
 .DS_Store
 data/api-link-audit-report.json
