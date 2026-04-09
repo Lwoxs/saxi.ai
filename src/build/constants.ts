@@ -212,11 +212,16 @@ export const CAPABILITY_RULES: CapabilityRule[] = [
 
 export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
   {
-    slug: "free-apis-for-ai-agents",
-    title: "Free APIs for AI Agents",
-    description: "Free APIs for building AI agents — search, browser automation, speech, translation, messaging, memory, and LLM inference.",
+    slug: "best-apis-for-ai-agents",
+    title: "Best APIs for AI Agents",
+    description: "The best free APIs for AI agents — search, browser automation, speech, translation, messaging, memory, and LLM inference.",
     intro:
-      "APIs that cover the most common needs of tool-calling agents: finding information, controlling browsers, processing speech, translating text, sending messages, and storing state.",
+      "This landing page is built as a practical shortlist for tool-calling agents: APIs for finding information, controlling browsers, processing speech, translating text, sending messages, and storing state.",
+    editorialSections: [
+      "The strongest APIs for AI agents are the ones that make tool use predictable. That usually means straightforward documentation, stable request shapes, clean JSON responses, and enough coverage to support planning, retrieval, automation, and follow-up actions.",
+      "Use this page when you are designing a core agent stack for research assistants, workflow automations, support copilots, trading tools, or multi-step developer agents. The goal is not just breadth, but APIs that are realistic to call from prompts, chains, and tool routers.",
+      "From here, drill into narrower landing pages if you are solving a specific subproblem like OCR, browser automation, translation, search for RAG, or speech. This page is the broad canonical entry point for the most reusable free APIs in the directory."
+    ],
     anyCapabilities: [
       "llm",
       "search",
@@ -230,7 +235,8 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
       "memory-storage"
     ],
     categories: ["AI & ML", "Search & Retrieval", "Developer Tools", "Communication"],
-    minItems: 12
+    minItems: 12,
+    legacyPaths: ["/collections/free-apis-for-ai-agents/"]
   },
   {
     slug: "browser-automation-apis",
@@ -238,6 +244,11 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
     description: "Free APIs for taking screenshots, rendering pages, and automating browsers.",
     intro:
       "Need to screenshot a URL, render a page to PDF, or control a headless browser? These free APIs handle it.",
+    editorialSections: [
+      "Browser automation APIs are useful when an agent has to interact with the web as it appears in a browser rather than through a structured endpoint. Typical tasks include screenshots, page rendering, DOM-driven extraction, PDF generation, and scripted navigation.",
+      "This category is especially useful for QA tooling, growth automation, website monitoring, and research agents that need rendered output. It is also one of the cleanest ways to bridge from unstructured web pages into tool-friendly artifacts such as images, text snapshots, or structured extraction results.",
+      "When comparing vendors here, pay close attention to latency, anti-bot behavior, concurrency limits, and whether the API returns raw browser control, rendered assets, or both. The strongest fits are the ones that match your agent runtime and failure-handling model."
+    ],
     anyCapabilities: ["browser-automation", "scraping"],
     minItems: 6
   },
@@ -247,6 +258,11 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
     description: "Free speech recognition and transcription APIs for turning audio into text.",
     intro:
       "Turn audio into text with these free APIs — useful for voice interfaces, meeting transcription, and audio processing.",
+    editorialSections: [
+      "Speech-to-text APIs turn raw audio into something an assistant can reason over. They are a core primitive for call summarization, meeting notes, agentic voice workflows, searchable media, and human-in-the-loop review pipelines.",
+      "The best options in this slice are not only accurate, but operationally simple: clear upload limits, consistent timestamps, and output formats that are easy to feed into summarization, classification, or retrieval systems.",
+      "If your product handles multilingual or noisy input, treat this landing page as the shortlist stage and then compare providers on language coverage, diarization, and batch versus streaming support."
+    ],
     anyCapabilities: ["speech-to-text"],
     minItems: 5
   },
@@ -256,6 +272,11 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
     description: "Free search, retrieval, crawling, and discovery APIs for RAG pipelines and research workflows.",
     intro:
       "Search engines, web crawlers, and content APIs that give your application access to real-world data for retrieval-augmented generation.",
+    editorialSections: [
+      "Search and retrieval APIs are the backbone of RAG systems, research agents, and web-aware assistants. They determine how well an agent can discover current information, resolve ambiguity, and gather enough evidence before it writes or acts.",
+      "This page combines multiple shapes of retrieval tooling: classic web search, content discovery, crawling, scraping, and document-oriented data access. Together they cover the main ways agents pull external context into a prompt or memory system.",
+      "For production use, compare freshness, source coverage, rate limits, and how much cleaning is required before the output can be embedded, summarized, or passed to downstream tools."
+    ],
     anyCapabilities: ["search", "scraping", "embeddings"],
     minItems: 8
   },
@@ -265,8 +286,41 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
     description: "Free translation APIs for adding multilingual support to any application.",
     intro:
       "Translate text between languages, detect languages automatically, and localize content — all with free API access.",
+    editorialSections: [
+      "Translation APIs are one of the most immediate ways to make an agent or developer tool globally useful. They are relevant for chat products, support workflows, internal tooling, localization pipelines, and any assistant that needs to normalize multilingual input.",
+      "The strongest APIs in this category do more than literal translation. They often support language detection, batch workflows, and response formats that plug cleanly into moderation, summarization, or retrieval pipelines.",
+      "Use this page as the canonical shortlist for multilingual API research, then verify specifics such as supported language pairs, quotas, latency, and whether the output is good enough for user-facing text or just internal normalization."
+    ],
     anyCapabilities: ["translation"],
     minItems: 5
+  },
+  {
+    slug: "ocr-apis",
+    title: "OCR APIs",
+    description: "Free OCR APIs for extracting text from images, scans, PDFs, receipts, and documents.",
+    intro:
+      "OCR APIs convert screenshots, scans, and image-based documents into machine-readable text for downstream agent workflows.",
+    editorialSections: [
+      "OCR is one of the most useful capability layers for agent systems that operate on the messy parts of the web: screenshots, scanned PDFs, invoices, forms, receipts, dashboards, and mobile captures. Without OCR, those sources stay locked in pixels.",
+      "This landing page focuses on free OCR-capable APIs that can act as the first step in a wider pipeline. Once text is extracted, an agent can classify, summarize, route, translate, or store the result like any other structured input.",
+      "The most important evaluation criteria here are extraction accuracy, support for tables or multi-column layouts, file size limits, and how much cleanup is needed before the text becomes usable in prompts or automations."
+    ],
+    anyCapabilities: ["ocr"],
+    minItems: 4
+  },
+  {
+    slug: "text-to-speech-apis",
+    title: "Text to Speech APIs",
+    description: "Free text to speech APIs for voice generation, spoken responses, and audio-first experiences.",
+    intro:
+      "Text to speech APIs let assistants and applications turn written output into natural audio for voice experiences and accessibility.",
+    editorialSections: [
+      "Text to speech is a core output layer for AI agents that operate in voice, accessibility, and media workflows. It is useful for spoken assistants, narrated summaries, call flows, and products that need both visual and audio delivery.",
+      "This landing page gathers the free APIs that make it practical to synthesize voice without running a full speech stack yourself. That matters when your priority is integrating audio output quickly rather than managing speech models directly.",
+      "When choosing from this set, compare voice quality, language coverage, latency, and whether the response format fits your playback or caching strategy. For some products, consistency and speed matter more than hyper-realistic voice quality."
+    ],
+    anyCapabilities: ["text-to-speech"],
+    minItems: 4
   },
   {
     slug: "developer-tool-apis",
@@ -274,6 +328,11 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
     description: "Free APIs for CI/CD, testing, monitoring, code analysis, and infrastructure.",
     intro:
       "APIs for the developer toolchain — from code compilation and linting to deployment, monitoring, and infrastructure management.",
+    editorialSections: [
+      "Developer tool APIs are especially valuable for coding agents, CI systems, internal engineering tools, and observability dashboards. They expose the systems that development teams already rely on: build pipelines, code analysis, monitoring, deployment, and infrastructure controls.",
+      "The main reason to use this page is to find APIs that let tools act on engineering systems instead of only reading data. That includes everything from fetching build results to triggering workflows, querying telemetry, or turning platform data into agent actions.",
+      "For implementation work, the biggest differentiators tend to be auth model, rate limits, and the quality of the docs. APIs that are easy for developers are usually also the easiest to make reliable inside an agent loop."
+    ],
     categories: ["Developer Tools", "Cloud & Infrastructure"],
     minItems: 12
   }

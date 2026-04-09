@@ -430,21 +430,103 @@ export function normalizeRecords(records: SourceRecord[]): ApiEntry[] {
 }
 
 function buildTaxonomyPages(
+  kind: TaxonomyPage["kind"],
   titleFor: (value: string) => string,
   descriptionFor: (value: string) => string,
+  introFor: (value: string, apis: ApiEntry[]) => string,
+  editorialFor: (value: string, apis: ApiEntry[]) => string[],
   map: Map<string, ApiEntry[]>,
   minimumItems = 1
 ): TaxonomyPage[] {
   return [...map.entries()]
     .filter(([, apis]) => apis.length >= minimumItems)
     .map(([value, apis]) => ({
+      kind,
       slug: slugify(value),
       title: titleFor(value),
       description: descriptionFor(value),
+      intro: introFor(value, apis),
+      editorialSections: editorialFor(value, apis),
       count: apis.length,
       apis: [...apis].sort((left, right) => right.weight - left.weight || compareStrings(left.name, right.name))
     }))
     .sort((left, right) => right.count - left.count || compareStrings(left.title, right.title));
+}
+
+function topLabels(values: string[], limit = 3): string[] {
+  return [...values.reduce((map, value) => map.set(value, (map.get(value) ?? 0) + 1), new Map<string, number>()).entries()]
+    .sort((left, right) => right[1] - left[1] || compareStrings(left[0], right[0]))
+    .slice(0, limit)
+    .map(([value]) => value);
+}
+
+function joinReadable(values: string[]): string {
+  if (values.length === 0) {
+    return "";
+  }
+
+  if (values.length === 1) {
+    return values[0] ?? "";
+  }
+
+  if (values.length === 2) {
+    return `${values[0]} and ${values[1]}`;
+  }
+
+  return `${values.slice(0, -1).join(", ")}, and ${values.at(-1)}`;
+}
+
+function authSummary(apis: ApiEntry[]): string {
+  const noAuth = apis.filter((api) => api.authType === "No Auth").length;
+  const apiKey = apis.filter((api) => api.authType === "API Key").length;
+  const oauth = apis.filter((api) => api.authType === "OAuth").length;
+  const openApi = apis.filter((api) => api.hasOpenApi).length;
+  return `${noAuth} require no auth, ${apiKey} use API keys, ${oauth} use OAuth, and ${openApi} expose OpenAPI or Swagger metadata.`;
+}
+
+function buildCategoryIntro(value: string, apis: ApiEntry[]): string {
+  const topCapabilities = topLabels(apis.flatMap((api) => api.capabilities), 3);
+  return `${value} currently groups ${apis.length} free APIs on saxi.ai, with strong coverage across ${joinReadable(topCapabilities)}.`;
+}
+
+function buildCategoryEditorial(value: string, apis: ApiEntry[]): string[] {
+  const topTopics = topLabels(apis.flatMap((api) => api.sourceCategories), 3);
+  const topApis = apis.slice(0, 3).map((api) => api.name);
+  return [
+    `${value} APIs in this directory map the broader domain down to concrete developer surfaces. Within this section, the strongest clusters come from ${joinReadable(topTopics)}, which makes the page useful both for quick browsing and for comparing adjacent tools in the same market.`,
+    `For builders, this section is most useful when you know the broad problem space but not yet the exact vendor or protocol. ${authSummary(apis)}`,
+    `Start with high-signal entries such as ${joinReadable(topApis)} and then narrow further using the static topic and capability pages. This page is meant to act as the canonical landing page for ${value.toLowerCase()} APIs rather than as a faceted search result.`
+  ];
+}
+
+function buildTopicIntro(value: string, apis: ApiEntry[]): string {
+  const topSections = topLabels(apis.map((api) => api.primaryCategory), 2);
+  return `${value} is a source-level category with ${apis.length} free APIs, mostly spanning ${joinReadable(topSections)}.`;
+}
+
+function buildTopicEditorial(value: string, apis: ApiEntry[]): string[] {
+  const topCapabilities = topLabels(apis.flatMap((api) => api.capabilities), 3);
+  const topApis = apis.slice(0, 3).map((api) => api.name);
+  return [
+    `This topic page exists to catch the specific language developers actually search for when browsing public API catalogs. Instead of a broad umbrella section, it focuses on the source category label "${value}" and collects the APIs that repeatedly show up under that exact theme.`,
+    `That makes it especially useful for long-tail discovery. In practice, the strongest patterns in this set are ${joinReadable(topCapabilities)}, which often reveals how vendors inside the same topic are really used in products and agent workflows.`,
+    `If you are comparing options, start with ${joinReadable(topApis)} and then branch outward into the broader section or capability pages. This gives you both the long-tail entry point and the wider surrounding market context.`
+  ];
+}
+
+function buildCapabilityIntro(value: string, apis: ApiEntry[]): string {
+  const topSections = topLabels(apis.map((api) => api.primaryCategory), 3);
+  return `${value} appears across ${apis.length} free APIs in the directory, especially inside ${joinReadable(topSections)}.`;
+}
+
+function buildCapabilityEditorial(value: string, apis: ApiEntry[]): string[] {
+  const topTopics = topLabels(apis.flatMap((api) => api.sourceCategories), 3);
+  const topApis = apis.slice(0, 3).map((api) => api.name);
+  return [
+    `${value} is best understood as a cross-category capability rather than a single market segment. This page groups together the APIs that can perform the same core task even when they come from different verticals, platforms, or documentation ecosystems.`,
+    `That is useful for both developers and agents because capability pages expose interchangeable options. In this slice, the main upstream labels are ${joinReadable(topTopics)}, which means the same capability often appears in very different product contexts.`,
+    `Use this landing page when your requirement is functional rather than brand-specific. ${authSummary(apis)} Representative entries include ${joinReadable(topApis)}.`
+  ];
 }
 
 export function buildSiteData(apis: ApiEntry[], generatedAt: string): SiteData {
@@ -464,22 +546,31 @@ export function buildSiteData(apis: ApiEntry[], generatedAt: string): SiteData {
   }
 
   const categories = buildTaxonomyPages(
+    "category",
     (value) => value,
     (value) => PRIMARY_CATEGORY_DESCRIPTIONS[value] ?? "Browse free public APIs in this category.",
+    buildCategoryIntro,
+    buildCategoryEditorial,
     categoriesMap
   );
 
   const topics = buildTaxonomyPages(
+    "topic",
     (value) => value,
     (value) => `Browse free public APIs tagged under ${value}.`,
+    buildTopicIntro,
+    buildTopicEditorial,
     topicsMap,
     3
   );
 
   const capabilityDescriptions = new Map(CAPABILITY_RULES.map((rule) => [rule.label, rule.description]));
   const capabilities = buildTaxonomyPages(
+    "capability",
     (value) => value,
     (value) => capabilityDescriptions.get(value) ?? "Browse free public APIs for this capability.",
+    buildCapabilityIntro,
+    buildCapabilityEditorial,
     capabilitiesMap,
     5
   );
@@ -506,6 +597,7 @@ export function buildSiteData(apis: ApiEntry[], generatedAt: string): SiteData {
         title: definition.title,
         description: definition.description,
         intro: definition.intro,
+        editorialSections: definition.editorialSections,
         apis: matches.slice().sort((left, right) => right.weight - left.weight || compareStrings(left.name, right.name))
       }
     ];

@@ -198,6 +198,89 @@ function renderHero(title: string, eyebrow: string, description: string, actions
   </section>`;
 }
 
+function summarizeSlice(apis: ApiEntry[]): Array<{ label: string; value: string }> {
+  const openApiCount = apis.filter((api) => api.hasOpenApi).length;
+  const noAuthCount = apis.filter((api) => api.authType === "No Auth").length;
+  const officialCount = apis.filter((api) => api.isOfficial).length;
+  const topProtocols = [...apis.reduce((map, api) => {
+    for (const protocol of api.protocols) {
+      map.set(protocol, (map.get(protocol) ?? 0) + 1);
+    }
+    return map;
+  }, new Map<string, number>()).entries()]
+    .sort((left, right) => right[1] - left[1] || compareStrings(left[0], right[0]))
+    .slice(0, 2)
+    .map(([protocol]) => protocol)
+    .join(" / ");
+
+  return [
+    { label: "APIs", value: String(apis.length) },
+    { label: "OpenAPI", value: String(openApiCount) },
+    { label: "No auth", value: String(noAuthCount) },
+    { label: "Official", value: String(officialCount) },
+    { label: "Protocols", value: topProtocols || "REST" }
+  ];
+}
+
+function renderEditorialSlice(intro: string, editorialSections: string[], apis: ApiEntry[]): string {
+  const stats = summarizeSlice(apis);
+  return `<section class="grid gap-5 xl:grid-cols-[minmax(0,1.12fr)_minmax(280px,0.88fr)]">
+    <article class="hero-note px-6 py-6 sm:px-8 sm:py-8">
+      <div class="space-y-4">
+        <p class="text-sm leading-8 text-ink-200 sm:text-base">${escapeHtml(intro)}</p>
+        ${editorialSections.map((paragraph) => `<p class="text-sm leading-8 text-ink-300 sm:text-base">${escapeHtml(paragraph)}</p>`).join("")}
+      </div>
+    </article>
+    <aside class="glass-tile space-y-4">
+      <div>
+        <p class="meta-label">Snapshot</p>
+        <h2 class="mt-2 text-2xl font-semibold tracking-tight text-white">Why this page matters</h2>
+      </div>
+      <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+        ${stats
+          .map(
+            (stat) => `<div class="rounded-[0.8rem] border border-white/10 bg-white/[0.02] px-4 py-3">
+              <p class="meta-label">${escapeHtml(stat.label)}</p>
+              <p class="mt-2 text-lg font-semibold tracking-tight text-white">${escapeHtml(stat.value)}</p>
+            </div>`
+          )
+          .join("")}
+      </div>
+      <p class="text-sm leading-7 text-ink-400">Static taxonomy and collection pages are the canonical SEO landing pages on saxi.ai. Filters are for browsing, not indexing.</p>
+    </aside>
+  </section>`;
+}
+
+function renderIndexEditorial(title: string, description: string): string {
+  const copy =
+    title === "Collections"
+      ? [
+          "Collections are the strongest SEO landing pages in the directory because they group APIs by real-world workflow rather than only by vendor taxonomy. They are designed for people who know the job to be done, but still need a shortlist of credible free options.",
+          "Use them when you are comparing solution patterns such as browser automation, OCR, translation, speech, or search for RAG. Each collection is static, crawlable, and intentionally curated to avoid the thin-content problem that faceted pages often create."
+        ]
+      : title === "Capabilities"
+        ? [
+            "Capability pages are useful when the requirement is functional rather than market-specific. They group APIs by what they do, which makes them strong entry points for developers, agents, and search traffic looking for a concrete technical outcome.",
+            "Because these pages cut across many categories, they expose substitutes that would otherwise be buried in broader sections. That makes them ideal for top-of-funnel research and mid-funnel API comparison."
+          ]
+        : title === "Categories"
+          ? [
+              "Category pages are the long-tail discovery layer of the directory. They preserve the vocabulary used by upstream public API collections, which helps map search intent directly to a stable, crawlable landing page.",
+              "This is especially useful for niche subjects where users search by ecosystem label rather than by protocol or vendor. Start here if you know the category name already."
+            ]
+          : [
+              "Section pages group the directory into broad market domains such as developer tools, finance, security, and communication. They are useful when you are orienting yourself within the dataset before narrowing into a capability or category page.",
+              "These pages act as canonical overviews of each domain and then link into the more specific static landing pages beneath them."
+            ];
+
+  return `<section class="hero-note px-6 py-6 sm:px-8 sm:py-8">
+    <div class="space-y-4">
+      <p class="text-sm leading-8 text-ink-200 sm:text-base">${escapeHtml(description)}</p>
+      ${copy.map((paragraph) => `<p class="text-sm leading-8 text-ink-300 sm:text-base">${escapeHtml(paragraph)}</p>`).join("")}
+    </div>
+  </section>`;
+}
+
 function renderSearchHero(site: SiteData): string {
   return `<form action="/apis/" method="get" class="hero-panel">
     <div class="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(250px,0.9fr)] lg:items-end">
@@ -558,6 +641,7 @@ export function renderApisLandingPage(site: SiteData, pager: PagerState): string
     description:
       "Search and filter the saxi.ai directory of free public APIs for AI agents and developers.",
     path: "/apis/",
+    noIndex: true,
     structuredData: [
       breadcrumbSchema([
         { href: "/", label: "Home" },
@@ -579,6 +663,12 @@ export function renderApisLandingPage(site: SiteData, pager: PagerState): string
         "All APIs",
         "Filter by category, capability, auth type, or just search. Every API is free and links directly to its documentation."
       ),
+      `<section class="hero-note px-6 py-6 sm:px-8 sm:py-8">
+        <div class="space-y-4">
+          <p class="text-sm leading-8 text-ink-200 sm:text-base">This page exists for interactive browsing and query-based narrowing, not as a canonical SEO landing page.</p>
+          <p class="text-sm leading-8 text-ink-300 sm:text-base">If you want indexable, shareable entry points, use the static section, category, capability, and collection pages instead. They carry the editorial context and stable URLs that search engines should prefer.</p>
+        </div>
+      </section>`,
       `<section class="space-y-6">
         ${renderAllApisFilters(site)}
         <div class="space-y-5">
@@ -589,7 +679,7 @@ export function renderApisLandingPage(site: SiteData, pager: PagerState): string
             </div>
             <p class="badge" data-results-count>${site.apis.length} APIs</p>
           </div>
-          <p class="text-xs text-ink-500">Filters update the URL — bookmark or share any search.</p>
+          <p class="text-xs text-ink-500">Filters update the URL for browsing convenience, but the canonical landing pages on saxi.ai are the static section, category, capability, and collection routes.</p>
           <div data-search-index="/search-index.json">
             ${renderApiGrid(site.apis.slice(0, PAGE_SIZE))}
           </div>
@@ -609,6 +699,7 @@ export function renderApisArchivePage(site: SiteData, apis: ApiEntry[], pager: P
     description:
       "Browse the crawlable archive of free public APIs for AI agents and developers.",
     path,
+    noIndex: true,
     structuredData: [
       breadcrumbSchema([
         { href: "/", label: "Home" },
@@ -661,6 +752,7 @@ export function renderTaxonomyIndexPage(
     sidebar: renderSidebar(site, path),
     body: [
       renderHero(title, "Index", description),
+      renderIndexEditorial(title, description),
       `<section class="space-y-5">${renderTaxonomyTiles(items)}</section>`
     ].join("")
   });
@@ -715,6 +807,7 @@ function renderTaxonomyBody(
   return [
     renderBreadcrumb(breadcrumb),
     renderHero(item.title, eyebrow, item.description),
+    renderEditorialSlice(item.intro, item.editorialSections, item.apis),
     `<section class="space-y-5">
       <div class="flex flex-wrap items-center justify-between gap-4">
         <div class="space-y-1">
@@ -723,7 +816,6 @@ function renderTaxonomyBody(
         </div>
         <a href="${allApisLink}" class="button-secondary">Open in all APIs search</a>
       </div>
-      ${"intro" in item ? `<div class="glass-callout">${escapeHtml(item.intro)}</div>` : ""}
       ${renderApiGrid(item.apis)}
     </section>`
   ].join("");
@@ -815,6 +907,7 @@ export function renderContactPage(site: SiteData): string {
     title: "Contact & Imprint",
     description: "Contact and legal company information for the saxi.ai project.",
     path: "/contact/",
+    noIndex: true,
     structuredData: [
       breadcrumbSchema([
         { href: "/", label: "Home" },
@@ -960,6 +1053,10 @@ export function renderSearchIndex(site: SiteData): string {
 export function renderRobotsTxt(): string {
   return `User-agent: *
 Allow: /
+Disallow: /*?*
+Disallow: /apis/page/
+Disallow: /404.html
+Disallow: /contact/
 
 Sitemap: ${SITE_ORIGIN}/sitemap.xml
 `;

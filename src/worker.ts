@@ -17,6 +17,16 @@ function redirectToCanonical(url: URL, status = 308): Response {
   return Response.redirect(target.toString(), status);
 }
 
+function redirectToPath(url: URL, pathname: string, status = 308): Response {
+  const target = new URL(url.toString());
+  target.protocol = "https:";
+  target.hostname = "saxi.ai";
+  target.port = "";
+  target.pathname = pathname;
+  target.search = "";
+  return Response.redirect(target.toString(), status);
+}
+
 export default {
   async fetch(request, env): Promise<Response> {
     const url = new URL(request.url);
@@ -25,6 +35,10 @@ export default {
 
     if (!isWorkersDevHost && (hostname === "www.saxi.ai" || url.protocol !== "https:")) {
       return redirectToCanonical(url);
+    }
+
+    if (url.pathname === "/collections/free-apis-for-ai-agents/" || url.pathname === "/collections/free-apis-for-ai-agents") {
+      return redirectToPath(url, "/collections/best-apis-for-ai-agents/");
     }
 
     if (url.pathname === "/health") {

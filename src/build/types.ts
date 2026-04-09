@@ -56,9 +56,12 @@ export interface ApiEntry {
 }
 
 export interface TaxonomyPage {
+  kind: "category" | "topic" | "capability";
   slug: string;
   title: string;
   description: string;
+  intro: string;
+  editorialSections: string[];
   count: number;
   apis: ApiEntry[];
 }
@@ -68,6 +71,7 @@ export interface CollectionPage {
   title: string;
   description: string;
   intro: string;
+  editorialSections: string[];
   apis: ApiEntry[];
 }
 
@@ -102,8 +106,10 @@ export interface CollectionDefinition {
   title: string;
   description: string;
   intro: string;
+  editorialSections: string[];
   anyCapabilities?: string[];
   categories?: string[];
   docsHostKeywords?: string[];
   minItems?: number;
+  legacyPaths?: string[];
 }
