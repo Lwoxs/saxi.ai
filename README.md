@@ -6,10 +6,6 @@
   </a>
 </p>
 
-<p>
-  Sponsored by <a href="https://adanos.org/">adanos.org</a>
-</p>
-
 Broad public API directory with a strong AI and agent focus.
 
 V1 is intentionally simple:
