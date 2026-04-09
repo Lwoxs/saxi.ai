@@ -9,9 +9,23 @@ function json(body: unknown, init?: ResponseInit): Response {
   });
 }
 
+function redirectToCanonical(url: URL, status = 308): Response {
+  const target = new URL(url.toString());
+  target.protocol = "https:";
+  target.hostname = "saxi.ai";
+  target.port = "";
+  return Response.redirect(target.toString(), status);
+}
+
 export default {
   async fetch(request, env): Promise<Response> {
     const url = new URL(request.url);
+    const hostname = url.hostname.toLowerCase();
+    const isWorkersDevHost = hostname.endsWith(".workers.dev");
+
+    if (!isWorkersDevHost && (hostname === "www.saxi.ai" || url.protocol !== "https:")) {
+      return redirectToCanonical(url);
+    }
 
     if (url.pathname === "/health") {
       return json({
