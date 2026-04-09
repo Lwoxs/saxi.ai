@@ -140,7 +140,6 @@ function renderFooter(): string {
         <div class="space-y-2">
           <p class="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-500">Contact</p>
           <p><a class="eyebrow-link" href="/contact/">Contact page</a></p>
-          <p><a class="eyebrow-link" href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></p>
         </div>
         <div class="space-y-2 lg:text-right">
           <p class="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-500">Sources</p>
@@ -971,30 +970,34 @@ export function renderContactPage(site: SiteData): string {
           </div>
         </article>
       </section>`,
-      `<section class="grid gap-5 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-        <article class="glass-tile space-y-4">
-          <div>
-            <p class="meta-label">Registration</p>
-            <h2 class="mt-2 text-2xl font-semibold tracking-tight text-white">Legal company details</h2>
-          </div>
-          <div class="space-y-2 text-sm leading-7 text-ink-300">
-            <p><span class="text-white">Registered at:</span> ${COMPANY_REGISTER_COURT}</p>
-            <p><span class="text-white">Registration number:</span> ${COMPANY_REGISTER_NUMBER}</p>
-            <p><span class="text-white">VAT ID:</span> ${COMPANY_VAT_ID}</p>
+      `<section class="grid gap-5 xl:grid-cols-2">
+        <article class="hero-note px-6 py-6 sm:px-8 sm:py-8">
+          <div class="space-y-5">
+            <div>
+              <p class="meta-label">Registration</p>
+              <h2 class="mt-2 text-2xl font-semibold tracking-tight text-white">Legal company details</h2>
+            </div>
+            <div class="space-y-1 text-sm leading-7 text-ink-300">
+              <p><span class="text-white">Registered at:</span> ${COMPANY_REGISTER_COURT}</p>
+              <p><span class="text-white">Registration number:</span> ${COMPANY_REGISTER_NUMBER}</p>
+              <p><span class="text-white">VAT ID:</span> ${COMPANY_VAT_ID}</p>
+            </div>
           </div>
         </article>
-        <article class="glass-tile space-y-4">
-          <div>
-            <p class="meta-label">Dispute resolution</p>
-            <h2 class="mt-2 text-2xl font-semibold tracking-tight text-white">Consumer arbitration</h2>
+        <article class="hero-note px-6 py-6 sm:px-8 sm:py-8">
+          <div class="space-y-5">
+            <div>
+              <p class="meta-label">Dispute resolution</p>
+              <h2 class="mt-2 text-2xl font-semibold tracking-tight text-white">Consumer arbitration</h2>
+            </div>
+            <p class="text-sm leading-7 text-ink-300">
+              Adanos Software GmbH does not participate in consumer arbitration proceedings and is not obliged to do so.
+            </p>
+            <p class="text-sm leading-7 text-ink-300">
+              EU online dispute resolution platform:
+              <a class="eyebrow-link" href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noreferrer">ec.europa.eu/consumers/odr</a>
+            </p>
           </div>
-          <p class="text-sm leading-7 text-ink-300">
-            Adanos Software GmbH does not participate in consumer arbitration proceedings and is not obliged to do so.
-          </p>
-          <p class="text-sm leading-7 text-ink-300">
-            EU online dispute resolution platform:
-            <a class="eyebrow-link" href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noreferrer">ec.europa.eu/consumers/odr</a>
-          </p>
         </article>
       </section>`
     ].join("")
