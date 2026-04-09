@@ -19,6 +19,7 @@ interface Options {
   limit: number | null;
   staleDays: number;
   force: boolean;
+  slugs: Set<string> | null;
 }
 
 interface CaptureResult {
@@ -53,7 +54,16 @@ function parseArgs(argv: string[]): Options {
     concurrency: Math.max(1, Number(values.get("concurrency") ?? DEFAULT_CONCURRENCY)),
     limit: values.has("limit") ? Math.max(1, Number(values.get("limit"))) : null,
     staleDays: Math.max(1, Number(values.get("stale-days") ?? DEFAULT_STALE_DAYS)),
-    force: flags.has("force")
+    force: flags.has("force"),
+    slugs: values.has("slugs")
+      ? new Set(
+          values
+            .get("slugs")
+            ?.split(",")
+            .map((value) => value.trim())
+            .filter(Boolean)
+        )
+      : null
   };
 }
 
@@ -85,13 +95,15 @@ function cachePathFor(api: ApiEntry): string {
 }
 
 async function selectTargets(apis: ApiEntry[], options: Options): Promise<ApiEntry[]> {
+  const candidates = options.slugs ? apis.filter((api) => options.slugs?.has(api.slug)) : apis;
+
   if (options.force) {
-    return options.limit ? apis.slice(0, options.limit) : apis;
+    return options.limit ? candidates.slice(0, options.limit) : candidates;
   }
 
   const selected: ApiEntry[] = [];
 
-  for (const api of apis) {
+  for (const api of candidates) {
     const cachePath = cachePathFor(api);
     if (await isStale(cachePath, options.staleDays)) {
       selected.push(api);
@@ -184,7 +196,7 @@ async function run(): Promise<void> {
   await cleanupOrphanedScreenshots(validSlugs);
 
   console.log(
-    `Preparing screenshots for ${targets.length} of ${apis.length} APIs (concurrency ${options.concurrency}, stale ${options.staleDays}d${options.force ? ", force" : ""}).`
+    `Preparing screenshots for ${targets.length} of ${apis.length} APIs (concurrency ${options.concurrency}, stale ${options.staleDays}d${options.force ? ", force" : ""}${options.slugs ? `, scoped to ${options.slugs.size} slugs` : ""}).`
   );
 
   const queue = [...targets];

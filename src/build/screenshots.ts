@@ -45,6 +45,20 @@ async function writePlaceholder(api: ApiEntry): Promise<string> {
   return `/assets/screenshots/${api.slug}.svg`;
 }
 
+async function copyCachedScreenshot(api: ApiEntry): Promise<string | null> {
+  const cachePath = join(CACHE_SCREENSHOT_DIR, `${api.slug}.png`);
+  const outputPath = join(DIST_SCREENSHOT_DIR, `${api.slug}.png`);
+
+  try {
+    await readFile(cachePath);
+    await mkdir(dirname(outputPath), { recursive: true });
+    await copyFile(cachePath, outputPath);
+    return `/assets/screenshots/${api.slug}.png`;
+  } catch {
+    return null;
+  }
+}
+
 async function fetchRemoteScreenshot(api: ApiEntry): Promise<string | null> {
   const baseUrl = process.env.SCREENSHOT_API_BASE_URL;
   if (!baseUrl) {
@@ -52,38 +66,28 @@ async function fetchRemoteScreenshot(api: ApiEntry): Promise<string | null> {
   }
 
   const cachePath = join(CACHE_SCREENSHOT_DIR, `${api.slug}.png`);
-  const outputPath = join(DIST_SCREENSHOT_DIR, `${api.slug}.png`);
 
   try {
     await mkdir(dirname(cachePath), { recursive: true });
-    let imageBuffer: Buffer | null = null;
-
-    try {
-      imageBuffer = await readFile(cachePath);
-    } catch {
-      const url = new URL("/internal/screenshot", baseUrl);
-      url.searchParams.set("url", api.screenshotTargetUrl);
-      const requestInit = process.env.SCREENSHOT_API_TOKEN
-        ? {
-            headers: {
-              authorization: `Bearer ${process.env.SCREENSHOT_API_TOKEN}`
-            }
+    const url = new URL("/internal/screenshot", baseUrl);
+    url.searchParams.set("url", api.screenshotTargetUrl);
+    const requestInit = process.env.SCREENSHOT_API_TOKEN
+      ? {
+          headers: {
+            authorization: `Bearer ${process.env.SCREENSHOT_API_TOKEN}`
           }
-        : {};
+        }
+      : {};
 
-      const response = await fetch(url, requestInit);
+    const response = await fetch(url, requestInit);
 
-      if (!response.ok) {
-        return null;
-      }
-
-      imageBuffer = Buffer.from(await response.arrayBuffer());
-      await writeFile(cachePath, imageBuffer);
+    if (!response.ok) {
+      return null;
     }
 
-    await mkdir(dirname(outputPath), { recursive: true });
-    await copyFile(cachePath, outputPath);
-    return `/assets/screenshots/${api.slug}.png`;
+    const imageBuffer = Buffer.from(await response.arrayBuffer());
+    await writeFile(cachePath, imageBuffer);
+    return copyCachedScreenshot(api);
   } catch {
     return null;
   }
@@ -93,7 +97,8 @@ export async function materializeScreenshots(apis: ApiEntry[]): Promise<ApiEntry
   const hydrated: ApiEntry[] = [];
 
   for (const api of apis) {
-    const remoteScreenshot = await fetchRemoteScreenshot(api);
+    const cachedScreenshot = await copyCachedScreenshot(api);
+    const remoteScreenshot = cachedScreenshot ?? (await fetchRemoteScreenshot(api));
     const screenshotPath = remoteScreenshot ?? (await writePlaceholder(api));
     hydrated.push({
       ...api,
