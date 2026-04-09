@@ -225,6 +225,39 @@
     box-shadow: none;
   }
 
+  .sponsor-banner {
+    @apply rounded-[1rem] border px-6 py-6 sm:px-8 sm:py-8;
+    border-color: rgb(183 255 74 / 0.55);
+    background: #151a12;
+    box-shadow:
+      4px 4px 0 rgb(0 0 0 / 0.45),
+      inset 0 1px 0 rgb(255 255 255 / 0.03);
+  }
+
+  .sponsor-grid {
+    @apply grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-start;
+  }
+
+  .sponsor-label {
+    @apply inline-flex items-center rounded-[999px] border px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-980;
+    border-color: rgb(183 255 74 / 0.95);
+    background: rgb(183 255 74 / 1);
+  }
+
+  .sponsor-code {
+    @apply rounded-[0.95rem] border p-4;
+    border-color: rgb(74 80 92 / 0.95);
+    background: #0f1218;
+  }
+
+  .sponsor-code pre {
+    @apply overflow-x-auto font-mono text-[12px] leading-7 text-ink-300;
+  }
+
+  .sponsor-code-caption {
+    @apply mt-3 text-sm leading-6 text-ink-400;
+  }
+
   .hero-stat {
     @apply rounded-[0.9rem] border px-4 py-4;
     border-color: rgb(74 80 92 / 0.95);

@@ -100,8 +100,7 @@ export function renderDocument(definition: PageDefinition): string {
 function renderHeader(): string {
   return `<header class="header-bar">
     <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-      <a href="/" class="inline-flex items-center gap-4 text-white">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-[0.85rem] border border-white/10 bg-acid-500 text-sm font-black uppercase tracking-[0.18em] text-ink-980">sx</span>
+      <a href="/" class="inline-flex items-center text-white">
         <span>
           <span class="block font-sans text-lg font-black uppercase tracking-[-0.02em] sm:text-xl">saxi.ai</span>
           <span class="block font-mono text-[11px] uppercase tracking-[0.22em] text-ink-500">free public APIs for AI agents and developers</span>
@@ -168,11 +167,6 @@ function renderSidebar(site: SiteData, pathname: string): string {
 
   return `<div class="sidebar-stack">
     <section class="sidebar-panel">
-      <p class="sidebar-eyebrow">Directory</p>
-      <h2 class="sidebar-heading">saxi.ai</h2>
-      <p class="sidebar-copy">Free public APIs for AI agents and developers, organized by what they do.</p>
-    </section>
-    <section class="sidebar-panel">
       <p class="sidebar-section-label">Navigate</p>
       <div class="sidebar-list">${browseLinks}</div>
     </section>
@@ -227,6 +221,49 @@ function renderSearchHero(site: SiteData): string {
       </div>
     </div>
   </form>`;
+}
+
+function renderSponsoredBanner(): string {
+  return `<section class="sponsor-banner" aria-label="Sponsored banner">
+    <div class="sponsor-grid">
+      <div class="space-y-5">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="sponsor-label">Sponsored</span>
+          <span class="badge">Adanos Software</span>
+        </div>
+        <div class="space-y-3">
+          <h2 class="text-3xl font-black uppercase tracking-[-0.04em] text-white sm:text-[2.35rem]">Market sentiment API for stocks and crypto.</h2>
+          <p class="max-w-3xl text-sm leading-8 text-ink-300 sm:text-base">
+            Real-time sentiment and attention data from Reddit, X, financial news, Polymarket and crypto communities,
+            unified into a developer-first API for trading tools, quant workflows and AI agents.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="badge">Market Data</span>
+          <span class="badge">REST API</span>
+          <span class="badge">JSON</span>
+          <span class="badge">AI Agents</span>
+          <span class="badge">CLI</span>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://adanos.org/" target="_blank" rel="noreferrer" class="button-primary">Visit Adanos</a>
+          <a href="https://api.adanos.org/" target="_blank" rel="noreferrer" class="button-secondary">API Docs</a>
+        </div>
+      </div>
+      <div class="sponsor-code">
+<pre><code>{
+  "ticker": "NVDA",
+  "buzz_score": 79.4,
+  "trend": "rising",
+  "mentions": 3689,
+  "sentiment_score": 0.64,
+  "bullish_pct": 58,
+  "bearish_pct": 14
+}</code></pre>
+        <p class="sponsor-code-caption">Structured sentiment signals for apps, dashboards and LLM tool use.</p>
+      </div>
+    </div>
+  </section>`;
 }
 
 function renderSectionTitle(title: string, description: string, href?: string): string {
@@ -481,6 +518,7 @@ export function renderHomePage(site: SiteData): string {
     sidebar: renderSidebar(site, "/"),
     body: [
       renderSearchHero(site),
+      renderSponsoredBanner(),
       `<section class="space-y-5">
         ${renderSectionTitle("Featured APIs", "The most useful free APIs for building with AI, sorted by documentation quality, protocol support, and real-world utility.", "/apis/")}
         ${renderApiGrid(site.featuredApis.slice(0, 9))}
