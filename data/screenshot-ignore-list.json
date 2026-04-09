@@ -1,0 +1,29 @@
+{
+  "entries": [
+    {
+      "id": "jobs2careers::jobs2careers.com",
+      "url": "http://api.jobs2careers.com/api/spec.pdf",
+      "reason": "pdf_docs_not_worth_screenshoting"
+    },
+    {
+      "id": "land-transport-authority-datamall-singapore::datamall.lta.gov.sg",
+      "url": "https://datamall.lta.gov.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf",
+      "reason": "pdf_docs_not_worth_screenshoting"
+    },
+    {
+      "id": "transport-for-united-states::retro.umoiq.com",
+      "url": "https://retro.umoiq.com/xmlFeedDocs/NextBusXMLFeed.pdf",
+      "reason": "pdf_docs_not_worth_screenshoting"
+    },
+    {
+      "id": "transport-for-united-states::nextbus.com",
+      "url": "http://www.nextbus.com/xmlFeedDocs/NextBusXMLFeed.pdf",
+      "reason": "pdf_docs_not_worth_screenshoting"
+    },
+    {
+      "id": "transportation-in-united-states::nextbus.com",
+      "url": "http://www.nextbus.com/xmlFeedDocs/NextBusXMLFeed.pdf",
+      "reason": "pdf_docs_not_worth_screenshoting"
+    }
+  ]
+}

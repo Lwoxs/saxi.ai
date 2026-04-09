@@ -5,6 +5,7 @@ import { chromium, type Browser } from "playwright";
 
 import { applyIgnoreList, loadIgnoreList } from "./ignore-list.js";
 import { normalizeRecords } from "./normalize.js";
+import { loadScreenshotIgnoreList } from "./screenshot-ignore-list.js";
 import { loadSourceRecords } from "./sources.js";
 import type { ApiEntry } from "./types.js";
 
@@ -13,7 +14,10 @@ const DEFAULT_CONCURRENCY = 10;
 const DEFAULT_TIMEOUT_MS = 20_000;
 const DEFAULT_STALE_DAYS = 90;
 const CLOSE_TIMEOUT_MS = 5_000;
+const CAPTURE_TIMEOUT_MS = 35_000;
+const BROWSER_RECYCLE_EVERY = 5;
 const VIEWPORT = { width: 1440, height: 960 };
+const NON_HTML_EXTENSIONS = new Set([".pdf", ".xml", ".txt", ".csv", ".yaml", ".yml"]);
 
 interface Options {
   concurrency: number;
@@ -112,6 +116,20 @@ function cachePathFor(api: ApiEntry): string {
   return join(CACHE_DIR, `${api.slug}.png`);
 }
 
+function shouldSkipTarget(api: ApiEntry, ignoredIds: Set<string>, ignoredUrls: Set<string>): boolean {
+  if (ignoredIds.has(api.id) || ignoredUrls.has(api.screenshotTargetUrl) || ignoredUrls.has(api.docsUrl)) {
+    return true;
+  }
+
+  try {
+    const pathname = new URL(api.screenshotTargetUrl).pathname.toLowerCase();
+    const extension = pathname.match(/\.[a-z0-9]+$/)?.[0];
+    return extension ? NON_HTML_EXTENSIONS.has(extension) : false;
+  } catch {
+    return true;
+  }
+}
+
 async function selectTargets(apis: ApiEntry[], options: Options): Promise<ApiEntry[]> {
   const candidates = options.slugs ? apis.filter((api) => options.slugs?.has(api.slug)) : apis;
 
@@ -133,6 +151,13 @@ async function selectTargets(apis: ApiEntry[], options: Options): Promise<ApiEnt
   }
 
   return selected;
+}
+
+async function launchBrowser(): Promise<Browser> {
+  return chromium.launch({
+    headless: true,
+    args: ["--disable-dev-shm-usage"]
+  });
 }
 
 async function captureOne(browser: Browser, api: ApiEntry): Promise<boolean> {
@@ -211,9 +236,17 @@ async function cleanupOrphanedScreenshots(validSlugs: Set<string>): Promise<void
 async function run(): Promise<void> {
   const options = parseArgs(process.argv.slice(2));
   const ignoreList = await loadIgnoreList();
+  const screenshotIgnoreList = await loadScreenshotIgnoreList();
   const sourceRecords = await loadSourceRecords();
   const apis = applyIgnoreList(normalizeRecords(sourceRecords), ignoreList);
-  const targets = await selectTargets(apis, options);
+  const rawTargets = await selectTargets(apis, options);
+  const ignoredScreenshotIds = new Set(
+    screenshotIgnoreList.entries.map((entry) => entry.id).filter((value): value is string => Boolean(value))
+  );
+  const ignoredScreenshotUrls = new Set(
+    screenshotIgnoreList.entries.map((entry) => entry.url).filter((value): value is string => Boolean(value))
+  );
+  const targets = rawTargets.filter((api) => !shouldSkipTarget(api, ignoredScreenshotIds, ignoredScreenshotUrls));
   const validSlugs = new Set(apis.map((api) => api.slug));
 
   await ensureDirectory(CACHE_DIR);
@@ -225,24 +258,44 @@ async function run(): Promise<void> {
 
   const queue = [...targets];
   const results: CaptureResult = { ok: 0, skipped: apis.length - targets.length, failed: 0 };
-  const browser = await chromium.launch({
-    headless: true,
-    args: ["--disable-dev-shm-usage"]
-  });
 
   async function worker(workerId: number): Promise<void> {
+    let browser = await launchBrowser();
+    let processedByWorker = 0;
+
     while (true) {
       const api = queue.shift();
       if (!api) {
-        return;
+        break;
       }
 
-      const success = await captureOne(browser, api);
+      const success = await withTimeout(
+        captureOne(browser, api),
+        CAPTURE_TIMEOUT_MS,
+        false
+      );
+
       if (success) {
         results.ok += 1;
       } else {
         results.failed += 1;
         console.warn(`[screenshots ${workerId}] failed: ${api.name} <${api.screenshotTargetUrl}>`);
+        await withTimeout(
+          browser.close().catch(() => undefined),
+          CLOSE_TIMEOUT_MS,
+          undefined
+        );
+        browser = await launchBrowser();
+      }
+
+      processedByWorker += 1;
+      if (processedByWorker % BROWSER_RECYCLE_EVERY === 0) {
+        await withTimeout(
+          browser.close().catch(() => undefined),
+          CLOSE_TIMEOUT_MS,
+          undefined
+        );
+        browser = await launchBrowser();
       }
 
       const processed = results.ok + results.failed;
@@ -250,17 +303,15 @@ async function run(): Promise<void> {
         console.log(`[screenshots] processed ${processed} / ${targets.length}`);
       }
     }
-  }
 
-  try {
-    await Promise.all(Array.from({ length: options.concurrency }, (_, index) => worker(index + 1)));
-  } finally {
     await withTimeout(
       browser.close().catch(() => undefined),
       CLOSE_TIMEOUT_MS,
       undefined
     );
   }
+
+  await Promise.all(Array.from({ length: options.concurrency }, (_, index) => worker(index + 1)));
 
   console.log(
     JSON.stringify(
