@@ -1,0 +1,72 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: saxi-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      SCREENSHOT_API_BASE_URL: ${{ secrets.SCREENSHOT_API_BASE_URL }}
+      SCREENSHOT_API_TOKEN: ${{ secrets.SCREENSHOT_API_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Restore screenshot cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache/screenshots
+          key: screenshots-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            screenshots-${{ runner.os }}-
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Refresh screenshots
+        run: npm run screenshots:capture -- --concurrency=10
+
+      - name: Validate types and Wrangler bindings
+        run: npm run check
+
+      - name: Build site
+        run: npm run build
+
+      - name: Verify internal links
+        run: npm run verify:links
+
+      - name: Save screenshot cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/screenshots
+          key: screenshots-${{ runner.os }}-${{ github.run_id }}
+
+      - name: Deploy to Cloudflare
+        run: npx wrangler deploy

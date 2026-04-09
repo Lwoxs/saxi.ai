@@ -1,0 +1,2177 @@
+{
+  "generatedAt": "2026-04-09T12:51:09.748Z",
+  "entries": [
+    {
+      "id": "0x::0x.org",
+      "name": "0x",
+      "docsUrl": "https://0x.org/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:22.391Z",
+      "status": 404,
+      "finalUrl": "https://0x.org/api",
+      "title": "Not Found"
+    },
+    {
+      "id": "18f::18f.github.io",
+      "name": "18F",
+      "docsUrl": "http://18f.github.io/API-All-the-X",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:51:02.024Z",
+      "status": 404,
+      "finalUrl": "http://18f.github.io/API-All-the-X",
+      "title": "Site not found &middot; GitHub Pages"
+    },
+    {
+      "id": "actinia-grass-gis::actinia.mundialis.de",
+      "name": "Actinia Grass GIS",
+      "docsUrl": "https://actinia.mundialis.de/api_docs",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:19.553Z",
+      "status": 404,
+      "finalUrl": "https://actinia.mundialis.de/api_docs",
+      "title": "404 Not Found"
+    },
+    {
+      "id": "addrzone::addr.zone",
+      "name": "addr.zone",
+      "docsUrl": "https://addr.zone/",
+      "reason": "http_500",
+      "checkedAt": "2026-04-09T12:49:22.508Z",
+      "status": 500,
+      "finalUrl": "https://addr.zone/",
+      "title": "Service Temporarily Unavailable - AddrZone"
+    },
+    {
+      "id": "airportsapi::airport-web.appspot.com",
+      "name": "airportsapi",
+      "docsUrl": "https://airport-web.appspot.com/api/docs",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:22.765Z",
+      "status": 404,
+      "finalUrl": "https://airport-web.appspot.com/api/docs",
+      "title": "404 Not Found"
+    },
+    {
+      "id": "alchemy-ethereum::alchemy.com",
+      "name": "Alchemy Ethereum",
+      "docsUrl": "https://docs.alchemy.com/alchemy",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:19.773Z",
+      "status": 404,
+      "finalUrl": "https://www.alchemy.com/docs/alchemy",
+      "title": "Alchemy Documentation - Build anything onchain"
+    },
+    {
+      "id": "alpaca::alpaca.markets",
+      "name": "Alpaca",
+      "docsUrl": "https://alpaca.markets/docs/api-documentation/api-v2/market-data/alpaca-data-api-v2",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:19.859Z",
+      "status": 404,
+      "finalUrl": "https://docs.alpaca.markets/docs/api-documentation/api-v2/market-data/alpaca-data-api-v2",
+      "title": "Alpaca API Docs"
+    },
+    {
+      "id": "amadeus-travel-innovation-sandbox::sandbox.amadeus.com",
+      "name": "Amadeus Travel Innovation Sandbox",
+      "docsUrl": "https://sandbox.amadeus.com/",
+      "reason": "http_503",
+      "checkedAt": "2026-04-09T12:49:06.529Z",
+      "status": 503,
+      "finalUrl": "https://sandbox.amadeus.com/"
+    },
+    {
+      "id": "amdoren::amdoren.com",
+      "name": "Amdoren",
+      "docsUrl": "https://www.amdoren.com/currency-api",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-09T12:50:19.937Z",
+      "status": 200,
+      "finalUrl": "https://www.amdoren.com/currency-api",
+      "title": "amdoren.com&nbsp;-&nbsp;Informationen zum Thema amdoren."
+    },
+    {
+      "id": "amiiboapi::amiiboapi.com",
+      "name": "AmiiboAPI",
+      "docsUrl": "http://www.amiiboapi.com/",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:07.726Z"
+    },
+    {
+      "id": "animal-crossing-new-horizons::acnhapi.com",
+      "name": "Animal Crossing: New Horizons",
+      "docsUrl": "http://acnhapi.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:23.017Z"
+    },
+    {
+      "id": "anonfiles::anonfiles.com",
+      "name": "AnonFiles",
+      "docsUrl": "https://anonfiles.com/docs/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:23.071Z"
+    },
+    {
+      "id": "arxiv::arxiv.org",
+      "name": "arXiv",
+      "docsUrl": "https://arxiv.org/help/api/user-manual",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:03.762Z",
+      "status": 404,
+      "finalUrl": "https://info.arxiv.org/help/api/user-manual",
+      "title": "arXiv info"
+    },
+    {
+      "id": "aviationapi::aviationapi.com",
+      "name": "AviationAPI",
+      "docsUrl": "https://docs.aviationapi.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:23.879Z"
+    },
+    {
+      "id": "aylien-text-analysis::aylien.com",
+      "name": "Aylien Text Analysis",
+      "docsUrl": "https://docs.aylien.com/textapi#getting-started",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:02.562Z",
+      "status": 404,
+      "finalUrl": "https://docs.aylien.com/textapi",
+      "title": "Site not found &middot; GitHub Pages"
+    },
+    {
+      "id": "aztro::aztro.sameerkumar.website",
+      "name": "aztro",
+      "docsUrl": "https://aztro.sameerkumar.website/",
+      "reason": "http_503",
+      "checkedAt": "2026-04-09T12:49:24.055Z",
+      "status": 503,
+      "finalUrl": "https://aztro.sameerkumar.website/",
+      "title": "Application Error"
+    },
+    {
+      "id": "banco-do-brasil::bb.com.br",
+      "name": "Banco do Brasil",
+      "docsUrl": "https://developers.bb.com.br/home",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:20.420Z"
+    },
+    {
+      "id": "bandsintown::app.swaggerhub.com",
+      "name": "Bandsintown",
+      "docsUrl": "https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.1",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:07.929Z"
+    },
+    {
+      "id": "bayfiles::bayfiles.com",
+      "name": "BayFiles",
+      "docsUrl": "https://bayfiles.com/docs/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:24.566Z"
+    },
+    {
+      "id": "behance::behance.net",
+      "name": "Behance",
+      "docsUrl": "https://www.behance.net/dev",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:20.885Z",
+      "status": 404,
+      "finalUrl": "https://www.behance.net/dev"
+    },
+    {
+      "id": "bigdatacloud::bigdatacloud.com",
+      "name": "BigDataCloud",
+      "docsUrl": "https://www.bigdatacloud.com/ip-geolocation-apis",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:21.147Z",
+      "status": 404,
+      "finalUrl": "https://www.bigdatacloud.com/ip-geolocation-apis",
+      "title": "404 — Page Not Found | BigDataCloud"
+    },
+    {
+      "id": "biriyani-as-a::biriyani.anoram.com",
+      "name": "Biriyani As A Service",
+      "docsUrl": "https://biriyani.anoram.com/",
+      "reason": "http_503",
+      "checkedAt": "2026-04-09T12:49:24.673Z",
+      "status": 503,
+      "finalUrl": "https://biriyani.anoram.com/",
+      "title": "503 Service Unavailable"
+    },
+    {
+      "id": "bitcoincharts::bitcoincharts.com",
+      "name": "BitcoinCharts",
+      "docsUrl": "https://bitcoincharts.com/about/exchanges",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:24.877Z"
+    },
+    {
+      "id": "bittrex::bittrex.github.io",
+      "name": "Bittrex",
+      "docsUrl": "https://bittrex.github.io/api/v3",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:21.821Z",
+      "status": 404,
+      "finalUrl": "https://bittrex.github.io/api/v3",
+      "title": "Site not found &middot; GitHub Pages"
+    },
+    {
+      "id": "blablacar::dev.blablacar.com",
+      "name": "BlaBlaCar",
+      "docsUrl": "https://dev.blablacar.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:06.603Z",
+      "status": 404,
+      "finalUrl": "https://dev.blablacar.com/"
+    },
+    {
+      "id": "blaguexyz::blague.xyz",
+      "name": "Blague.xyz",
+      "docsUrl": "https://blague.xyz/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:21.871Z"
+    },
+    {
+      "id": "blynk-cloud::blynkapi.docs.apiary.io",
+      "name": "Blynk-Cloud",
+      "docsUrl": "https://blynkapi.docs.apiary.io/#",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:50:53.769Z"
+    },
+    {
+      "id": "bobs-burgers::bobs-burgers-api-ui.herokuapp.com",
+      "name": "Bob's Burgers",
+      "docsUrl": "https://bobs-burgers-api-ui.herokuapp.com/",
+      "reason": "http_503",
+      "checkedAt": "2026-04-09T12:49:25.032Z",
+      "status": 503,
+      "finalUrl": "https://bobs-burgers-api-ui.herokuapp.com/",
+      "title": "Offline for Maintenance"
+    },
+    {
+      "id": "boozeapi::boozeapi.com",
+      "name": "BoozeAPI",
+      "docsUrl": "https://boozeapi.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:22.242Z",
+      "status": 404,
+      "finalUrl": "https://boozeapi.com/",
+      "title": "404 Not Found"
+    },
+    {
+      "id": "bored::boredapi.com",
+      "name": "Bored",
+      "docsUrl": "https://www.boredapi.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:25.053Z"
+    },
+    {
+      "id": "brainshopai::brainshop.ai",
+      "name": "Brainshop.ai",
+      "docsUrl": "https://brainshop.ai/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:22.345Z"
+    },
+    {
+      "id": "breaking-bad::breakingbadapi.com",
+      "name": "Breaking Bad",
+      "docsUrl": "https://breakingbadapi.com/documentation",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:25.271Z"
+    },
+    {
+      "id": "british-national-bibliography::bnb.data.bl.uk",
+      "name": "British National Bibliography",
+      "docsUrl": "http://bnb.data.bl.uk/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:15.127Z"
+    },
+    {
+      "id": "bruzu::bruzu.com",
+      "name": "Bruzu",
+      "docsUrl": "https://docs.bruzu.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:22.620Z"
+    },
+    {
+      "id": "bugsnax::bugsnaxapi.com",
+      "name": "Bugsnax",
+      "docsUrl": "https://www.bugsnaxapi.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:25.272Z"
+    },
+    {
+      "id": "businessusa::business.usa.gov",
+      "name": "BusinessUSA",
+      "docsUrl": "https://business.usa.gov/developer",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:23.006Z",
+      "status": 404,
+      "finalUrl": "https://www.usa.gov/developer?source=busa",
+      "title": "Page not found | USAGov"
+    },
+    {
+      "id": "bybit::bybit-exchange.github.io",
+      "name": "Bybit",
+      "docsUrl": "https://bybit-exchange.github.io/docs/linear#t-introduction",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:02.164Z",
+      "status": 404,
+      "finalUrl": "https://bybit-exchange.github.io/docs/linear",
+      "title": "Page Not Found | Bybit API Documentation"
+    },
+    {
+      "id": "canadian-football-league-cfl::cfl.ca",
+      "name": "Canadian Football League (CFL)",
+      "docsUrl": "http://api.cfl.ca/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:23.078Z"
+    },
+    {
+      "id": "catalogopolis::catalogopolis.xyz",
+      "name": "Catalogopolis",
+      "docsUrl": "https://api.catalogopolis.xyz/docs",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:25.552Z"
+    },
+    {
+      "id": "catch-the-show::catchtheshow.herokuapp.com",
+      "name": "Catch The Show",
+      "docsUrl": "https://catchtheshow.herokuapp.com/api/documentation",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:25.810Z",
+      "status": 404,
+      "finalUrl": "https://catchtheshow.herokuapp.com/api/documentation",
+      "title": "No such app"
+    },
+    {
+      "id": "cisco-spark::ciscospark.com",
+      "name": "Cisco Spark",
+      "docsUrl": "https://developer.ciscospark.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:23.762Z"
+    },
+    {
+      "id": "city-prague-open-data::opendata.praha.eu",
+      "name": "City, Prague Open Data",
+      "docsUrl": "http://opendata.praha.eu/en",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:15.372Z",
+      "status": 404,
+      "finalUrl": "https://opendata.praha.eu/en",
+      "title": "Otevřená data hlavního města Prahy"
+    },
+    {
+      "id": "city-prague-opendata::opendata.praha.eu",
+      "name": "City, Prague Opendata",
+      "docsUrl": "http://opendata.praha.eu/en",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:20.273Z",
+      "status": 404,
+      "finalUrl": "https://opendata.praha.eu/en",
+      "title": "Otevřená data hlavního města Prahy"
+    },
+    {
+      "id": "citysdk::citysdk.eu",
+      "name": "CitySDK",
+      "docsUrl": "http://www.citysdk.eu/citysdk-toolkit",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:08.401Z",
+      "status": 404,
+      "finalUrl": "https://www.citysdk.eu/citysdk-toolkit",
+      "title": "404"
+    },
+    {
+      "id": "classify::classify-web.herokuapp.com",
+      "name": "Classify",
+      "docsUrl": "https://classify-web.herokuapp.com/#/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:27.114Z",
+      "status": 404,
+      "finalUrl": "https://classify-web.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "clickmeter::support.clickmeter.com",
+      "name": "ClickMeter",
+      "docsUrl": "https://support.clickmeter.com/hc/en-us/categories/201474986",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:24.393Z"
+    },
+    {
+      "id": "cloverly::cloverly.com",
+      "name": "Cloverly",
+      "docsUrl": "https://www.cloverly.com/carbon-offset-documentation",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:25.006Z",
+      "status": 404,
+      "finalUrl": "https://cloverly.com/carbon-offset-documentation",
+      "title": "Not Found"
+    },
+    {
+      "id": "codex::github.com",
+      "name": "Codex",
+      "docsUrl": "https://github.com/Jaagrav/CodeX",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:01.584Z",
+      "status": 404,
+      "finalUrl": "https://github.com/Jaagrav/CodeX",
+      "title": "Page not found · GitHub · GitHub"
+    },
+    {
+      "id": "coindesk::old.coindesk.com",
+      "name": "CoinDesk",
+      "docsUrl": "https://old.coindesk.com/coindesk-api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:27.671Z"
+    },
+    {
+      "id": "coindesk::coindesk.com",
+      "name": "CoinDesk",
+      "docsUrl": "http://www.coindesk.com/api",
+      "reason": "soft_404",
+      "checkedAt": "2026-04-09T12:50:15.565Z",
+      "status": 200,
+      "finalUrl": "https://www.coindesk.com/api",
+      "title": "404: This page could not be found."
+    },
+    {
+      "id": "cooper-hewitt::collection.cooperhewitt.org",
+      "name": "Cooper Hewitt",
+      "docsUrl": "https://collection.cooperhewitt.org/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:03.295Z"
+    },
+    {
+      "id": "countapi::countapi.xyz",
+      "name": "CountAPI",
+      "docsUrl": "https://countapi.xyz/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:28.199Z"
+    },
+    {
+      "id": "covalent::covalenthq.com",
+      "name": "Covalent",
+      "docsUrl": "https://www.covalenthq.com/docs/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:26.147Z",
+      "status": 404,
+      "finalUrl": "https://goldrush.dev/docs/api"
+    },
+    {
+      "id": "covid-19::covid19api.com",
+      "name": "Covid-19",
+      "docsUrl": "https://covid19api.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:28.225Z"
+    },
+    {
+      "id": "covid-19-datenhub::npgeo-corona-npgeo-de.hub.arcgis.com",
+      "name": "Covid-19 Datenhub",
+      "docsUrl": "https://npgeo-corona-npgeo-de.hub.arcgis.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:28.351Z",
+      "status": 404,
+      "finalUrl": "https://npgeo-corona-npgeo-de.hub.arcgis.com/"
+    },
+    {
+      "id": "covid-19-tracker-sri-lanka::hpb.health.gov.lk",
+      "name": "COVID-19 Tracker Sri Lanka",
+      "docsUrl": "https://www.hpb.health.gov.lk/en/api-documentation",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:28.706Z",
+      "status": 404,
+      "finalUrl": "https://hpb.health.gov.lk/en/api-documentation",
+      "title": "Page not found &#8211; Health Promotion Bureau"
+    },
+    {
+      "id": "covid-id::data.covid19.go.id",
+      "name": "COVID-ID",
+      "docsUrl": "https://data.covid19.go.id/public/api/prov.json",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:28.726Z"
+    },
+    {
+      "id": "crxcavator::crxcavator.io",
+      "name": "CRXcavator",
+      "docsUrl": "https://crxcavator.io/apidocs",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:26.336Z"
+    },
+    {
+      "id": "cryptingup::cryptingup.com",
+      "name": "CryptingUp",
+      "docsUrl": "https://www.cryptingup.com/apidoc#introduction",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-09T12:49:29.088Z",
+      "status": 200,
+      "finalUrl": "https://www.hugedomains.com/domain_profile.cfm?d=cryptingup.com",
+      "title": "CryptingUp.com is for sale | HugeDomains"
+    },
+    {
+      "id": "cryptonator::cryptonator.com",
+      "name": "Cryptonator",
+      "docsUrl": "https://www.cryptonator.com/api",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:29.231Z"
+    },
+    {
+      "id": "czech-namedays-calendar::svatky.adresa.info",
+      "name": "Czech Namedays Calendar",
+      "docsUrl": "http://svatky.adresa.info/",
+      "reason": "http_402",
+      "checkedAt": "2026-04-09T12:49:07.495Z",
+      "status": 402,
+      "finalUrl": "https://svatky.adresa.info/"
+    },
+    {
+      "id": "dangerous-discord-database::discord.riverside.rocks",
+      "name": "Dangerous Discord Database",
+      "docsUrl": "https://discord.riverside.rocks/docs/index.php",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:27.293Z"
+    },
+    {
+      "id": "deepcode::deepcode.ai",
+      "name": "Deepcode",
+      "docsUrl": "https://www.deepcode.ai/docs/Overview%252FOverview",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:00.898Z",
+      "status": 404,
+      "finalUrl": "https://snyk.io/platform/deepcode-ai/docs/Overview%252FOverview/",
+      "title": "Page Not Found"
+    },
+    {
+      "id": "dehashlt::github.com",
+      "name": "Dehash.lt",
+      "docsUrl": "https://github.com/Dehash-lt/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:29.743Z",
+      "status": 404,
+      "finalUrl": "https://github.com/Dehash-lt/api",
+      "title": "Page not found · GitHub · GitHub"
+    },
+    {
+      "id": "district-of-columbia-open-data::opendata.dc.gov",
+      "name": "District of Columbia Open Data",
+      "docsUrl": "http://opendata.dc.gov/pages/using-apis",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:09.098Z",
+      "status": 404,
+      "finalUrl": "https://opendata.dc.gov/pages/using-apis"
+    },
+    {
+      "id": "doge-meme::doge-meme.lol",
+      "name": "Doge-Meme",
+      "docsUrl": "https://api.doge-meme.lol/docs",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:30.687Z"
+    },
+    {
+      "id": "dummy-products::dummyproducts-api.herokuapp.com",
+      "name": "Dummy Products",
+      "docsUrl": "https://dummyproducts-api.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:27.715Z",
+      "status": 404,
+      "finalUrl": "https://dummyproducts-api.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "duply::duply.co",
+      "name": "Duply",
+      "docsUrl": "https://duply.co/docs#getting-started-api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:27.913Z",
+      "status": 404,
+      "finalUrl": "https://duply.co/docs",
+      "title": "Duply - Create Image with API and URL Automatically"
+    },
+    {
+      "id": "english-random-words::random-words-api.vercel.app",
+      "name": "English Random Words",
+      "docsUrl": "https://random-words-api.vercel.app/word",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:31.160Z",
+      "status": 404,
+      "finalUrl": "https://random-words-api.vercel.app/word"
+    },
+    {
+      "id": "epa::epa.gov",
+      "name": "EPA",
+      "docsUrl": "https://developer.epa.gov/category/apis",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:05.817Z",
+      "status": 404,
+      "finalUrl": "https://www.epa.gov/developers/category/apis",
+      "title": "Page Not Found | US EPA"
+    },
+    {
+      "id": "ergast-f1::ergast.com",
+      "name": "Ergast F1",
+      "docsUrl": "http://ergast.com/mrd",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:31.250Z",
+      "status": 404,
+      "finalUrl": "https://ergast.com/mrd"
+    },
+    {
+      "id": "eva::eva.pingutil.com",
+      "name": "EVA",
+      "docsUrl": "https://eva.pingutil.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:31.431Z"
+    },
+    {
+      "id": "excuser::excuser.herokuapp.com",
+      "name": "Excuser",
+      "docsUrl": "https://excuser.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:51.519Z",
+      "status": 404,
+      "finalUrl": "https://excuser.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "fakestoreapi::fakestoreapi.com",
+      "name": "FakeStoreAPI",
+      "docsUrl": "https://fakestoreapi.com/",
+      "reason": "http_526",
+      "checkedAt": "2026-04-09T12:49:31.767Z",
+      "status": 526,
+      "finalUrl": "https://fakestoreapi.com/",
+      "title": "fakestoreapi.com | 526: Invalid SSL certificate"
+    },
+    {
+      "id": "fed-treasury::fiscaldata.treasury.gov",
+      "name": "Fed Treasury",
+      "docsUrl": "https://fiscaldata.treasury.gov/api-documentation",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:31.962Z",
+      "status": 404,
+      "finalUrl": "https://fiscaldata.treasury.gov/api-documentation"
+    },
+    {
+      "id": "fifa-ultimate-team::easports.com",
+      "name": "FIFA Ultimate Team",
+      "docsUrl": "https://www.easports.com/fifa/ultimate-team/api/fut/item",
+      "reason": "http_503",
+      "checkedAt": "2026-04-09T12:49:32.029Z",
+      "status": 503,
+      "finalUrl": "https://www.easports.com/fifa/ultimate-team/api/fut/item",
+      "title": "Service Unavailable"
+    },
+    {
+      "id": "fonoapi::fonoapi.freshpixl.com",
+      "name": "fonoApi",
+      "docsUrl": "https://fonoapi.freshpixl.com/",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:32.508Z"
+    },
+    {
+      "id": "food-standards-agency::ratings.food.gov.uk",
+      "name": "Food Standards Agency",
+      "docsUrl": "http://ratings.food.gov.uk/open-data/en-GB",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:20.497Z",
+      "status": 404,
+      "finalUrl": "https://ratings.food.gov.uk/open-data/en-GB",
+      "title": "Search for ratings | Error 404 - Page not found"
+    },
+    {
+      "id": "form2channel::form2channel.com",
+      "name": "Form2Channel",
+      "docsUrl": "https://form2channel.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:33.070Z"
+    },
+    {
+      "id": "forza::forza-api.tk",
+      "name": "Forza",
+      "docsUrl": "https://docs.forza-api.tk/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:33.238Z"
+    },
+    {
+      "id": "freeforexapi::freeforexapi.com",
+      "name": "FreeForexAPI",
+      "docsUrl": "https://freeforexapi.com/Home/Api",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:33.353Z"
+    },
+    {
+      "id": "fun-facts::asli-fun-fact-api.herokuapp.com",
+      "name": "Fun Facts",
+      "docsUrl": "https://asli-fun-fact-api.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:51.585Z",
+      "status": 404,
+      "finalUrl": "https://asli-fun-fact-api.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "gbif::gbif.org",
+      "name": "GBIF",
+      "docsUrl": "http://api.gbif.org/v1",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:09.886Z",
+      "status": 404,
+      "finalUrl": "http://api.gbif.org/v1",
+      "title": "404 Not Found. See https://www.gbif.org/developer/summary for API documentation."
+    },
+    {
+      "id": "geekflare::apidocs.geekflare.com",
+      "name": "GeekFlare",
+      "docsUrl": "https://apidocs.geekflare.com/docs/geekflare-api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:29.847Z"
+    },
+    {
+      "id": "geodatagovgr::geodata.gov.gr",
+      "name": "Geodata.gov.gr",
+      "docsUrl": "https://geodata.gov.gr/en",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:34.922Z"
+    },
+    {
+      "id": "getping::getping.info",
+      "name": "GETPing",
+      "docsUrl": "https://www.getping.info/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:29.942Z"
+    },
+    {
+      "id": "gfycat::gfycat.com",
+      "name": "Gfycat",
+      "docsUrl": "https://developers.gfycat.com/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:30.005Z"
+    },
+    {
+      "id": "giant-bomb::giantbomb.com",
+      "name": "Giant Bomb",
+      "docsUrl": "https://www.giantbomb.com/api/documentation",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:06.009Z",
+      "status": 404,
+      "finalUrl": "https://giantbomb.com/api/documentation"
+    },
+    {
+      "id": "gitguardian::gitguardian.com",
+      "name": "GitGuardian",
+      "docsUrl": "https://api.gitguardian.com/doc",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:30.008Z",
+      "status": 404,
+      "finalUrl": "https://api.gitguardian.com/doc"
+    },
+    {
+      "id": "gitter::gitter.im",
+      "name": "Gitter",
+      "docsUrl": "https://developer.gitter.im/docs/welcome",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:30.187Z"
+    },
+    {
+      "id": "graphql-jobs::graphql.jobs",
+      "name": "GraphQL Jobs",
+      "docsUrl": "https://graphql.jobs/docs/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:36.121Z"
+    },
+    {
+      "id": "graphs-for-coronavirus::corona.dnsforfamily.com",
+      "name": "Graphs for Coronavirus",
+      "docsUrl": "https://corona.dnsforfamily.com/api.txt",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:36.176Z"
+    },
+    {
+      "id": "gun-policy::gunpolicy.org",
+      "name": "Gun Policy",
+      "docsUrl": "https://www.gunpolicy.org/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:31.633Z"
+    },
+    {
+      "id": "gurbaninow::github.com",
+      "name": "GurbaniNow",
+      "docsUrl": "https://github.com/GurbaniNow/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:36.303Z",
+      "status": 404,
+      "finalUrl": "https://github.com/GurbaniNow/api",
+      "title": "Page not found · GitHub · GitHub"
+    },
+    {
+      "id": "harry-potter::potterapi.com",
+      "name": "Harry Potter",
+      "docsUrl": "https://www.potterapi.com/",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-09T12:50:55.291Z",
+      "status": 200,
+      "finalUrl": "https://www.hugedomains.com/domain_profile.cfm?d=potterapi.com",
+      "title": "PotterApi.com is for sale | HugeDomains"
+    },
+    {
+      "id": "harry-potter-charactes::hp-api.herokuapp.com",
+      "name": "Harry Potter Charactes",
+      "docsUrl": "https://hp-api.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:36.573Z",
+      "status": 404,
+      "finalUrl": "https://hp-api.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "hashable::hashable.space",
+      "name": "Hashable",
+      "docsUrl": "https://hashable.space/pages/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:36.825Z"
+    },
+    {
+      "id": "hong-kong-geodata-store::geodata.gov.hk",
+      "name": "Hong Kong GeoData Store",
+      "docsUrl": "https://geodata.gov.hk/gs",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:37.029Z",
+      "status": 404,
+      "finalUrl": "https://geodata.gov.hk/gs/"
+    },
+    {
+      "id": "hotstoks::hotstoks.com",
+      "name": "Hotstoks",
+      "docsUrl": "https://hotstoks.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:32.431Z"
+    },
+    {
+      "id": "httpbin-cloudflare::cloudflare-quic.com",
+      "name": "Httpbin Cloudflare",
+      "docsUrl": "https://cloudflare-quic.com/b",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:38.150Z",
+      "status": 404,
+      "finalUrl": "https://cloudflare-quic.com/b",
+      "title": "404 Not Found"
+    },
+    {
+      "id": "humanitarian-data-exchange::data.humdata.org",
+      "name": "Humanitarian Data Exchange",
+      "docsUrl": "https://data.humdata.org/",
+      "reason": "http_406",
+      "checkedAt": "2026-04-09T12:49:38.413Z",
+      "status": 406,
+      "finalUrl": "https://data.humdata.org/"
+    },
+    {
+      "id": "hytale::hytale-api.com",
+      "name": "Hytale",
+      "docsUrl": "https://hytale-api.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:38.563Z"
+    },
+    {
+      "id": "iex-cloud::iexcloud.io",
+      "name": "IEX Cloud",
+      "docsUrl": "https://iexcloud.io/docs/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:32.831Z"
+    },
+    {
+      "id": "imdb::imdb-api.com",
+      "name": "IMDb-API",
+      "docsUrl": "https://imdb-api.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:33.095Z"
+    },
+    {
+      "id": "impala-hotel-bookings::impala.travel",
+      "name": "Impala Hotel Bookings",
+      "docsUrl": "https://docs.impala.travel/docs/booking-api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:33.181Z"
+    },
+    {
+      "id": "imsea::imsea.herokuapp.com",
+      "name": "Imsea",
+      "docsUrl": "https://imsea.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:04.184Z",
+      "status": 404,
+      "finalUrl": "https://imsea.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "indonesia-dictionary::new-kbbi-api.herokuapp.com",
+      "name": "Indonesia Dictionary",
+      "docsUrl": "https://new-kbbi-api.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:39.721Z",
+      "status": 404,
+      "finalUrl": "https://new-kbbi-api.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "inei::iinei.inei.gob.pe",
+      "name": "INEI",
+      "docsUrl": "http://iinei.inei.gob.pe/microdatos",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:15.984Z"
+    },
+    {
+      "id": "inspiration::inspiration.goprogram.ai",
+      "name": "Inspiration",
+      "docsUrl": "https://inspiration.goprogram.ai/docs",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:39.962Z"
+    },
+    {
+      "id": "ipgeo::techniknews.net",
+      "name": "IPGEO",
+      "docsUrl": "https://api.techniknews.net/ipgeo/[IP-Adress/Domain]",
+      "reason": "http_400",
+      "checkedAt": "2026-04-09T12:49:11.154Z",
+      "status": 400,
+      "finalUrl": "https://api.techniknews.net/ipgeo/[IP-Adress/Domain]"
+    },
+    {
+      "id": "ips-online::identity.ps",
+      "name": "IPS Online",
+      "docsUrl": "https://docs.identity.ps/docs",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:02.907Z"
+    },
+    {
+      "id": "itunes-search::affiliate.itunes.apple.com",
+      "name": "iTunes Search",
+      "docsUrl": "https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:04.391Z"
+    },
+    {
+      "id": "jokes-one::jokes.one",
+      "name": "Jokes One",
+      "docsUrl": "https://jokes.one/api/joke",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:07.964Z"
+    },
+    {
+      "id": "jumio::jumio.com",
+      "name": "Jumio",
+      "docsUrl": "https://www.jumio.com/developer",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:34.127Z",
+      "status": 404,
+      "finalUrl": "https://www.jumio.com/developer",
+      "title": "Page not found - Jumio: End-to-End ID, Identity Verification and AML Solutions"
+    },
+    {
+      "id": "kimiquotes::kimiquotes.herokuapp.com",
+      "name": "kimiquotes",
+      "docsUrl": "https://kimiquotes.herokuapp.com/doc",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:51.775Z",
+      "status": 404,
+      "finalUrl": "https://kimiquotes.herokuapp.com/doc",
+      "title": "No such app"
+    },
+    {
+      "id": "kitsu::kitsu.docs.apiary.io",
+      "name": "Kitsu",
+      "docsUrl": "https://kitsu.docs.apiary.io/",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:50:14.677Z"
+    },
+    {
+      "id": "klarna::klarna.com",
+      "name": "Klarna",
+      "docsUrl": "https://docs.klarna.com/klarna-payments/api/payments-api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:34.339Z",
+      "status": 404,
+      "finalUrl": "https://docs.klarna.com/klarna-payments/api/payments-api/"
+    },
+    {
+      "id": "kontests::kontests.net",
+      "name": "KONTESTS",
+      "docsUrl": "https://kontests.net/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:41.752Z"
+    },
+    {
+      "id": "kutt::kutt.it",
+      "name": "Kutt",
+      "docsUrl": "https://docs.kutt.it/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:34.613Z"
+    },
+    {
+      "id": "lcbo::lcboapi.com",
+      "name": "LCBO",
+      "docsUrl": "https://lcboapi.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:18.622Z"
+    },
+    {
+      "id": "lexigram::lexigram.io",
+      "name": "Lexigram",
+      "docsUrl": "https://docs.lexigram.io/v1/welcome",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:08.146Z",
+      "status": 404,
+      "finalUrl": "https://docs.lexigram.io/v1/welcome",
+      "title": "Not found"
+    },
+    {
+      "id": "localbitcoins::localbitcoins.com",
+      "name": "Localbitcoins",
+      "docsUrl": "https://localbitcoins.com/api-docs",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:42.124Z",
+      "status": 404,
+      "finalUrl": "https://localbitcoins.com/api-docs",
+      "title": "LocalBitcoins.com — 404"
+    },
+    {
+      "id": "logsto::logs.to",
+      "name": "Logs.to",
+      "docsUrl": "https://logs.to/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:35.032Z"
+    },
+    {
+      "id": "loom::dev.loom.com",
+      "name": "Loom",
+      "docsUrl": "https://dev.loom.com/docs/reference/overview",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:55.717Z",
+      "status": 404,
+      "finalUrl": "https://dev.loom.com/docs/reference/overview",
+      "title": "Page Not Found | Developers | Loom"
+    },
+    {
+      "id": "loripsum::loripsum.net",
+      "name": "Loripsum",
+      "docsUrl": "http://loripsum.net/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:16.335Z"
+    },
+    {
+      "id": "lua-decompiler::lua-decompiler.ferib.dev",
+      "name": "Lua Decompiler",
+      "docsUrl": "https://lua-decompiler.ferib.dev/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:42.433Z"
+    },
+    {
+      "id": "machinetutors::machinetutors.com",
+      "name": "Machinetutors",
+      "docsUrl": "https://www.machinetutors.com/portfolio/MT_api.html",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:01.451Z",
+      "status": 404,
+      "finalUrl": "https://machinetutors.com/portfolio/MT_api.html",
+      "title": "Page not found - Machinetutors"
+    },
+    {
+      "id": "mailtrap::mailtrap.docs.apiary.io",
+      "name": "Mailtrap",
+      "docsUrl": "https://mailtrap.docs.apiary.io/#",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:35.672Z",
+      "status": 404,
+      "finalUrl": "https://mailtrap.docs.apiary.io/",
+      "title": "Apiary - Page not found"
+    },
+    {
+      "id": "maldatabase::maldatabase.com",
+      "name": "MalDatabase",
+      "docsUrl": "https://maldatabase.com/api-doc.html",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:35.690Z"
+    },
+    {
+      "id": "mario-kart-tour::mario-kart-tour-api.herokuapp.com",
+      "name": "Mario Kart Tour",
+      "docsUrl": "https://mario-kart-tour-api.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:36.004Z",
+      "status": 404,
+      "finalUrl": "https://mario-kart-tour-api.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "mercury::mercury.postlight.com",
+      "name": "Mercury",
+      "docsUrl": "https://mercury.postlight.com/web-parser",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:36.528Z"
+    },
+    {
+      "id": "metaweather::metaweather.com",
+      "name": "MetaWeather",
+      "docsUrl": "https://www.metaweather.com/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:44.133Z"
+    },
+    {
+      "id": "micro-db::m3o.com",
+      "name": "Micro DB",
+      "docsUrl": "https://m3o.com/db",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-09T12:50:36.570Z",
+      "status": 200,
+      "finalUrl": "https://sedo.com/search/details/?domain=m3o.com&origin=domaindetails",
+      "title": "Domain Details Page"
+    },
+    {
+      "id": "micro-user::m3o.com",
+      "name": "Micro User Service",
+      "docsUrl": "https://m3o.com/user",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-09T12:50:36.590Z",
+      "status": 200,
+      "finalUrl": "https://sedo.com/search/details/?domain=m3o.com&origin=domaindetails",
+      "title": "Domain Details Page"
+    },
+    {
+      "id": "micro-weather::m3o.com",
+      "name": "Micro Weather",
+      "docsUrl": "https://m3o.com/weather/api",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-09T12:50:36.656Z",
+      "status": 200,
+      "finalUrl": "https://sedo.com/search/details/?domain=m3o.com&origin=domaindetails",
+      "title": "Domain Details Page"
+    },
+    {
+      "id": "mobileapi::mobileapi.dev",
+      "name": "MobileAPI",
+      "docsUrl": "https://mobileapi.dev/docs",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:36.911Z",
+      "status": 404,
+      "finalUrl": "https://mobileapi.dev/docs",
+      "title": "Page Not Found | MobileAPI.dev"
+    },
+    {
+      "id": "mocky::designer.mocky.io",
+      "name": "Mocky",
+      "docsUrl": "https://designer.mocky.io/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:44.895Z"
+    },
+    {
+      "id": "mojang::wiki.vg",
+      "name": "Mojang",
+      "docsUrl": "https://wiki.vg/Mojang_API",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:37.110Z"
+    },
+    {
+      "id": "monday::developer.monday.com",
+      "name": "Monday",
+      "docsUrl": "https://api.developer.monday.com/docs",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:37.139Z"
+    },
+    {
+      "id": "motivational-quotes::nodejs-quoteapp.herokuapp.com",
+      "name": "Motivational Quotes",
+      "docsUrl": "https://nodejs-quoteapp.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:51.790Z",
+      "status": 404,
+      "finalUrl": "https://nodejs-quoteapp.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "my-ip::myip.com",
+      "name": "MY IP",
+      "docsUrl": "https://www.myip.com/api-docs",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:45.283Z",
+      "status": 404,
+      "finalUrl": "https://www.myip.com/api-docs",
+      "title": "403 Forbidden"
+    },
+    {
+      "id": "napster::napster.com",
+      "name": "Napster",
+      "docsUrl": "https://developer.napster.com/api/v2.2",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:37.417Z"
+    },
+    {
+      "id": "national-grid-eso::data.nationalgrideso.com",
+      "name": "National Grid ESO",
+      "docsUrl": "https://data.nationalgrideso.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:45.508Z"
+    },
+    {
+      "id": "networkcalc::networkcalc.com",
+      "name": "NetworkCalc",
+      "docsUrl": "https://networkcalc.com/api/docs",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:45.663Z"
+    },
+    {
+      "id": "nexchange::nexchange2.docs.apiary.io",
+      "name": "Nexchange",
+      "docsUrl": "https://nexchange2.docs.apiary.io/",
+      "reason": "http_502",
+      "checkedAt": "2026-04-09T12:49:21.011Z",
+      "status": 502,
+      "finalUrl": "https://nexchange2.docs.apiary.io/",
+      "title": "502 Bad Gateway"
+    },
+    {
+      "id": "nhtsa::vpic.nhtsa.dot.gov",
+      "name": "NHTSA",
+      "docsUrl": "https://vpic.nhtsa.dot.gov/api",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:12.590Z"
+    },
+    {
+      "id": "nomics::nomics.com",
+      "name": "Nomics",
+      "docsUrl": "https://nomics.com/docs",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:37.954Z"
+    },
+    {
+      "id": "nordigen::nordigen.com",
+      "name": "Nordigen",
+      "docsUrl": "https://nordigen.com/en/account_information_documenation/integration/quickstart_guide",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:38.144Z"
+    },
+    {
+      "id": "nownodes::nownodes.io",
+      "name": "Nownodes",
+      "docsUrl": "https://nownodes.io/",
+      "reason": "http_502",
+      "checkedAt": "2026-04-09T12:50:38.183Z",
+      "status": 502,
+      "finalUrl": "https://nownodes.io/",
+      "title": "nownodes.io | 502: Bad gateway"
+    },
+    {
+      "id": "npr-one::dev.npr.org",
+      "name": "NPR One",
+      "docsUrl": "http://dev.npr.org/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:38.256Z"
+    },
+    {
+      "id": "ocean-facts::oceanfacts.herokuapp.com",
+      "name": "Ocean Facts",
+      "docsUrl": "https://oceanfacts.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:51.942Z",
+      "status": 404,
+      "finalUrl": "https://oceanfacts.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "okex::okex.com",
+      "name": "OKEx",
+      "docsUrl": "https://www.okex.com/docs",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:38.498Z"
+    },
+    {
+      "id": "okjob::okjob.io",
+      "name": "OkJob",
+      "docsUrl": "https://okjob.io/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:38.501Z"
+    },
+    {
+      "id": "onesignal::documentation.onesignal.com",
+      "name": "OneSignal",
+      "docsUrl": "https://documentation.onesignal.com/docs/onesignal-api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:38.787Z",
+      "status": 404,
+      "finalUrl": "https://documentation.onesignal.com/docs/onesignal-api"
+    },
+    {
+      "id": "open-government-estonia::avaandmed.eesti.ee",
+      "name": "Open Government, Estonia",
+      "docsUrl": "https://avaandmed.eesti.ee/instructions/opendata-dataset-api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:38.844Z"
+    },
+    {
+      "id": "open-government-korea::data.go.kr",
+      "name": "Open Government, Korea",
+      "docsUrl": "https://www.data.go.kr/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:38.962Z"
+    },
+    {
+      "id": "open-government-norway::data.norge.no",
+      "name": "Open Government, Norway",
+      "docsUrl": "https://data.norge.no/dataservices",
+      "reason": "http_405",
+      "checkedAt": "2026-04-09T12:49:47.011Z",
+      "status": 405,
+      "finalUrl": "https://data.norge.no/data-services"
+    },
+    {
+      "id": "open-government-saudi-arabia::data.gov.sa",
+      "name": "Open Government, Saudi Arabia",
+      "docsUrl": "https://data.gov.sa/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:47.469Z"
+    },
+    {
+      "id": "open-government-singapore::data.gov.sg",
+      "name": "Open Government, Singapore",
+      "docsUrl": "https://data.gov.sg/developer",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:47.575Z",
+      "status": 404,
+      "finalUrl": "https://guide.data.gov.sg/developers/apis",
+      "title": "data.gov.sg"
+    },
+    {
+      "id": "opensky-network::opensky-network.org",
+      "name": "OpenSky Network",
+      "docsUrl": "https://opensky-network.org/apidoc/index.html",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:49.171Z",
+      "status": 404,
+      "finalUrl": "https://opensky-network.org/apidoc/index.html"
+    },
+    {
+      "id": "openvisionapi::openvisionapi.com",
+      "name": "OpenVisionAPI",
+      "docsUrl": "https://openvisionapi.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:00.901Z"
+    },
+    {
+      "id": "orb-intelligence::orb-intelligence.com",
+      "name": "ORB Intelligence",
+      "docsUrl": "https://api.orb-intelligence.com/docs",
+      "reason": "http_503",
+      "checkedAt": "2026-04-09T12:50:14.759Z",
+      "status": 503,
+      "finalUrl": "https://api.orb-intelligence.com/docs",
+      "title": "Service Unavailable"
+    },
+    {
+      "id": "owen-wilson-wow::owen-wilson-wow-api.herokuapp.com",
+      "name": "Owen Wilson Wow",
+      "docsUrl": "https://owen-wilson-wow-api.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:49.308Z",
+      "status": 404,
+      "finalUrl": "https://owen-wilson-wow-api.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "owlbot::owlbot.info",
+      "name": "OwlBot",
+      "docsUrl": "https://owlbot.info/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:39.617Z",
+      "status": 404,
+      "finalUrl": "https://owlbot.info/",
+      "title": "404 Page not found"
+    },
+    {
+      "id": "owo::owo.vc",
+      "name": "owo",
+      "docsUrl": "https://owo.vc/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:49.316Z",
+      "status": 404,
+      "finalUrl": "https://owo.vc/api"
+    },
+    {
+      "id": "pastebin::pastebin.com",
+      "name": "Pastebin",
+      "docsUrl": "https://pastebin.com/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:10.023Z",
+      "status": 404,
+      "finalUrl": "https://pastebin.com/api",
+      "title": "Pastebin.com - Not Found (#404)"
+    },
+    {
+      "id": "phishdirectory::phish.directory",
+      "name": "phish.directory",
+      "docsUrl": "https://phish.directory/",
+      "reason": "http_530",
+      "checkedAt": "2026-04-09T12:51:02.276Z",
+      "status": 530,
+      "finalUrl": "https://phish.directory/",
+      "title": "Cloudflare Tunnel error | phish.directory | Cloudflare"
+    },
+    {
+      "id": "phisherman::phisherman.gg",
+      "name": "Phisherman",
+      "docsUrl": "https://phisherman.gg/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:40.029Z"
+    },
+    {
+      "id": "pipl::pipl.ir",
+      "name": "PIPL API",
+      "docsUrl": "https://pipl.ir/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:56.322Z"
+    },
+    {
+      "id": "pixel-encounter::pixelencounter.com",
+      "name": "Pixel Encounter",
+      "docsUrl": "https://pixelencounter.com/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:49.966Z"
+    },
+    {
+      "id": "placekitten::placekitten.com",
+      "name": "PlaceKitten",
+      "docsUrl": "https://placekitten.com/",
+      "reason": "http_521",
+      "checkedAt": "2026-04-09T12:49:14.735Z",
+      "status": 521,
+      "finalUrl": "https://placekitten.com/",
+      "title": "placekitten.com | 521: Web server is down"
+    },
+    {
+      "id": "pm25in::pm25.in",
+      "name": "PM25.in",
+      "docsUrl": "http://www.pm25.in/api_doc",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:56.325Z"
+    },
+    {
+      "id": "pocket::getpocket.com",
+      "name": "Pocket",
+      "docsUrl": "https://getpocket.com/developer",
+      "reason": "http_503",
+      "checkedAt": "2026-04-09T12:50:10.200Z",
+      "status": 503,
+      "finalUrl": "https://getpocket.com/developer",
+      "title": "Pocket"
+    },
+    {
+      "id": "postali::postali.app",
+      "name": "Postali",
+      "docsUrl": "https://postali.app/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:50.408Z",
+      "status": 404,
+      "finalUrl": "https://postali.app/api"
+    },
+    {
+      "id": "prc-exam-schedule::whenisthenextboardexam.com",
+      "name": "PRC Exam Schedule",
+      "docsUrl": "https://api.whenisthenextboardexam.com/docs",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:52.006Z"
+    },
+    {
+      "id": "proxykingdom::proxykingdom.com",
+      "name": "ProxyKingdom",
+      "docsUrl": "https://proxykingdom.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:41.152Z"
+    },
+    {
+      "id": "punkapi::punkapi.com",
+      "name": "PunkAPI",
+      "docsUrl": "https://punkapi.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:50.888Z"
+    },
+    {
+      "id": "quarantine::quarantine.country",
+      "name": "Quarantine",
+      "docsUrl": "https://quarantine.country/coronavirus/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:51.451Z"
+    },
+    {
+      "id": "queimadas-inpe::queimadas.dgi.inpe.br",
+      "name": "Queimadas INPE",
+      "docsUrl": "https://queimadas.dgi.inpe.br/queimadas/dados-abertos",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:51.452Z"
+    },
+    {
+      "id": "quickmocker::quickmocker.com",
+      "name": "QuickMocker",
+      "docsUrl": "https://quickmocker.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:51.466Z"
+    },
+    {
+      "id": "quote-garden::pprathameshmore.github.io",
+      "name": "Quote Garden",
+      "docsUrl": "https://pprathameshmore.github.io/QuoteGarden",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:14.805Z"
+    },
+    {
+      "id": "quoteclear::quoteclear.web.app",
+      "name": "quoteclear",
+      "docsUrl": "https://quoteclear.web.app/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:51.484Z",
+      "status": 404,
+      "finalUrl": "https://quoteclear.web.app/",
+      "title": "Site Not Found"
+    },
+    {
+      "id": "railway-transport-for-france::digital.sncf.com",
+      "name": "Railway Transport for France",
+      "docsUrl": "https://www.digital.sncf.com/startup/api",
+      "reason": "http_400",
+      "checkedAt": "2026-04-09T12:50:41.551Z",
+      "status": 400,
+      "finalUrl": "https://www.digital.sncf.com/startup/api",
+      "title": "Request Rejected"
+    },
+    {
+      "id": "random-data::random-data-api.com",
+      "name": "Random Data",
+      "docsUrl": "https://random-data-api.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:51.730Z"
+    },
+    {
+      "id": "random-stuff::api-docs.pgamerx.com",
+      "name": "Random Stuff",
+      "docsUrl": "https://api-docs.pgamerx.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:41.754Z"
+    },
+    {
+      "id": "revolt::revolt.chat",
+      "name": "Revolt",
+      "docsUrl": "https://developers.revolt.chat/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:42.565Z",
+      "status": 404,
+      "finalUrl": "https://developers.stoat.chat/api",
+      "title": "Stoat Developers"
+    },
+    {
+      "id": "rijksmuseum::data.rijksmuseum.nl",
+      "name": "Rijksmuseum",
+      "docsUrl": "https://data.rijksmuseum.nl/object-metadata/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:42.662Z",
+      "status": 404,
+      "finalUrl": "https://data.rijksmuseum.nl/object-metadata/api",
+      "title": "Azure Static Web Apps - 404: Not found"
+    },
+    {
+      "id": "roadgoat-cities::roadgoat.com",
+      "name": "RoadGoat Cities",
+      "docsUrl": "https://www.roadgoat.com/business/cities-api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:42.770Z"
+    },
+    {
+      "id": "rps-101::rps101.pythonanywhere.com",
+      "name": "RPS 101",
+      "docsUrl": "https://rps101.pythonanywhere.com/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:52.193Z",
+      "status": 404,
+      "finalUrl": "https://rps101.pythonanywhere.com/api",
+      "title": "Coming Soon: PythonAnywhere"
+    },
+    {
+      "id": "rustybeer::rustybeer.herokuapp.com",
+      "name": "Rustybeer",
+      "docsUrl": "https://rustybeer.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:52.388Z",
+      "status": 404,
+      "finalUrl": "https://rustybeer.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "savepageio::savepage.io",
+      "name": "SavePage.io",
+      "docsUrl": "https://www.savepage.io/",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-09T12:50:14.864Z",
+      "status": 200,
+      "finalUrl": "https://www.savepage.io/",
+      "title": "savepage.io&nbsp;-&nbsp;Informationen zum Thema savepage."
+    },
+    {
+      "id": "sawo-labs::sawolabs.com",
+      "name": "SAWO Labs",
+      "docsUrl": "https://sawolabs.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:42.989Z"
+    },
+    {
+      "id": "scoresaber::scoresaber.com",
+      "name": "Scoresaber",
+      "docsUrl": "https://scoresaber.com/api/documentation",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:52.434Z",
+      "status": 404,
+      "finalUrl": "https://scoresaber.com/api/documentation"
+    },
+    {
+      "id": "scraperbox::scraperbox.com",
+      "name": "scraperBox",
+      "docsUrl": "https://scraperbox.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:43.131Z"
+    },
+    {
+      "id": "sendinblue::sendinblue.com",
+      "name": "Sendinblue",
+      "docsUrl": "https://developers.sendinblue.com/docs",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:43.327Z",
+      "status": 404,
+      "finalUrl": "https://developers.brevo.com/docs",
+      "title": "Documentation"
+    },
+    {
+      "id": "sentiment-analysis::meaningcloud.com",
+      "name": "Sentiment Analysis",
+      "docsUrl": "https://www.meaningcloud.com/developer/sentiment-analysis",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:03.214Z"
+    },
+    {
+      "id": "shibeonline::shibe.online",
+      "name": "Shibe.Online",
+      "docsUrl": "http://shibe.online/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:52.606Z"
+    },
+    {
+      "id": "short-link::github.com",
+      "name": "Short Link",
+      "docsUrl": "https://github.com/FayasNoushad/Short-Link-API",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:52.777Z",
+      "status": 404,
+      "finalUrl": "https://github.com/FayasNoushad/Short-Link-API",
+      "title": "Page not found · GitHub · GitHub"
+    },
+    {
+      "id": "shrtlnk::shrtlnk.dev",
+      "name": "Shrtlnk",
+      "docsUrl": "https://shrtlnk.dev/developer",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:43.595Z",
+      "status": 404,
+      "finalUrl": "https://shrtlnk.dev/developer",
+      "title": "Page Not Found - GOLDEN456"
+    },
+    {
+      "id": "simkl::simkl.docs.apiary.io",
+      "name": "Simkl",
+      "docsUrl": "https://simkl.docs.apiary.io/",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:50:43.657Z"
+    },
+    {
+      "id": "songsterr::songsterr.com",
+      "name": "Songsterr",
+      "docsUrl": "https://www.songsterr.com/a/wa/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:15.899Z",
+      "status": 404,
+      "finalUrl": "https://www.songsterr.com/a/wa/api",
+      "title": "Not Found"
+    },
+    {
+      "id": "spacex::spacex.land",
+      "name": "SpaceX",
+      "docsUrl": "https://api.spacex.land/graphql",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:53.154Z"
+    },
+    {
+      "id": "spam-hunter::spam-hunter.ru",
+      "name": "Spam Hunter",
+      "docsUrl": "https://spam-hunter.ru/",
+      "reason": "http_504",
+      "checkedAt": "2026-04-09T12:49:04.670Z",
+      "status": 504,
+      "finalUrl": "https://spam-hunter.ru/"
+    },
+    {
+      "id": "spanish-random-names::random-names-api.herokuapp.com",
+      "name": "Spanish random names",
+      "docsUrl": "https://random-names-api.herokuapp.com/public",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:52.302Z",
+      "status": 404,
+      "finalUrl": "https://random-names-api.herokuapp.com/public",
+      "title": "No such app"
+    },
+    {
+      "id": "spanish-random-words::palabras-aleatorias-public-api.herokuapp.com",
+      "name": "Spanish random words",
+      "docsUrl": "https://palabras-aleatorias-public-api.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:52.414Z",
+      "status": 404,
+      "finalUrl": "https://palabras-aleatorias-public-api.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "sport-data::sportdataapi.com",
+      "name": "Sport Data",
+      "docsUrl": "https://sportdataapi.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:44.588Z",
+      "status": 404,
+      "finalUrl": "https://sportdataapi.com/",
+      "title": "404 Not Found"
+    },
+    {
+      "id": "sport-list-data::decathlon.com",
+      "name": "Sport List & Data",
+      "docsUrl": "https://developers.decathlon.com/products/sports",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:53.156Z"
+    },
+    {
+      "id": "sport-places::decathlon.com",
+      "name": "Sport Places",
+      "docsUrl": "https://developers.decathlon.com/products/sport-places",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:53.208Z"
+    },
+    {
+      "id": "sport-vision::decathlon.com",
+      "name": "Sport Vision",
+      "docsUrl": "https://developers.decathlon.com/products/sport-vision",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:44.638Z"
+    },
+    {
+      "id": "spotsense::spotsense.io",
+      "name": "SpotSense",
+      "docsUrl": "https://spotsense.io/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:44.711Z"
+    },
+    {
+      "id": "studio-ghibli::ghibliapi.herokuapp.com",
+      "name": "Studio Ghibli",
+      "docsUrl": "https://ghibliapi.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:53.512Z",
+      "status": 404,
+      "finalUrl": "https://ghibliapi.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "styvio::styvio.com",
+      "name": "Styvio",
+      "docsUrl": "https://www.styvio.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:45.184Z"
+    },
+    {
+      "id": "suredbits::suredbits.com",
+      "name": "SuredBits",
+      "docsUrl": "https://suredbits.com/api",
+      "reason": "http_521",
+      "checkedAt": "2026-04-09T12:50:16.905Z",
+      "status": 521,
+      "finalUrl": "https://suredbits.com/api",
+      "title": "suredbits.com | 521: Web server is down"
+    },
+    {
+      "id": "systembolaget::api-portal.systembolaget.se",
+      "name": "Systembolaget",
+      "docsUrl": "https://api-portal.systembolaget.se/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:45.421Z"
+    },
+    {
+      "id": "tcgdex::tcgdex.net",
+      "name": "TCGdex",
+      "docsUrl": "https://www.tcgdex.net/docs",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:01.916Z",
+      "status": 404,
+      "finalUrl": "https://www.tcgdex.net/docs"
+    },
+    {
+      "id": "teleport::teleport.org",
+      "name": "Teleport",
+      "docsUrl": "https://developers.teleport.org/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:16.149Z"
+    },
+    {
+      "id": "tenders-in-hungary::tenders.guru",
+      "name": "Tenders in Hungary",
+      "docsUrl": "https://tenders.guru/hu/api",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:53.765Z"
+    },
+    {
+      "id": "tenders-in-poland::tenders.guru",
+      "name": "Tenders in Poland",
+      "docsUrl": "https://tenders.guru/pl/api",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:53.794Z"
+    },
+    {
+      "id": "tenders-in-romania::tenders.guru",
+      "name": "Tenders in Romania",
+      "docsUrl": "https://tenders.guru/ro/api",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:53.799Z"
+    },
+    {
+      "id": "tenders-in-spain::tenders.guru",
+      "name": "Tenders in Spain",
+      "docsUrl": "https://tenders.guru/es/api",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:53.822Z"
+    },
+    {
+      "id": "tenders-in-ukraine::tenders.guru",
+      "name": "Tenders in Ukraine",
+      "docsUrl": "https://tenders.guru/ua/api",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:53.832Z"
+    },
+    {
+      "id": "theaudiodb::theaudiodb.com",
+      "name": "TheAudioDB",
+      "docsUrl": "https://www.theaudiodb.com/api_guide.php",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:11.764Z",
+      "status": 404,
+      "finalUrl": "https://www.theaudiodb.com/api_guide.php",
+      "title": "404 - File or directory not found."
+    },
+    {
+      "id": "threat-jammer::threatjammer.com",
+      "name": "Threat Jammer",
+      "docsUrl": "https://threatjammer.com/docs/index",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:46.318Z"
+    },
+    {
+      "id": "toolcarton::testimonialapi.toolcarton.com",
+      "name": "Toolcarton",
+      "docsUrl": "https://testimonialapi.toolcarton.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:54.669Z"
+    },
+    {
+      "id": "trakt::trakt.tv",
+      "name": "Trakt",
+      "docsUrl": "https://trakt.tv/b/api-docs",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:50:46.756Z"
+    },
+    {
+      "id": "trakt::trakt.docs.apiary.io",
+      "name": "Trakt",
+      "docsUrl": "https://trakt.docs.apiary.io/",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:50:46.875Z"
+    },
+    {
+      "id": "transport-for-budapest-hungary::bkkfutar.docs.apiary.io",
+      "name": "Transport for Budapest, Hungary",
+      "docsUrl": "https://bkkfutar.docs.apiary.io/",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:16.531Z"
+    },
+    {
+      "id": "transport-for-denver-us::rtd-denver.com",
+      "name": "Transport for Denver, US",
+      "docsUrl": "http://www.rtd-denver.com/gtfs-developer-guide.shtml",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:17.099Z",
+      "status": 404,
+      "finalUrl": "https://www.rtd-denver.com/gtfs-developer-guide.shtml",
+      "title": "RTD"
+    },
+    {
+      "id": "transport-for-germany::data.deutschebahn.com",
+      "name": "Transport for Germany",
+      "docsUrl": "http://data.deutschebahn.com/dataset/api-fahrplan",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:50:57.686Z"
+    },
+    {
+      "id": "transportation-in-auckland-new-zealand::at.govt.nz",
+      "name": "Transportation in Auckland, New Zealand",
+      "docsUrl": "https://api.at.govt.nz/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:57.997Z",
+      "status": 404,
+      "finalUrl": "https://api.at.govt.nz/"
+    },
+    {
+      "id": "transportation-in-belgium::hello.irail.be",
+      "name": "Transportation in Belgium",
+      "docsUrl": "https://hello.irail.be/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:58.053Z"
+    },
+    {
+      "id": "transportation-in-denver-usa::rtd-denver.com",
+      "name": "Transportation in Denver, USA",
+      "docsUrl": "http://www.rtd-denver.com/gtfs-developer-guide.shtml",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:59.119Z",
+      "status": 404,
+      "finalUrl": "https://www.rtd-denver.com/gtfs-developer-guide.shtml",
+      "title": "RTD"
+    },
+    {
+      "id": "transportation-in-madrid-spain::opendata.emtmadrid.es",
+      "name": "Transportation in Madrid, Spain",
+      "docsUrl": "http://opendata.emtmadrid.es/Servicios-web/BUS",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:59.881Z",
+      "status": 404,
+      "finalUrl": "http://opendata.emtmadrid.es/Servicios-web/BUS",
+      "title": "404 - File or directory not found."
+    },
+    {
+      "id": "tripadvisor::developer-tripadvisor.com",
+      "name": "Tripadvisor",
+      "docsUrl": "https://developer-tripadvisor.com/home",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:47.493Z",
+      "status": 404,
+      "finalUrl": "https://developer-tripadvisor.com/home/",
+      "title": "Page not found | Tripadvisor Developer Portal"
+    },
+    {
+      "id": "tyk::tyk.io",
+      "name": "Tyk",
+      "docsUrl": "https://tyk.io/open-source",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:47.988Z",
+      "status": 404,
+      "finalUrl": "https://tyk.io/open-source",
+      "title": "Page not found - Tyk API Management"
+    },
+    {
+      "id": "ups::ups.com",
+      "name": "UPS",
+      "docsUrl": "https://www.ups.com/upsdeveloperkit",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:19.430Z"
+    },
+    {
+      "id": "urlix::app.urlix.me",
+      "name": "Urlix",
+      "docsUrl": "https://app.urlix.me/api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:48.316Z"
+    },
+    {
+      "id": "us-presidential-election-data-by-togatech::uselection.togatech.org",
+      "name": "US Presidential Election Data by TogaTech",
+      "docsUrl": "https://uselection.togatech.org/api",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:57.399Z",
+      "status": 404,
+      "finalUrl": "https://uselection.togatech.org/api",
+      "title": "404 Not Found"
+    },
+    {
+      "id": "usagov::usa.gov",
+      "name": "USA.gov",
+      "docsUrl": "https://www.usa.gov/developer",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:48.707Z",
+      "status": 404,
+      "finalUrl": "https://www.usa.gov/developer",
+      "title": "Page not found | USAGov"
+    },
+    {
+      "id": "usgs::earthquake.usgs.gov",
+      "name": "USGS",
+      "docsUrl": "https://earthquake.usgs.gov/fdsnws/event/1",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:48.709Z"
+    },
+    {
+      "id": "usgs-earthquake-hazards-program::earthquake.usgs.gov",
+      "name": "USGS Earthquake Hazards Program",
+      "docsUrl": "https://earthquake.usgs.gov/fdsnws/event/1",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:57.574Z"
+    },
+    {
+      "id": "vadivelu-http-codes::vadivelu.anoram.com",
+      "name": "Vadivelu HTTP Codes",
+      "docsUrl": "https://vadivelu.anoram.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:57.899Z"
+    },
+    {
+      "id": "vagalume::vagalume.com.br",
+      "name": "Vagalume",
+      "docsUrl": "https://api.vagalume.com.br/docs",
+      "reason": "http_503",
+      "checkedAt": "2026-04-09T12:50:12.963Z",
+      "status": 503,
+      "finalUrl": "https://api.vagalume.com.br/docs",
+      "title": "503 Service Temporarily Unavailable"
+    },
+    {
+      "id": "vatcomplycom::vatcomply.com",
+      "name": "VATComply.com",
+      "docsUrl": "https://www.vatcomply.com/documentation",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:57.940Z",
+      "status": 404,
+      "finalUrl": "https://www.vatcomply.com/documentation",
+      "title": "Page not found &middot; GitHub Pages"
+    },
+    {
+      "id": "vedic-society::aninditabasu.github.io",
+      "name": "Vedic Society",
+      "docsUrl": "https://aninditabasu.github.io/indica/html/vs.html",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:58.021Z",
+      "status": 404,
+      "finalUrl": "https://aninditabasu.github.io/indica/html/vs.html",
+      "title": "Page not found &middot; GitHub Pages"
+    },
+    {
+      "id": "verifier::verifier.meetchopra.com",
+      "name": "Verifier",
+      "docsUrl": "https://verifier.meetchopra.com/docs#/",
+      "reason": "http_530",
+      "checkedAt": "2026-04-09T12:50:48.999Z",
+      "status": 530,
+      "finalUrl": "https://verifyright.io/",
+      "title": "Origin DNS error | verifyright.io | Cloudflare"
+    },
+    {
+      "id": "virushee::virushee.com",
+      "name": "Virushee",
+      "docsUrl": "https://api.virushee.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:58.066Z"
+    },
+    {
+      "id": "walltime::walltime.info",
+      "name": "Walltime",
+      "docsUrl": "https://walltime.info/api.html",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:58.137Z"
+    },
+    {
+      "id": "wandbox::github.com",
+      "name": "Wandbox",
+      "docsUrl": "https://github.com/melpon/wandbox/blob/master/kennel2/API.rst",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:02.005Z",
+      "status": 404,
+      "finalUrl": "https://github.com/melpon/wandbox/blob/master/kennel2/API.rst",
+      "title": "File not found · GitHub"
+    },
+    {
+      "id": "wetransfer::wetransfer.com",
+      "name": "WeTransfer",
+      "docsUrl": "https://developers.wetransfer.com/",
+      "reason": "http_503",
+      "checkedAt": "2026-04-09T12:50:50.375Z",
+      "status": 503,
+      "finalUrl": "https://developers.wetransfer.com/"
+    },
+    {
+      "id": "whatjobs::whatjobs.com",
+      "name": "WhatJobs",
+      "docsUrl": "https://www.whatjobs.com/affiliates",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:49:07.316Z"
+    },
+    {
+      "id": "world-bank::datahelpdesk.worldbank.org",
+      "name": "World Bank",
+      "docsUrl": "https://datahelpdesk.worldbank.org/knowledgebase/topics/125589",
+      "reason": "http_503",
+      "checkedAt": "2026-04-09T12:49:17.862Z",
+      "status": 503,
+      "finalUrl": "https://datahelpdesk.worldbank.org/knowledgebase/topics/125589",
+      "title": "503 Service Temporarily Unavailable"
+    },
+    {
+      "id": "xcolors::x-colors.herokuapp.com",
+      "name": "xColors",
+      "docsUrl": "https://x-colors.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:49:59.217Z",
+      "status": 404,
+      "finalUrl": "https://x-colors.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "xmath::x-math.herokuapp.com",
+      "name": "xMath",
+      "docsUrl": "https://x-math.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:52.492Z",
+      "status": 404,
+      "finalUrl": "https://x-math.herokuapp.com/",
+      "title": "No such app"
+    },
+    {
+      "id": "yahoo-finance::yahoofinanceapi.com",
+      "name": "Yahoo Finance",
+      "docsUrl": "https://www.yahoofinanceapi.com/",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:50:50.705Z"
+    },
+    {
+      "id": "yelp::yelp.com",
+      "name": "Yelp",
+      "docsUrl": "https://www.yelp.com/developers/documentation/v3",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:13.617Z",
+      "status": 404,
+      "finalUrl": "https://www.yelp.com/developers/documentation/v3",
+      "title": "Page not found (404)"
+    },
+    {
+      "id": "zapier::zapier.com",
+      "name": "Zapier",
+      "docsUrl": "https://docs.zapier.com/apis/zapier-apis",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:51:01.987Z",
+      "status": 404,
+      "finalUrl": "https://docs.zapier.com/apis/zapier-apis"
+    },
+    {
+      "id": "zoo-animals::zoo-animal-api.herokuapp.com",
+      "name": "Zoo Animals",
+      "docsUrl": "https://zoo-animal-api.herokuapp.com/",
+      "reason": "http_404",
+      "checkedAt": "2026-04-09T12:50:52.683Z",
+      "status": 404,
+      "finalUrl": "https://zoo-animal-api.herokuapp.com/",
+      "title": "No such app"
+    }
+  ]
+}

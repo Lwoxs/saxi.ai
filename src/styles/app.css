@@ -1,0 +1,371 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Sora", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --color-ink-980: #08090d;
+  --color-ink-950: #0e1015;
+  --color-ink-920: #14171d;
+  --color-ink-900: #1a1d24;
+  --color-ink-850: #20242c;
+  --color-ink-800: #2a2f38;
+  --color-ink-700: #3a414d;
+  --color-ink-600: #56606e;
+  --color-ink-500: #808b9d;
+  --color-ink-400: #aeb7c6;
+  --color-ink-300: #cfd5df;
+  --color-ink-200: #edf0f5;
+  --color-ink-100: #f8fafc;
+  --color-acid-500: #b7ff4a;
+  --color-acid-400: #d5ff84;
+  --color-acid-300: #e8ffbc;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    background: #0f1117;
+    background-color: var(--color-ink-950);
+    color: var(--color-ink-100);
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-transparent font-sans text-ink-100 antialiased;
+    background-attachment: fixed;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgb(255 255 255 / 0.02) 0,
+        rgb(255 255 255 / 0.02) 1px,
+        transparent 1px,
+        transparent 96px
+      ),
+      repeating-linear-gradient(
+        180deg,
+        rgb(255 255 255 / 0.015) 0,
+        rgb(255 255 255 / 0.015) 1px,
+        transparent 1px,
+        transparent 96px
+      );
+    opacity: 0.18;
+  }
+
+  a {
+    @apply transition-all duration-200;
+  }
+
+  ::selection {
+    background: rgb(137 194 255 / 0.32);
+  }
+}
+
+@layer components {
+  .shell {
+    @apply relative z-10 mx-auto w-full max-w-[96rem] px-4 sm:px-5 lg:px-6;
+  }
+
+  .panel,
+  .hero-panel,
+  .glass-tile,
+  .filter-panel,
+  .api-card,
+  .sidebar-panel,
+  .header-bar {
+    @apply relative overflow-hidden rounded-[1rem] border bg-ink-900;
+    border-color: rgb(74 80 92 / 0.95);
+    box-shadow:
+      4px 4px 0 rgb(0 0 0 / 0.45),
+      inset 0 1px 0 rgb(255 255 255 / 0.03);
+  }
+
+  .shell-grid {
+    @apply grid gap-6;
+  }
+
+  .site-layout {
+    @apply xl:grid xl:grid-cols-[16rem_minmax(0,1fr)] xl:gap-5;
+  }
+
+  .site-sidebar {
+    @apply min-w-0;
+  }
+
+  .site-main {
+    @apply min-w-0;
+  }
+
+  .sidebar-stack {
+    @apply space-y-3 xl:sticky xl:top-6;
+  }
+
+  .sidebar-panel {
+    @apply px-4 py-4;
+    background: #13161d;
+  }
+
+  .sidebar-eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.2em] text-acid-400;
+  }
+
+  .sidebar-heading {
+    @apply mt-2 text-xl font-black uppercase tracking-[-0.03em] text-white;
+  }
+
+  .sidebar-copy {
+    @apply mt-2 text-sm leading-6 text-ink-400;
+  }
+
+  .sidebar-section-label {
+    @apply font-mono text-[11px] uppercase tracking-[0.24em] text-ink-500;
+  }
+
+  .sidebar-list {
+    @apply mt-3 space-y-1.5;
+  }
+
+  .sidebar-list-scroll {
+    max-height: min(62vh, 42rem);
+    overflow-y: auto;
+    padding-right: 0.2rem;
+  }
+
+  .sidebar-list-scroll::-webkit-scrollbar {
+    width: 0.55rem;
+  }
+
+  .sidebar-list-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sidebar-list-scroll::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgb(74 80 92 / 0.95);
+  }
+
+  .sidebar-link {
+    @apply flex items-center justify-between gap-3 rounded-[0.8rem] border px-3 py-2.5 text-sm font-medium text-ink-300;
+    border-color: transparent;
+    background: transparent;
+  }
+
+  .sidebar-link:hover {
+    @apply text-white;
+    border-color: rgb(74 80 92 / 0.95);
+    background: rgb(27 31 38 / 1);
+  }
+
+  .sidebar-link[data-active="true"] {
+    @apply text-white;
+    border-color: rgb(183 255 74 / 0.75);
+    background: rgb(29 35 22 / 1);
+  }
+
+  .sidebar-count {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-ink-500;
+  }
+
+  .header-bar {
+    @apply px-4 py-4 sm:px-5;
+    background: #151922;
+  }
+
+  .header-search {
+    @apply flex min-w-0 items-center gap-2 rounded-[0.85rem] border px-3 py-2;
+    min-width: min(24rem, 100%);
+    border-color: rgb(74 80 92 / 0.95);
+    background: #0f1218;
+  }
+
+  .header-search-button {
+    @apply inline-flex items-center justify-center rounded-[0.6rem] border px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-ink-200;
+    border-color: rgb(74 80 92 / 0.95);
+    background: #1a1f28;
+  }
+
+  .nav-pill {
+    @apply rounded-[0.75rem] border px-4 py-2 text-sm font-semibold text-ink-300;
+    background: #10141b;
+    border-color: rgb(74 80 92 / 0.95);
+    box-shadow: none;
+  }
+
+  .nav-pill:hover {
+    @apply text-white;
+    background: #1a1f28;
+  }
+
+  .nav-pill[data-active="true"] {
+    @apply text-ink-980;
+    border-color: rgb(183 255 74 / 0.9);
+    background: rgb(183 255 74 / 1);
+  }
+
+  .hero-panel {
+    @apply px-6 py-6 sm:px-8 sm:py-8 lg:px-8 lg:py-8;
+    background: #171b22;
+  }
+
+  .hero-note {
+    @apply rounded-[0.95rem] border px-5 py-5;
+    border-color: rgb(74 80 92 / 0.95);
+    background: #10141b;
+    box-shadow: none;
+  }
+
+  .hero-stat {
+    @apply rounded-[0.9rem] border px-4 py-4;
+    border-color: rgb(74 80 92 / 0.95);
+    background: #10141b;
+  }
+
+  .hero-stat strong {
+    @apply mt-2 block text-2xl font-black text-white;
+  }
+
+  .section-title {
+    @apply text-2xl font-black uppercase tracking-[-0.03em] text-white sm:text-[2rem];
+  }
+
+  .section-copy {
+    @apply max-w-3xl text-sm leading-7 text-ink-400 sm:text-base;
+  }
+
+  .glass-tile {
+    @apply px-5 py-5 transition duration-200;
+    background: #171b22;
+  }
+
+  .glass-tile:hover {
+    transform: translateY(-2px);
+    border-color: rgb(183 255 74 / 0.5);
+    background: #1b2028;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-[0.65rem] border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-300;
+    border-color: rgb(74 80 92 / 0.95);
+    background: #11151b;
+    box-shadow: none;
+  }
+
+  .meta-label {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-acid-400;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center rounded-[0.85rem] border px-5 py-3 text-sm font-black uppercase tracking-[0.12em] text-ink-980 transition;
+    border-color: rgb(183 255 74 / 0.95);
+    background: rgb(183 255 74 / 1);
+    box-shadow: 3px 3px 0 rgb(0 0 0 / 0.35);
+  }
+
+  .button-primary:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 rgb(0 0 0 / 0.35);
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center rounded-[0.8rem] border px-4 py-2 text-sm font-semibold text-ink-200 transition;
+    border-color: rgb(74 80 92 / 0.95);
+    background: #11151b;
+    box-shadow: none;
+  }
+
+  .button-secondary:hover {
+    @apply text-white;
+    border-color: rgb(183 255 74 / 0.5);
+    background: #1a1f28;
+  }
+
+  .command-shell {
+    @apply flex items-center gap-3 rounded-[0.9rem] border px-4 py-3;
+    border-color: rgb(74 80 92 / 0.95);
+    background: #10141b;
+    box-shadow: none;
+  }
+
+  .filter-input {
+    @apply w-full rounded-[0.8rem] border px-3 py-2.5 text-sm text-ink-100 outline-none ring-0;
+    border-color: rgb(74 80 92 / 0.95);
+    background: #10141b;
+    box-shadow: none;
+  }
+
+  .filter-input::placeholder {
+    color: rgb(112 131 155 / 0.85);
+  }
+
+  .filter-input:focus {
+    border-color: rgb(183 255 74 / 0.6);
+    box-shadow: 0 0 0 1px rgb(183 255 74 / 0.3);
+  }
+
+  .filter-panel {
+    @apply space-y-3 px-4 py-4;
+    background: #151922;
+  }
+
+  .glass-callout {
+    @apply rounded-[0.9rem] border px-4 py-4 text-sm leading-7 text-ink-300;
+    border-color: rgb(74 80 92 / 0.95);
+    background: #141820;
+    box-shadow: none;
+  }
+
+  .api-card {
+    @apply flex h-full flex-col;
+    min-height: 100%;
+    background: #171b22;
+  }
+
+  .api-card-link {
+    @apply flex h-full flex-col text-inherit no-underline;
+  }
+
+  .api-card[hidden] {
+    @apply hidden;
+  }
+
+  .api-card-media {
+    @apply relative block overflow-hidden border-b;
+    border-color: rgb(74 80 92 / 0.95);
+    background: #0f1218;
+  }
+
+  .api-card-image {
+    @apply h-48 w-full object-cover object-top transition duration-300;
+    transform: scale(1.005);
+    filter: saturate(0.82) contrast(1.04);
+  }
+
+  .api-card-link:hover .api-card-image {
+    transform: scale(1.02);
+    filter: saturate(0.96) contrast(1.05);
+  }
+
+  .api-card-body {
+    @apply flex flex-1 flex-col gap-4 px-5 py-5;
+  }
+
+  .divider {
+    @apply h-px w-full;
+    background: rgb(74 80 92 / 0.95);
+  }
+
+  .eyebrow-link {
+    @apply text-ink-300 hover:text-acid-400;
+  }
+}
