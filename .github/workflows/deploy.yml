@@ -2,6 +2,12 @@ name: Deploy
 
 on:
   workflow_dispatch:
+    inputs:
+      refresh_screenshots:
+        description: Refresh stale and missing screenshots before deploy
+        required: false
+        default: false
+        type: boolean
   schedule:
     - cron: "17 3 * * *"
   push:
@@ -24,6 +30,7 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       SCREENSHOT_API_BASE_URL: ${{ secrets.SCREENSHOT_API_BASE_URL }}
       SCREENSHOT_API_TOKEN: ${{ secrets.SCREENSHOT_API_TOKEN }}
+      SHOULD_REFRESH_SCREENSHOTS: ${{ github.event_name == 'schedule' || github.event.inputs.refresh_screenshots == 'true' }}
 
     steps:
       - name: Checkout
@@ -47,12 +54,15 @@ jobs:
             screenshots-${{ runner.os }}-
 
       - name: Install Playwright Chromium
+        if: env.SHOULD_REFRESH_SCREENSHOTS == 'true'
         run: npx playwright install --with-deps chromium
 
       - name: Refresh screenshots
+        if: env.SHOULD_REFRESH_SCREENSHOTS == 'true'
         run: npm run screenshots:capture -- --concurrency=10
 
       - name: Report screenshot coverage
+        if: env.SHOULD_REFRESH_SCREENSHOTS == 'true'
         run: npm run screenshots:report
 
       - name: Validate types and Wrangler bindings
@@ -65,7 +75,7 @@ jobs:
         run: npm run verify:links
 
       - name: Save screenshot cache
-        if: always()
+        if: always() && env.SHOULD_REFRESH_SCREENSHOTS == 'true'
         uses: actions/cache/save@v4
         with:
           path: .cache/screenshots

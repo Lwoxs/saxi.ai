@@ -12,6 +12,7 @@ const CACHE_DIR = ".cache/screenshots";
 const DEFAULT_CONCURRENCY = 10;
 const DEFAULT_TIMEOUT_MS = 20_000;
 const DEFAULT_STALE_DAYS = 90;
+const CLOSE_TIMEOUT_MS = 5_000;
 const VIEWPORT = { width: 1440, height: 960 };
 
 interface Options {
@@ -77,6 +78,23 @@ async function fileExists(path: string): Promise<boolean> {
     return true;
   } catch {
     return false;
+  }
+}
+
+async function withTimeout<T>(promise: Promise<T>, timeoutMs: number, fallback: T): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+
+  try {
+    return await Promise.race([
+      promise,
+      new Promise<T>((resolve) => {
+        timer = setTimeout(() => resolve(fallback), timeoutMs);
+      })
+    ]);
+  } finally {
+    if (timer) {
+      clearTimeout(timer);
+    }
   }
 }
 
@@ -162,7 +180,13 @@ async function captureOne(browser: Browser, api: ApiEntry): Promise<boolean> {
 
     return false;
   } finally {
-    await context?.close().catch(() => undefined);
+    if (context) {
+      await withTimeout(
+        context.close().catch(() => undefined),
+        CLOSE_TIMEOUT_MS,
+        undefined
+      );
+    }
   }
 }
 
@@ -231,7 +255,11 @@ async function run(): Promise<void> {
   try {
     await Promise.all(Array.from({ length: options.concurrency }, (_, index) => worker(index + 1)));
   } finally {
-    await browser.close();
+    await withTimeout(
+      browser.close().catch(() => undefined),
+      CLOSE_TIMEOUT_MS,
+      undefined
+    );
   }
 
   console.log(
