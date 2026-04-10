@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T05:35:49.957Z",
+  "generatedAt": "2026-04-10T05:44:22.310Z",
   "entries": [
     {
       "id": "0x::0x.org",
@@ -1503,6 +1503,16 @@
       "status": 404,
       "finalUrl": "https://pastebin.com/api",
       "title": "Pastebin.com - Not Found (#404)"
+    },
+    {
+      "id": "peakmetrics::rapidapi.com",
+      "name": "PeakMetrics",
+      "docsUrl": "https://rapidapi.com/peakmetrics-peakmetrics-default/api/peakmetrics-news",
+      "reason": "soft_404",
+      "checkedAt": "2026-04-10T05:44:22.309Z",
+      "status": 200,
+      "finalUrl": "https://rapidapi.com/peakmetrics-peakmetrics-default/api/peakmetrics-news",
+      "title": "API Hub"
     },
     {
       "id": "phishdirectory::phish.directory",

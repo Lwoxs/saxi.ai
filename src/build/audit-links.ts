@@ -157,7 +157,10 @@ function classifyResponse(api: ApiEntry, response: Response, preview: string): O
   if (
     /^(404|404:|not found|page not found)|404 not found|site not found/.test(titleText) ||
     /\/404(?:[/?#]|$)|\/not-found(?:[/?#]|$)/.test(finalLower) ||
-    (!titleText && /^(404|not found|page not found)/.test(previewLead))
+    (!titleText && /^(404|not found|page not found)/.test(previewLead)) ||
+    previewText.includes("404: this page could not be found.") ||
+    previewText.includes("this page could not be found.") ||
+    previewText.includes("\"children\":\"this page could not be found.\"")
   ) {
     return {
       id: api.id,
