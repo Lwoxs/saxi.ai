@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T05:44:22.310Z",
+  "generatedAt": "2026-04-10T05:45:40.486Z",
   "entries": [
     {
       "id": "0x::0x.org",
@@ -2025,6 +2025,16 @@
       "docsUrl": "http://data.deutschebahn.com/dataset/api-fahrplan",
       "reason": "timeout",
       "checkedAt": "2026-04-09T12:50:57.686Z"
+    },
+    {
+      "id": "transport-for-philadelphia-us::www3.septa.org",
+      "name": "Transport for Philadelphia, US",
+      "docsUrl": "http://www3.septa.org/hackathon",
+      "reason": "manual_removal_http_403",
+      "checkedAt": "2026-04-10T05:45:40.484Z",
+      "status": 403,
+      "finalUrl": "https://www3.septa.org/hackathon/",
+      "title": "403 Forbidden"
     },
     {
       "id": "transportation-in-auckland-new-zealand::at.govt.nz",
