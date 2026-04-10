@@ -5,3 +5,4 @@ dist
 .claude
 .DS_Store
 data/api-link-audit-report.json
+data/api-browser-audit-report.json

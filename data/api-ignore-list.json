@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T05:45:40.486Z",
+  "generatedAt": "2026-04-10T06:51:21.651Z",
   "entries": [
     {
       "id": "0x::0x.org",
@@ -209,6 +209,16 @@
       "title": "503 Service Unavailable"
     },
     {
+      "id": "bitcambio::nova.bitcambio.com.br",
+      "name": "Bitcambio",
+      "docsUrl": "https://nova.bitcambio.com.br/api/v3/docs#a-public",
+      "reason": "browser_http_403",
+      "checkedAt": "2026-04-10T06:25:23.639Z",
+      "status": 403,
+      "finalUrl": "https://nova.bitcambio.com.br/api/v3/docs#a-public",
+      "title": "CNAME Cross-User Banned | Cloudflare"
+    },
+    {
       "id": "bitcoincharts::bitcoincharts.com",
       "name": "BitcoinCharts",
       "docsUrl": "https://bitcoincharts.com/about/exchanges",
@@ -345,6 +355,16 @@
       "checkedAt": "2026-04-09T12:49:25.552Z"
     },
     {
+      "id": "catboy::catboys.com",
+      "name": "Catboy",
+      "docsUrl": "https://catboys.com/api",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-10T06:25:31.760Z",
+      "status": 200,
+      "finalUrl": "https://www.afternic.com/forsale/catboys.com?utm_source=TDFS_DASLNC&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-daslnc_base&traffic_type=TDFS_DASLNC&traffic_id=daslnc&",
+      "title": ""
+    },
+    {
       "id": "catch-the-show::catchtheshow.herokuapp.com",
       "name": "Catch The Show",
       "docsUrl": "https://catchtheshow.herokuapp.com/api/documentation",
@@ -407,6 +427,16 @@
       "docsUrl": "https://support.clickmeter.com/hc/en-us/categories/201474986",
       "reason": "network_error",
       "checkedAt": "2026-04-09T12:50:24.393Z"
+    },
+    {
+      "id": "clico::cli.com",
+      "name": "Clico",
+      "docsUrl": "https://cli.com/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-10T06:32:45.079Z",
+      "status": 200,
+      "finalUrl": "https://cli.com/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config",
+      "title": "Loading https://www.afternic.com/forsale/cli.com?utm_source=TDFS_DASLNC&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-daslnc_base&traffic_type=TDFS_DASLNC&traffic_id=daslnc&configUrl=%2Fv3%2Fapi-docs%2Fswagger-config"
     },
     {
       "id": "cloverly::cloverly.com",
@@ -562,6 +592,16 @@
       "title": "Page not found · GitHub · GitHub"
     },
     {
+      "id": "diabetes::predictbgl.com",
+      "name": "Diabetes",
+      "docsUrl": "http://predictbgl.com/api",
+      "reason": "browser_http_403",
+      "checkedAt": "2026-04-10T06:31:37.648Z",
+      "status": 403,
+      "finalUrl": "https://predictbgl.com/api",
+      "title": ""
+    },
+    {
       "id": "district-of-columbia-open-data::opendata.dc.gov",
       "name": "District of Columbia Open Data",
       "docsUrl": "http://opendata.dc.gov/pages/using-apis",
@@ -576,6 +616,16 @@
       "docsUrl": "https://api.doge-meme.lol/docs",
       "reason": "network_error",
       "checkedAt": "2026-04-09T12:49:30.687Z"
+    },
+    {
+      "id": "dribbble::dribbble.com",
+      "name": "Dribbble",
+      "docsUrl": "http://developer.dribbble.com/v2",
+      "reason": "browser_http_403",
+      "checkedAt": "2026-04-10T06:29:38.650Z",
+      "status": 403,
+      "finalUrl": "https://developer.dribbble.com/v2",
+      "title": ""
     },
     {
       "id": "drivet-url-shortener::wiki.drivet.xyz",
@@ -871,6 +921,26 @@
       "checkedAt": "2026-04-09T12:49:36.825Z"
     },
     {
+      "id": "hearthstone::hearthstoneapi.com",
+      "name": "Hearthstone",
+      "docsUrl": "http://hearthstoneapi.com/",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-10T06:30:03.872Z",
+      "status": 200,
+      "finalUrl": "http://hearthstoneapi.com/",
+      "title": "Loading https://forsale.godaddy.com/forsale/hearthstoneapi.com?utm_source=TDFS_BINNS&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns_base&traffic_type=TDFS_BINNS&traffic_id=binns&"
+    },
+    {
+      "id": "hindi-quotes::hindi-quotes.vercel.app",
+      "name": "Hindi Quotes",
+      "docsUrl": "https://hindi-quotes.vercel.app/",
+      "reason": "browser_http_403",
+      "checkedAt": "2026-04-10T06:26:38.378Z",
+      "status": 403,
+      "finalUrl": "https://hindi-quotes.vercel.app/",
+      "title": "403: Forbidden"
+    },
+    {
       "id": "hirak-exchange-rates::rates.hirak.site",
       "name": "Hirak Exchange Rates",
       "docsUrl": "https://rates.hirak.site/",
@@ -1018,6 +1088,16 @@
       "checkedAt": "2026-04-09T12:49:39.962Z"
     },
     {
+      "id": "ip-vigilante::ipvigilante.com",
+      "name": "IP Vigilante",
+      "docsUrl": "https://www.ipvigilante.com/",
+      "reason": "parked_domain",
+      "checkedAt": "2026-04-10T06:23:43.630Z",
+      "status": 200,
+      "finalUrl": "https://www.afternic.com/forsale/www.ipvigilante.com?utm_source=TDFS_DASLNC&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-daslnc_base&traffic_type=TDFS_DASLNC&traffic_id=daslnc&",
+      "title": ""
+    },
+    {
       "id": "ip-fastcom::ip-fast.com",
       "name": "ip-fast.com",
       "docsUrl": "https://ip-fast.com/docs",
@@ -1056,6 +1136,16 @@
       "docsUrl": "https://jokes.one/api/joke",
       "reason": "network_error",
       "checkedAt": "2026-04-09T12:50:07.964Z"
+    },
+    {
+      "id": "jservice::jservice.io",
+      "name": "Jservice",
+      "docsUrl": "http://jservice.io/",
+      "reason": "javascript_redirect_shell",
+      "checkedAt": "2026-04-10T06:24:52.750Z",
+      "status": 200,
+      "finalUrl": "http://jservice.io/",
+      "title": "jservice.io"
     },
     {
       "id": "jumio::jumio.com",
@@ -1106,6 +1196,13 @@
       "docsUrl": "https://docs.kutt.it/",
       "reason": "network_error",
       "checkedAt": "2026-04-09T12:50:34.613Z"
+    },
+    {
+      "id": "land-transport-authority-datamall-singapore::datamall.lta.gov.sg",
+      "name": "Land Transport Authority DataMall, Singapore",
+      "docsUrl": "https://datamall.lta.gov.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf",
+      "reason": "browser_error",
+      "checkedAt": "2026-04-10T06:36:37.472Z"
     },
     {
       "id": "lcbo::lcboapi.com",
@@ -1675,6 +1772,16 @@
       "title": "Stoat Developers"
     },
     {
+      "id": "riddles::riddles-api.vercel.app",
+      "name": "Riddles API",
+      "docsUrl": "https://riddles-api.vercel.app/",
+      "reason": "browser_http_403",
+      "checkedAt": "2026-04-10T06:28:24.932Z",
+      "status": 403,
+      "finalUrl": "https://riddles-api.vercel.app/",
+      "title": "403: Forbidden"
+    },
+    {
       "id": "rijksmuseum::data.rijksmuseum.nl",
       "name": "Rijksmuseum",
       "docsUrl": "https://data.rijksmuseum.nl/object-metadata/api",
@@ -2210,6 +2317,16 @@
       "status": 404,
       "finalUrl": "https://github.com/melpon/wandbox/blob/master/kennel2/API.rst",
       "title": "File not found · GitHub"
+    },
+    {
+      "id": "weather-hacks::weather.livedoor.com",
+      "name": "Weather Hacks",
+      "docsUrl": "http://weather.livedoor.com/weather_hacks",
+      "reason": "browser_http_403",
+      "checkedAt": "2026-04-10T06:31:52.645Z",
+      "status": 403,
+      "finalUrl": "https://www.livedoor.com/",
+      "title": "Access Restricted - livedoor NEWS"
     },
     {
       "id": "wetransfer::wetransfer.com",
