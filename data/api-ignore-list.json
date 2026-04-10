@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-09T12:51:09.748Z",
+  "generatedAt": "2026-04-10T05:35:49.957Z",
   "entries": [
     {
       "id": "0x::0x.org",
@@ -177,6 +177,16 @@
       "checkedAt": "2026-04-09T12:50:20.885Z",
       "status": 404,
       "finalUrl": "https://www.behance.net/dev"
+    },
+    {
+      "id": "bhagavad-gita::bhagavadgitaapi.in",
+      "name": "Bhagavad Gita",
+      "docsUrl": "https://docs.bhagavadgitaapi.in/",
+      "reason": "javascript_redirect_shell",
+      "checkedAt": "2026-04-10T05:33:15.166Z",
+      "status": 200,
+      "finalUrl": "https://docs.bhagavadgitaapi.in/",
+      "title": "bhagavadgitaapi.in"
     },
     {
       "id": "bigdatacloud::bigdatacloud.com",
@@ -419,13 +429,6 @@
       "title": "Page not found · GitHub · GitHub"
     },
     {
-      "id": "coindesk::old.coindesk.com",
-      "name": "CoinDesk",
-      "docsUrl": "https://old.coindesk.com/coindesk-api",
-      "reason": "network_error",
-      "checkedAt": "2026-04-09T12:49:27.671Z"
-    },
-    {
       "id": "coindesk::coindesk.com",
       "name": "CoinDesk",
       "docsUrl": "http://www.coindesk.com/api",
@@ -434,6 +437,13 @@
       "status": 200,
       "finalUrl": "https://www.coindesk.com/api",
       "title": "404: This page could not be found."
+    },
+    {
+      "id": "coindesk::old.coindesk.com",
+      "name": "CoinDesk",
+      "docsUrl": "https://old.coindesk.com/coindesk-api",
+      "reason": "network_error",
+      "checkedAt": "2026-04-09T12:49:27.671Z"
     },
     {
       "id": "cooper-hewitt::collection.cooperhewitt.org",
@@ -568,6 +578,16 @@
       "checkedAt": "2026-04-09T12:49:30.687Z"
     },
     {
+      "id": "drivet-url-shortener::wiki.drivet.xyz",
+      "name": "Drivet URL Shortener",
+      "docsUrl": "https://wiki.drivet.xyz/en/url-shortener/add-links",
+      "reason": "javascript_redirect_shell",
+      "checkedAt": "2026-04-10T05:32:17.623Z",
+      "status": 200,
+      "finalUrl": "https://wiki.drivet.xyz/en/url-shortener/add-links",
+      "title": "Loading..."
+    },
+    {
       "id": "dummy-products::dummyproducts-api.herokuapp.com",
       "name": "Dummy Products",
       "docsUrl": "https://dummyproducts-api.herokuapp.com/",
@@ -700,14 +720,14 @@
       "checkedAt": "2026-04-09T12:49:33.353Z"
     },
     {
-      "id": "funtranslations::funtranslations.com",
-      "name": "FunTranslations",
-      "docsUrl": "https://api.funtranslations.com/",
-      "reason": "manual_removal_offline",
-      "checkedAt": "2026-04-09T15:34:00.000Z",
-      "status": 403,
-      "finalUrl": "https://api.funtranslations.com/",
-      "title": "Attention Required! | Cloudflare"
+      "id": "fun-fact::aakhilv.me",
+      "name": "Fun Fact",
+      "docsUrl": "https://api.aakhilv.me/",
+      "reason": "javascript_redirect_shell",
+      "checkedAt": "2026-04-10T05:32:20.785Z",
+      "status": 200,
+      "finalUrl": "https://api.aakhilv.me/",
+      "title": "Loading..."
     },
     {
       "id": "fun-facts::asli-fun-fact-api.herokuapp.com",
@@ -718,6 +738,16 @@
       "status": 404,
       "finalUrl": "https://asli-fun-fact-api.herokuapp.com/",
       "title": "No such app"
+    },
+    {
+      "id": "funtranslations::funtranslations.com",
+      "name": "FunTranslations",
+      "docsUrl": "https://api.funtranslations.com/",
+      "reason": "manual_removal_offline",
+      "checkedAt": "2026-04-09T15:34:00.000Z",
+      "status": 403,
+      "finalUrl": "https://api.funtranslations.com/",
+      "title": "Attention Required! | Cloudflare"
     },
     {
       "id": "gbif::gbif.org",
@@ -841,6 +871,56 @@
       "checkedAt": "2026-04-09T12:49:36.825Z"
     },
     {
+      "id": "hirak-exchange-rates::rates.hirak.site",
+      "name": "Hirak Exchange Rates",
+      "docsUrl": "https://rates.hirak.site/",
+      "reason": "javascript_redirect_shell",
+      "checkedAt": "2026-04-10T05:33:38.410Z",
+      "status": 200,
+      "finalUrl": "https://rates.hirak.site/",
+      "title": "Loading..."
+    },
+    {
+      "id": "hirak-faceapi::faceapi.hirak.site",
+      "name": "Hirak FaceAPI",
+      "docsUrl": "https://faceapi.hirak.site/",
+      "reason": "javascript_redirect_shell",
+      "checkedAt": "2026-04-10T05:31:40.390Z",
+      "status": 200,
+      "finalUrl": "https://faceapi.hirak.site/",
+      "title": "Loading..."
+    },
+    {
+      "id": "hirak-ip-to-country::iplocation.hirak.site",
+      "name": "Hirak IP to Country",
+      "docsUrl": "https://iplocation.hirak.site/",
+      "reason": "javascript_redirect_shell",
+      "checkedAt": "2026-04-10T05:33:38.519Z",
+      "status": 200,
+      "finalUrl": "https://iplocation.hirak.site/",
+      "title": "Loading..."
+    },
+    {
+      "id": "hirak-ocr::ocr.hirak.site",
+      "name": "Hirak OCR",
+      "docsUrl": "https://ocr.hirak.site/",
+      "reason": "javascript_redirect_shell",
+      "checkedAt": "2026-04-10T05:31:40.399Z",
+      "status": 200,
+      "finalUrl": "https://ocr.hirak.site/",
+      "title": "Loading..."
+    },
+    {
+      "id": "hirak-translation::translate.hirak.site",
+      "name": "Hirak Translation",
+      "docsUrl": "https://translate.hirak.site/",
+      "reason": "javascript_redirect_shell",
+      "checkedAt": "2026-04-10T05:31:40.487Z",
+      "status": 200,
+      "finalUrl": "https://translate.hirak.site/",
+      "title": "Loading..."
+    },
+    {
       "id": "hong-kong-geodata-store::geodata.gov.hk",
       "name": "Hong Kong GeoData Store",
       "docsUrl": "https://geodata.gov.hk/gs",
@@ -936,6 +1016,16 @@
       "docsUrl": "https://inspiration.goprogram.ai/docs",
       "reason": "network_error",
       "checkedAt": "2026-04-09T12:49:39.962Z"
+    },
+    {
+      "id": "ip-fastcom::ip-fast.com",
+      "name": "ip-fast.com",
+      "docsUrl": "https://ip-fast.com/docs",
+      "reason": "javascript_redirect_shell",
+      "checkedAt": "2026-04-10T05:32:28.870Z",
+      "status": 200,
+      "finalUrl": "https://ip-fast.com/docs",
+      "title": "Loading..."
     },
     {
       "id": "ipgeo::techniknews.net",
@@ -1889,18 +1979,18 @@
       "checkedAt": "2026-04-09T12:49:54.669Z"
     },
     {
-      "id": "trakt::trakt.tv",
-      "name": "Trakt",
-      "docsUrl": "https://trakt.tv/b/api-docs",
-      "reason": "timeout",
-      "checkedAt": "2026-04-09T12:50:46.756Z"
-    },
-    {
       "id": "trakt::trakt.docs.apiary.io",
       "name": "Trakt",
       "docsUrl": "https://trakt.docs.apiary.io/",
       "reason": "timeout",
       "checkedAt": "2026-04-09T12:50:46.875Z"
+    },
+    {
+      "id": "trakt::trakt.tv",
+      "name": "Trakt",
+      "docsUrl": "https://trakt.tv/b/api-docs",
+      "reason": "timeout",
+      "checkedAt": "2026-04-09T12:50:46.756Z"
     },
     {
       "id": "transport-for-budapest-hungary::bkkfutar.docs.apiary.io",

@@ -78,12 +78,34 @@ function normalizeText(value: string | undefined): string {
   return value?.toLowerCase().replace(/\s+/g, " ").trim() ?? "";
 }
 
+function isJavascriptRedirectShell(titleText: string, previewText: string): boolean {
+  const hasClientRedirect =
+    previewText.includes("window.location.replace(") ||
+    previewText.includes("window.location.href =") ||
+    previewText.includes("window.location.assign(");
+
+  if (!hasClientRedirect) {
+    return false;
+  }
+
+  const hasTrackingShellMarkers =
+    previewText.includes("fingerprintjs.load") ||
+    previewText.includes("redirect_link =") ||
+    previewText.includes("tr_uuid=") ||
+    previewText.includes("?ch=1&js=") ||
+    previewText.includes("&sid=") ||
+    previewText.includes("&fp=");
+
+  return titleText === "loading..." || hasTrackingShellMarkers;
+}
+
 function classifyResponse(api: ApiEntry, response: Response, preview: string): Omit<AuditResult, "checkedAt"> {
   const title = extractTitle(preview);
   const finalUrl = response.url || api.docsUrl;
   const contentType = response.headers.get("content-type") ?? undefined;
   const titleText = normalizeText(title);
   const previewLead = normalizeText(preview.slice(0, 1200));
+  const previewText = normalizeText(preview.slice(0, PREVIEW_LIMIT_BYTES));
   const finalLower = normalizeText(finalUrl);
   const finalHost = new URL(finalUrl).hostname.toLowerCase();
 
@@ -143,6 +165,20 @@ function classifyResponse(api: ApiEntry, response: Response, preview: string): O
       docsUrl: api.docsUrl,
       classification: "ignore",
       reason: "soft_404",
+      status: response.status,
+      finalUrl,
+      title,
+      contentType
+    };
+  }
+
+  if (isJavascriptRedirectShell(titleText, previewText)) {
+    return {
+      id: api.id,
+      name: api.name,
+      docsUrl: api.docsUrl,
+      classification: "ignore",
+      reason: "javascript_redirect_shell",
       status: response.status,
       finalUrl,
       title,
