@@ -1,4 +1,4 @@
-<!-- Please read the rules before creating a PR: https://github.com/alexander-schneider/saxi.ai/blob/main/data/community-apis/README.md -->
+Please read the rules before creating a PR: https://github.com/alexander-schneider/saxi.ai/blob/main/data/community-apis/README.md
 
 ## Add your API
 
