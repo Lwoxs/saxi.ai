@@ -9,7 +9,6 @@
   "https": true,
   "free": true,
   "addedAt": "2026-04-11",
-  "protocol": "REST",
   "openapiUrl": "",
   "notes": "Firecrawl has public API documentation, a free plan, and agent-focused endpoints for scrape, crawl, map, search, browser sessions, and autonomous extraction."
 }
