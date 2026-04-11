@@ -1,0 +1,14 @@
+{
+  "name": "StockAlert.pro API",
+  "description": "REST API for stock price alerts, watchlists, and real-time webhook notifications.",
+  "docsUrl": "https://stockalert.pro/api/docs",
+  "websiteUrl": "https://stockalert.pro/api",
+  "categories": ["Finance", "Finance & Economics"],
+  "auth": "API Key",
+  "cors": "Unknown",
+  "https": true,
+  "free": true,
+  "protocol": "REST",
+  "openapiUrl": "https://stockalert.pro/openapi.yaml",
+  "notes": "StockAlert.pro provides public API documentation, a free API key tier, REST endpoints, webhooks, and an OpenAPI specification."
+}
