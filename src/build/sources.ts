@@ -1,8 +1,34 @@
+import { readdir, readFile } from "node:fs/promises";
+import { resolve } from "node:path";
+
 import { parse as parseYaml } from "yaml";
 
 import { SOURCE_DEFINITIONS } from "./constants.js";
 import type { SourceDefinition, SourceRecord } from "./types.js";
 import { normalizeUrl, parseMarkdownLink, safeUrl, splitMarkdownTableRow, stripMarkdown } from "./utils.js";
+
+const COMMUNITY_APIS_DIR = resolve(process.cwd(), "data", "community-apis");
+const COMMUNITY_SOURCE = {
+  id: "saxi-community",
+  label: "saxi.ai community submissions",
+  repoUrl: "https://github.com/alexander-schneider/saxi.ai/tree/main/data/community-apis",
+  license: "Submitted by pull request"
+};
+
+interface CommunityApiRecord {
+  name?: unknown;
+  description?: unknown;
+  docsUrl?: unknown;
+  websiteUrl?: unknown;
+  categories?: unknown;
+  auth?: unknown;
+  cors?: unknown;
+  https?: unknown;
+  free?: unknown;
+  protocol?: unknown;
+  openapiUrl?: unknown;
+  openapiType?: unknown;
+}
 
 async function fetchSourceText(source: SourceDefinition): Promise<string> {
   const response = await fetch(source.dataUrl, {
@@ -190,6 +216,94 @@ function parseToolsCollectionCatalog(source: SourceDefinition, yamlText: string)
   return records;
 }
 
+function normalizeCommunityRecord(entry: unknown): SourceRecord | null {
+  if (!entry || typeof entry !== "object") {
+    return null;
+  }
+
+  const candidate = entry as CommunityApiRecord;
+  const name = typeof candidate.name === "string" ? candidate.name.trim() : "";
+  const description = typeof candidate.description === "string" ? stripMarkdown(candidate.description).trim() : "";
+  const docsUrl = typeof candidate.docsUrl === "string" ? safeUrl(candidate.docsUrl) : null;
+  const websiteUrl = typeof candidate.websiteUrl === "string" ? safeUrl(candidate.websiteUrl) : docsUrl;
+  const categories = Array.isArray(candidate.categories)
+    ? candidate.categories.filter((value): value is string => typeof value === "string" && value.trim().length > 0)
+    : [];
+
+  if (!name || !description || !docsUrl || categories.length === 0 || candidate.free !== true) {
+    return null;
+  }
+
+  const record: SourceRecord = {
+    sourceId: COMMUNITY_SOURCE.id,
+    sourceLabel: COMMUNITY_SOURCE.label,
+    sourceRepo: COMMUNITY_SOURCE.repoUrl,
+    sourceLicense: COMMUNITY_SOURCE.license,
+    name,
+    description,
+    docsUrl,
+    websiteUrl: websiteUrl ?? docsUrl,
+    categories,
+    isFree: true
+  };
+
+  if (typeof candidate.auth === "string") {
+    record.authRaw = candidate.auth;
+  }
+
+  if (typeof candidate.cors === "string") {
+    record.corsRaw = candidate.cors;
+  }
+
+  if (typeof candidate.https === "boolean") {
+    record.https = candidate.https;
+  }
+
+  if (typeof candidate.protocol === "string") {
+    record.protocolRaw = candidate.protocol;
+  }
+
+  if (typeof candidate.openapiUrl === "string" && candidate.openapiUrl.trim().length > 0) {
+    const specificationUrl = safeUrl(candidate.openapiUrl);
+    if (specificationUrl) {
+      record.specificationUrl = specificationUrl;
+      record.specificationType = typeof candidate.openapiType === "string" ? candidate.openapiType : "OpenAPI";
+    }
+  }
+
+  return record;
+}
+
+async function loadCommunityRecords(): Promise<SourceRecord[]> {
+  let entries;
+  try {
+    entries = await readdir(COMMUNITY_APIS_DIR, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+
+  const records: SourceRecord[] = [];
+
+  for (const entry of entries) {
+    if (!entry.isFile() || !entry.name.endsWith(".json") || entry.name.startsWith("_")) {
+      continue;
+    }
+
+    const raw = await readFile(resolve(COMMUNITY_APIS_DIR, entry.name), "utf8");
+    const parsed = JSON.parse(raw) as unknown;
+    const values = Array.isArray(parsed) ? parsed : [parsed];
+
+    for (const value of values) {
+      const record = normalizeCommunityRecord(value);
+      if (record) {
+        records.push(record);
+      }
+    }
+  }
+
+  return records;
+}
+
 export async function loadSourceRecords(): Promise<SourceRecord[]> {
   const sourceTexts = await Promise.all(
     SOURCE_DEFINITIONS.map(async (source) => ({
@@ -208,6 +322,8 @@ export async function loadSourceRecords(): Promise<SourceRecord[]> {
 
     records.push(...parseMarkdownCatalog(source, text));
   }
+
+  records.push(...await loadCommunityRecords());
 
   return records;
 }

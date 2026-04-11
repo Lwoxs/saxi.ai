@@ -41,6 +41,8 @@ const SIDEBAR_LINKS = [
   { href: "/category/", label: "Sections" }
 ];
 
+const ADD_API_GITHUB_URL = createGitHubAddApiUrl();
+
 export function renderDocument(definition: PageDefinition): string {
   const canonicalUrl = `${SITE_ORIGIN}${definition.path}`;
   const title = `${definition.title} | ${SITE_NAME}`;
@@ -152,6 +154,32 @@ function renderFooter(): string {
   </footer>`;
 }
 
+function createGitHubAddApiUrl(): string {
+  const template = JSON.stringify(
+    {
+      name: "Example API",
+      description: "One clear sentence describing what the API does.",
+      docsUrl: "https://example.com/docs",
+      websiteUrl: "https://example.com",
+      categories: ["Machine Learning"],
+      auth: "API Key",
+      cors: "Unknown",
+      https: true,
+      free: true,
+      openapiUrl: "",
+      notes: "Why should this API be listed on saxi.ai?"
+    },
+    null,
+    2
+  );
+  const params = new URLSearchParams({
+    filename: "your-api.json",
+    value: template
+  });
+
+  return `https://github.com/alexander-schneider/saxi.ai/new/main/data/community-apis?${params.toString()}`;
+}
+
 function renderSidebar(site: SiteData, pathname: string): string {
   const browseLinks = SIDEBAR_LINKS.map((item) => {
     const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
@@ -175,6 +203,10 @@ function renderSidebar(site: SiteData, pathname: string): string {
     <section class="sidebar-panel">
       <p class="sidebar-section-label">Navigate</p>
       <div class="sidebar-list">${browseLinks}</div>
+      <a class="sidebar-add-api" href="${escapeHtml(ADD_API_GITHUB_URL)}" target="_blank" rel="noopener noreferrer">
+        <span>Add your API</span>
+        <span aria-hidden="true">&nearr;</span>
+      </a>
     </section>
     <section class="sidebar-panel">
       <div class="flex items-center justify-between gap-3">
