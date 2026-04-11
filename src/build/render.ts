@@ -146,9 +146,9 @@ function renderFooter(): string {
         </div>
         <div class="space-y-2 lg:text-right">
           <p class="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-500">Sources</p>
-        <p><a class="eyebrow-link" href="https://github.com/public-api-lists/public-api-lists">Public API Lists</a></p>
-        <p><a class="eyebrow-link" href="https://github.com/public-apis/public-apis">public-apis/public-apis</a></p>
-        <p><a class="eyebrow-link" href="https://github.com/tools-collection/apis-collection">tools-collection/apis-collection</a></p>
+        <p><a class="eyebrow-link" href="https://github.com/public-api-lists/public-api-lists" target="_blank" rel="noopener noreferrer">Public API Lists</a></p>
+        <p><a class="eyebrow-link" href="https://github.com/public-apis/public-apis" target="_blank" rel="noopener noreferrer">public-apis/public-apis</a></p>
+        <p><a class="eyebrow-link" href="https://github.com/tools-collection/apis-collection" target="_blank" rel="noopener noreferrer">tools-collection/apis-collection</a></p>
         </div>
       </div>
     </div>
