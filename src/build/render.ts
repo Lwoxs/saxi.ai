@@ -167,6 +167,7 @@ function createGitHubAddApiUrl(): string {
       cors: "Unknown",
       https: true,
       free: true,
+      addedAt: new Date().toISOString().slice(0, 10),
       openapiUrl: "",
       notes: "Why should this API be listed on saxi.ai?"
     },
@@ -635,12 +636,30 @@ export function renderHomePage(site: SiteData): string {
           name: api.name,
           url: api.docsUrl
         }))
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Newest Free APIs",
+        numberOfItems: Math.min(site.newestApis.length, 6),
+        itemListElement: site.newestApis.slice(0, 6).map((api, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: api.name,
+          url: api.docsUrl
+        }))
       }
     ],
     sidebar: renderSidebar(site, "/"),
     body: [
       renderSearchHero(site),
       renderSponsoredBanner(),
+      site.newestApis.length > 0
+        ? `<section class="space-y-5">
+          ${renderSectionTitle("Newest APIs", "Recently added community submissions with public docs, free access, and validation checks already attached.")}
+          ${renderApiGrid(site.newestApis.slice(0, 6))}
+        </section>`
+        : "",
       `<section class="space-y-5">
         ${renderSectionTitle("Featured APIs", "The most useful free APIs for building with AI, sorted by documentation quality, protocol support, and real-world utility.", "/apis/")}
         ${renderApiGrid(site.featuredApis.slice(0, 9))}
@@ -1138,7 +1157,8 @@ export function renderSearchIndex(site: SiteData): string {
         domain: api.domain,
         searchText: api.searchText,
         weight: api.weight,
-        freshnessScore: api.freshnessScore
+        freshnessScore: api.freshnessScore,
+        addedAt: api.addedAt
       }))
     },
     null,
@@ -1259,6 +1279,7 @@ export function renderPublicApis(site: SiteData): string {
         sourceLabels: api.sourceLabels,
         sourceRepos: api.sourceRepos,
         sourceLicenses: api.sourceLicenses,
+        addedAt: api.addedAt,
         indexedAt: site.generatedAt
       };
     })

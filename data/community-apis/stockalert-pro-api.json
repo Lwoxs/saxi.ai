@@ -8,6 +8,7 @@
   "cors": "Unknown",
   "https": true,
   "free": true,
+  "addedAt": "2026-04-11",
   "protocol": "REST",
   "openapiUrl": "https://stockalert.pro/openapi.yaml",
   "notes": "StockAlert.pro provides public API documentation, a free API key tier, REST endpoints, webhooks, and an OpenAPI specification."

@@ -26,6 +26,7 @@ interface CommunityApiRecord {
   cors?: unknown;
   https?: unknown;
   free?: unknown;
+  addedAt?: unknown;
   protocol?: unknown;
   openapiUrl?: unknown;
   openapiType?: unknown;
@@ -255,6 +256,10 @@ function normalizeCommunityRecord(entry: unknown): SourceRecord | null {
     categories,
     isFree: true
   };
+
+  if (typeof candidate.addedAt === "string" && candidate.addedAt.trim().length > 0) {
+    record.addedAt = candidate.addedAt.trim();
+  }
 
   if (typeof candidate.auth === "string") {
     record.authRaw = candidate.auth;

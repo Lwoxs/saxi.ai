@@ -378,6 +378,10 @@ export function normalizeRecords(records: SourceRecord[]): ApiEntry[] {
         freshnessScore: 0
       };
 
+      if (record.addedAt) {
+        api.addedAt = record.addedAt;
+      }
+
       merged.set(key, api);
       continue;
     }
@@ -400,6 +404,10 @@ export function normalizeRecords(records: SourceRecord[]): ApiEntry[] {
     existing.sourceRepos = unique([...existing.sourceRepos, record.sourceRepo]).sort(compareStrings);
     existing.sourceLicenses = unique([...existing.sourceLicenses, record.sourceLicense]).sort(compareStrings);
     existing.sourceLabels = unique([...existing.sourceLabels, record.sourceLabel]).sort(compareStrings);
+    const addedAt = newestIsoDate(existing.addedAt, record.addedAt);
+    if (addedAt) {
+      existing.addedAt = addedAt;
+    }
     existing.capabilities = unique([
       ...existing.capabilities,
       ...inferCapabilities(record.name, record.description, record.categories)
@@ -474,6 +482,18 @@ function joinReadable(values: string[]): string {
   }
 
   return `${values.slice(0, -1).join(", ")}, and ${values.at(-1)}`;
+}
+
+function newestIsoDate(left?: string, right?: string): string | undefined {
+  if (!left) {
+    return right;
+  }
+
+  if (!right) {
+    return left;
+  }
+
+  return Date.parse(right) > Date.parse(left) ? right : left;
 }
 
 function authSummary(apis: ApiEntry[]): string {
@@ -609,11 +629,15 @@ export function buildSiteData(apis: ApiEntry[], generatedAt: string): SiteData {
     capabilities: capabilities.map((capability) => capability.title),
     authTypes: unique(apis.map((api) => api.authType)).sort(compareStrings)
   };
+  const newestApis = apis
+    .filter((api) => Boolean(api.addedAt))
+    .sort((left, right) => Date.parse(right.addedAt ?? "") - Date.parse(left.addedAt ?? "") || compareStrings(left.name, right.name));
 
   return {
     generatedAt,
     apis,
     featuredApis: apis.slice(0, PAGE_SIZE),
+    newestApis,
     categories,
     topics,
     capabilities,

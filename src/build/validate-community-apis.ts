@@ -9,6 +9,7 @@ const ALLOWED_AUTH_TYPES = new Set(["No Auth", "API Key", "OAuth", "Basic Auth",
 const ALLOWED_CORS_VALUES = new Set(["Yes", "No", "Unknown"]);
 const ALLOWED_PROTOCOLS = new Set(["REST", "GraphQL", "WebSocket", "gRPC"]);
 const FILENAME_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*\.json$/;
+const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 const PLACEHOLDER_FILENAMES = new Set(["replace-with-api-name.json", "your-api.json"]);
 
 interface ValidationIssue {
@@ -104,6 +105,11 @@ function validateCommunityApi(file: string, record: unknown): ValidationIssue[] 
 
   if (record.free !== true) {
     issues.push({ file, message: "`free` is required and must be true. Paid-only APIs are not accepted." });
+  }
+
+  const addedAt = stringField(record, "addedAt");
+  if (addedAt && (!DATE_PATTERN.test(addedAt) || Number.isNaN(Date.parse(addedAt)))) {
+    issues.push({ file, message: "`addedAt`, when set, must use YYYY-MM-DD format." });
   }
 
   const categories = record.categories;

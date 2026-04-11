@@ -13,7 +13,7 @@ The "Add your API" button on saxi.ai opens GitHub's new-file editor, not the fin
 
 Only submit APIs that have public documentation and a free public plan or free public access.
 
-Required JSON shape:
+Submission JSON shape:
 
 ```json
 {
@@ -26,6 +26,7 @@ Required JSON shape:
   "cors": "Unknown",
   "https": true,
   "free": true,
+  "addedAt": "YYYY-MM-DD",
   "openapiUrl": "",
   "notes": "Why should this API be listed on saxi.ai?"
 }
@@ -41,6 +42,7 @@ Review rules:
 - Use only categories from the allowed list below.
 - `auth` must be one of `No Auth`, `API Key`, `OAuth`, `Basic Auth`, or `Unknown`.
 - `cors` must be one of `Yes`, `No`, or `Unknown`.
+- `addedAt` is optional; when set, use `YYYY-MM-DD`.
 - `notes` must explain why the API should be listed.
 - Pull requests run an automatic validation check for required fields, allowed categories, URL format, and filename format.
 

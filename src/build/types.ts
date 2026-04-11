@@ -22,6 +22,7 @@ export interface SourceRecord {
   https?: boolean;
   corsRaw?: string;
   isFree: boolean;
+  addedAt?: string;
   protocolRaw?: string;
   specificationUrl?: string;
   specificationType?: string;
@@ -53,6 +54,7 @@ export interface ApiEntry {
   searchText: string;
   weight: number;
   freshnessScore: number;
+  addedAt?: string;
 }
 
 export interface TaxonomyPage {
@@ -86,6 +88,7 @@ export interface SiteData {
   generatedAt: string;
   apis: ApiEntry[];
   featuredApis: ApiEntry[];
+  newestApis: ApiEntry[];
   categories: TaxonomyPage[];
   topics: TaxonomyPage[];
   capabilities: TaxonomyPage[];

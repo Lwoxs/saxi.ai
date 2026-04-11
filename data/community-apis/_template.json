@@ -8,6 +8,7 @@
   "cors": "Unknown",
   "https": true,
   "free": true,
+  "addedAt": "YYYY-MM-DD",
   "openapiUrl": "",
   "notes": "Why should this API be listed on saxi.ai?"
 }

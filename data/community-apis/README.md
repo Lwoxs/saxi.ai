@@ -10,7 +10,7 @@ Use a lowercase kebab-case filename, for example:
 my-example-api.json
 ```
 
-Required fields:
+Submission JSON shape:
 
 ```json
 {
@@ -23,6 +23,7 @@ Required fields:
   "cors": "Unknown",
   "https": true,
   "free": true,
+  "addedAt": "YYYY-MM-DD",
   "openapiUrl": "",
   "notes": "Why should this API be listed on saxi.ai?"
 }
@@ -38,6 +39,7 @@ Rules:
 - Use only categories from the allowed list below.
 - `auth` must be one of `No Auth`, `API Key`, `OAuth`, `Basic Auth`, or `Unknown`.
 - `cors` must be one of `Yes`, `No`, or `Unknown`.
+- `addedAt` is optional; when set, use `YYYY-MM-DD`.
 - `notes` must explain why the API should be listed.
 - Pull requests run an automatic validation check for required fields, allowed categories, URL format, and filename format.
 
