@@ -19,7 +19,7 @@ Required JSON shape:
   "description": "One clear sentence describing what the API does.",
   "docsUrl": "https://example.com/docs",
   "websiteUrl": "https://example.com",
-  "categories": ["Machine Learning"],
+  "categories": ["Development"],
   "auth": "API Key",
   "cors": "Unknown",
   "https": true,
@@ -35,4 +35,69 @@ Review rules:
 - The docs URL must be reachable without login.
 - Paid-only APIs, private APIs, parked domains, and affiliate-only listings will be rejected.
 - Keep the description factual and short.
+- Use only categories from the allowed list below.
 
+Allowed categories:
+
+- Animals
+- Anime
+- Anti-Malware
+- Art & Design
+- Authentication & Authorization
+- Blockchain
+- Books
+- Business
+- Calendar
+- Chats & Messaging
+- Cloud Storage & File Sharing
+- Commerce
+- Continuous Integration
+- Cryptocurrency
+- Currency Exchange
+- Data Validation
+- Development
+- Dictionaries
+- Disasters
+- Documents & Productivity
+- Education
+- Email
+- Email & SMS
+- Entertainment
+- Environment
+- Events
+- Finance
+- Finance & Economics
+- Food & Drinks
+- Games & Comics
+- Geocoding
+- Government
+- Health
+- Jobs
+- Machine Learning
+- Maps & Geo
+- Marketing & SEO
+- Music
+- Music & Audio
+- News
+- Open Data
+- Open Source Projects
+- Patent
+- Payments
+- Personality
+- Phone
+- Photography
+- Programming
+- Project Management
+- Science & Math
+- Search
+- Shopping
+- Social
+- Sports & Fitness
+- Test Data
+- Text Analysis
+- Tracking
+- Transportation
+- URL Shorteners
+- Video
+- Voice
+- Weather

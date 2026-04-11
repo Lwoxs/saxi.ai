@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 import { parse as parseYaml } from "yaml";
 
-import { SOURCE_DEFINITIONS } from "./constants.js";
+import { COMMUNITY_API_CATEGORIES, SOURCE_DEFINITIONS } from "./constants.js";
 import type { SourceDefinition, SourceRecord } from "./types.js";
 import { normalizeUrl, parseMarkdownLink, safeUrl, splitMarkdownTableRow, stripMarkdown } from "./utils.js";
 
@@ -14,6 +14,7 @@ const COMMUNITY_SOURCE = {
   repoUrl: "https://github.com/alexander-schneider/saxi.ai/tree/main/data/community-apis",
   license: "Submitted by pull request"
 };
+const COMMUNITY_API_CATEGORY_SET = new Set<string>(COMMUNITY_API_CATEGORIES);
 
 interface CommunityApiRecord {
   name?: unknown;
@@ -232,6 +233,14 @@ function normalizeCommunityRecord(entry: unknown): SourceRecord | null {
 
   if (!name || !description || !docsUrl || categories.length === 0 || candidate.free !== true) {
     return null;
+  }
+
+  const invalidCategories = categories.filter((category) => !COMMUNITY_API_CATEGORY_SET.has(category));
+  if (invalidCategories.length > 0) {
+    throw new Error(
+      `${name} uses invalid community API category values: ${invalidCategories.join(", ")}. ` +
+        `Use one or more categories from data/community-apis/README.md.`
+    );
   }
 
   const record: SourceRecord = {

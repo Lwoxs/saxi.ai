@@ -161,7 +161,7 @@ function createGitHubAddApiUrl(): string {
       description: "One clear sentence describing what the API does.",
       docsUrl: "https://example.com/docs",
       websiteUrl: "https://example.com",
-      categories: ["Machine Learning"],
+      categories: ["Development"],
       auth: "API Key",
       cors: "Unknown",
       https: true,

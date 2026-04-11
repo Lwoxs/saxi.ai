@@ -7,7 +7,7 @@ Thanks for contributing to saxi.ai. Please fill this out so the API can be revie
 - Name:
 - Docs URL:
 - Website URL:
-- Category:
+- Category, choose from `data/community-apis/README.md`:
 - Auth type: No Auth / API Key / OAuth / Unknown
 - CORS support: Yes / No / Unknown
 - HTTPS: Yes / No
@@ -20,8 +20,8 @@ Thanks for contributing to saxi.ai. Please fill this out so the API can be revie
 - [ ] The docs URL is public and reachable without logging in.
 - [ ] The API is not paid-only, private, parked, or an affiliate-only listing.
 - [ ] The description is factual and not marketing copy.
+- [ ] The category value is copied from the allowed list in `data/community-apis/README.md`.
 
 ## Notes
 
 Anything the reviewer should know:
-
