@@ -9,7 +9,6 @@
   "https": true,
   "free": true,
   "addedAt": "2026-04-11",
-  "protocol": "REST",
   "openapiUrl": "",
   "notes": "Tavily provides public API documentation, a free developer plan, and agent-oriented search, extract, crawl, and research endpoints."
 }
