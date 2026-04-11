@@ -11,6 +11,7 @@ import type { ApiEntry } from "./types.js";
 
 const CACHE_DIR = ".cache/screenshots";
 const DEFAULT_CONCURRENCY = 10;
+const DEFAULT_LIMIT = 60;
 const DEFAULT_TIMEOUT_MS = 20_000;
 const DEFAULT_STALE_DAYS = 90;
 const CLOSE_TIMEOUT_MS = 5_000;
@@ -57,7 +58,7 @@ function parseArgs(argv: string[]): Options {
 
   return {
     concurrency: Math.max(1, Number(values.get("concurrency") ?? DEFAULT_CONCURRENCY)),
-    limit: values.has("limit") ? Math.max(1, Number(values.get("limit"))) : null,
+    limit: Math.max(1, Number(values.get("limit") ?? DEFAULT_LIMIT)),
     staleDays: Math.max(1, Number(values.get("stale-days") ?? DEFAULT_STALE_DAYS)),
     force: flags.has("force"),
     slugs: values.has("slugs")

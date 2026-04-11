@@ -62,7 +62,7 @@ jobs:
 
       - name: Refresh screenshots
         if: env.SHOULD_REFRESH_SCREENSHOTS == 'true'
-        run: npm run screenshots:capture -- --concurrency=10
+        run: npm run screenshots:capture -- --concurrency=5 --limit=60 --stale-days=90
 
       - name: Report screenshot coverage
         if: env.SHOULD_REFRESH_SCREENSHOTS == 'true'

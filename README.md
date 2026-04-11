@@ -38,7 +38,7 @@ V1 is intentionally simple:
 - `npm run cf:typegen` regenerates `worker-configuration.d.ts`
 - `npm run dev` builds the site, then starts Wrangler local development
 - `npm run audit:links` audits all target docs URLs with 10 parallel workers and refreshes the ignore list
-- `npm run screenshots:capture` captures real screenshots into `.cache/screenshots` using Playwright
+- `npm run screenshots:capture` captures up to 60 missing or stale real screenshots into `.cache/screenshots` using Playwright
 
 ## Screenshots
 
@@ -53,10 +53,10 @@ If remote screenshot capture is unavailable, the build does not fail.
 Recommended production path:
 
 - run `npm run audit:links` first, so dead targets land in `data/api-ignore-list.json`
-- run `npm run screenshots:capture -- --concurrency=10`
+- run `npm run screenshots:capture -- --concurrency=5 --limit=60 --stale-days=90`
 - then run `npm run build`
 
-The deploy workflow restores and saves `.cache/screenshots`, installs Chromium, refreshes missing screenshots plus screenshots older than 90 days, and then deploys.
+The deploy workflow restores and saves `.cache/screenshots`, installs Chromium, refreshes a bounded batch of up to 60 missing screenshots plus screenshots older than 90 days, and then deploys.
 
 ## Deploy
 
