@@ -1,0 +1,14 @@
+{
+  "name": "Tavily API",
+  "description": "Search, extract, crawl, and research API built for AI agents and retrieval workflows.",
+  "docsUrl": "https://docs.tavily.com/welcome",
+  "websiteUrl": "https://www.tavily.com/",
+  "categories": ["Search", "Machine Learning", "Development"],
+  "auth": "API Key",
+  "cors": "Unknown",
+  "https": true,
+  "free": true,
+  "addedAt": "2026-04-11",
+  "openapiUrl": "",
+  "notes": "Tavily provides public API documentation, a free developer plan, and agent-oriented search, extract, crawl, and research endpoints."
+}
