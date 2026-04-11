@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate community API submissions
+        run: npm run validate:community-apis
+
       - name: Validate types and Wrangler bindings
         run: npm run check
 

@@ -20,6 +20,7 @@
     "screenshots:capture": "tsx src/build/capture-screenshots.ts",
     "screenshots:report": "tsx src/build/report-screenshots.ts",
     "typecheck": "tsc --noEmit",
+    "validate:community-apis": "tsx src/build/validate-community-apis.ts",
     "verify:links": "node ./src/build/verify-links.mjs"
   },
   "devDependencies": {

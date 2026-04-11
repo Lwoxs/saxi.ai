@@ -12,10 +12,12 @@ Thanks for contributing to saxi.ai. Please fill this out so the API can be revie
 - CORS support: Yes / No / Unknown
 - HTTPS: Yes / No
 - OpenAPI or Swagger URL, if available:
+- Notes: why should this API be listed?
 
 ## Checklist
 
 - [ ] I added one JSON file under `data/community-apis/`.
+- [ ] The file name is lowercase kebab-case, for example `my-example-api.json`.
 - [ ] The API has a free public plan or free public access.
 - [ ] The docs URL is public and reachable without logging in.
 - [ ] The API is not paid-only, private, parked, or an affiliate-only listing.

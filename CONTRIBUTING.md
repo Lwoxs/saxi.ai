@@ -36,6 +36,10 @@ Review rules:
 - Paid-only APIs, private APIs, parked domains, and affiliate-only listings will be rejected.
 - Keep the description factual and short.
 - Use only categories from the allowed list below.
+- `auth` must be one of `No Auth`, `API Key`, `OAuth`, `Basic Auth`, or `Unknown`.
+- `cors` must be one of `Yes`, `No`, or `Unknown`.
+- `notes` must explain why the API should be listed.
+- Pull requests run an automatic validation check for required fields, allowed categories, URL format, and filename format.
 
 Allowed categories:
 
