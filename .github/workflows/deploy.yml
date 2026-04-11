@@ -8,6 +8,11 @@ on:
         required: false
         default: false
         type: boolean
+      screenshot_slugs:
+        description: Optional comma-separated API slugs to refresh
+        required: false
+        default: ""
+        type: string
   schedule:
     - cron: "17 3 * * *"
   push:
@@ -30,6 +35,7 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       SCREENSHOT_API_BASE_URL: ${{ secrets.SCREENSHOT_API_BASE_URL }}
       SCREENSHOT_API_TOKEN: ${{ secrets.SCREENSHOT_API_TOKEN }}
+      SCREENSHOT_SLUGS: ${{ github.event.inputs.screenshot_slugs || '' }}
       SHOULD_REFRESH_SCREENSHOTS: ${{ github.event_name == 'schedule' || github.event.inputs.refresh_screenshots == 'true' }}
 
     steps:
@@ -62,7 +68,12 @@ jobs:
 
       - name: Refresh screenshots
         if: env.SHOULD_REFRESH_SCREENSHOTS == 'true'
-        run: npm run screenshots:capture -- --concurrency=5 --limit=60 --stale-days=90
+        run: |
+          args=(--concurrency=5 --limit=60 --stale-days=90)
+          if [ -n "$SCREENSHOT_SLUGS" ]; then
+            args+=(--slugs="$SCREENSHOT_SLUGS")
+          fi
+          npm run screenshots:capture -- "${args[@]}"
 
       - name: Report screenshot coverage
         if: env.SHOULD_REFRESH_SCREENSHOTS == 'true'
