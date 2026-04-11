@@ -5,3 +5,8 @@ await cp(
   new URL("../client/app.js", import.meta.url),
   new URL("../../dist/assets/app.js", import.meta.url)
 );
+await cp(
+  new URL("../assets/fonts/", import.meta.url),
+  new URL("../../dist/assets/fonts/", import.meta.url),
+  { recursive: true }
+);
