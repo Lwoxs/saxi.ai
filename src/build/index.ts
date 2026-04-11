@@ -5,6 +5,7 @@ import { PAGE_SIZE } from "./constants.js";
 import { applyIgnoreList, loadIgnoreList } from "./ignore-list.js";
 import { buildSiteData, normalizeRecords } from "./normalize.js";
 import {
+  renderAddApiPage,
   renderApisArchivePage,
   renderApisLandingPage,
   renderApiManifest,
@@ -98,6 +99,7 @@ async function buildSite(): Promise<void> {
       count: collection.apis.length
     }))
   ));
+  await writeOutputFile("add-api/index.html", renderAddApiPage(site));
   await writeOutputFile("contact/index.html", renderContactPage(site));
   await writeOutputFile("404.html", renderNotFoundPage());
   await writeOutputFile("favicon.svg", renderFaviconSvg());

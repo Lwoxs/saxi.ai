@@ -20,6 +20,7 @@ Thanks for contributing to saxi.ai. Please fill this out so the API can be revie
 
 - [ ] I added one JSON file under `data/community-apis/`.
 - [ ] The file name is lowercase kebab-case, for example `my-example-api.json`.
+- [ ] I replaced every placeholder value from the template.
 - [ ] The API has a free public plan or free public access.
 - [ ] The docs URL is public and reachable without logging in.
 - [ ] The API is not paid-only, private, parked, or an affiliate-only listing.

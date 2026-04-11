@@ -124,6 +124,7 @@ function renderHeader(): string {
       <a href="/collections/" class="nav-pill whitespace-nowrap">Collections</a>
       <a href="/category/" class="nav-pill whitespace-nowrap">Sections</a>
       <a href="/topic/" class="nav-pill whitespace-nowrap">Categories</a>
+      <a href="/add-api/" class="nav-pill whitespace-nowrap">Add API</a>
     </nav>
   </header>`;
 }
@@ -173,7 +174,7 @@ function createGitHubAddApiUrl(): string {
     2
   );
   const params = new URLSearchParams({
-    filename: "your-api.json",
+    filename: "replace-with-api-name.json",
     value: template
   });
 
@@ -203,9 +204,9 @@ function renderSidebar(site: SiteData, pathname: string): string {
     <section class="sidebar-panel">
       <p class="sidebar-section-label">Navigate</p>
       <div class="sidebar-list">${browseLinks}</div>
-      <a class="sidebar-add-api" href="${escapeHtml(ADD_API_GITHUB_URL)}" target="_blank" rel="noopener noreferrer">
+      <a class="sidebar-add-api" href="/add-api/">
         <span>Add your API</span>
-        <span aria-hidden="true">&nearr;</span>
+        <span aria-hidden="true">+</span>
       </a>
     </section>
     <section class="sidebar-panel">
@@ -930,6 +931,63 @@ export function renderCollectionPage(site: SiteData, collection: CollectionPage)
     ],
     sidebar: renderSidebar(site, path),
     body: renderTaxonomyBody(collection, path, { href: "/collections/", label: "Collections" }, "Collection", "/apis/")
+  });
+}
+
+export function renderAddApiPage(site: SiteData): string {
+  return renderDocument({
+    title: "Add your API",
+    description: "How to submit a free public API to saxi.ai through GitHub pull requests.",
+    path: "/add-api/",
+    noIndex: true,
+    structuredData: [
+      breadcrumbSchema([
+        { href: "/", label: "Home" },
+        { href: "/add-api/", label: "Add your API" }
+      ])
+    ],
+    sidebar: renderSidebar(site, "/add-api/"),
+    body: [
+      renderHero(
+        "Add your API",
+        "Community submissions",
+        "saxi.ai accepts free public APIs through GitHub pull requests. GitHub can only open the PR screen after a contributor has created a branch with one JSON file, so the first step is the generated file editor."
+      ),
+      `<section class="grid gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)]">
+        <article class="hero-note px-6 py-6 sm:px-8 sm:py-8">
+          <div class="space-y-6">
+            <div>
+              <p class="meta-label">GitHub flow</p>
+              <h2 class="mt-2 text-2xl font-black uppercase tracking-[-0.03em] text-white">Why this starts in the file editor</h2>
+            </div>
+            <p class="text-sm leading-7 text-ink-300">
+              A pull request compares two branches. For a new API submission there is no contributor branch yet,
+              so GitHub cannot directly show a useful create-PR page. The generated editor link creates the required
+              JSON file first; after the contributor clicks <span class="text-white">Propose changes</span>, GitHub opens
+              the pull request screen with the validation checks attached.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="${escapeHtml(ADD_API_GITHUB_URL)}" target="_blank" rel="noopener noreferrer" class="button-primary">Open GitHub editor</a>
+              <a href="https://github.com/alexander-schneider/saxi.ai/blob/main/data/community-apis/README.md" target="_blank" rel="noopener noreferrer" class="button-secondary">Submission rules</a>
+            </div>
+          </div>
+        </article>
+        <article class="hero-note px-6 py-6 sm:px-8 sm:py-8">
+          <div class="space-y-5">
+            <div>
+              <p class="meta-label">Checklist</p>
+              <h2 class="mt-2 text-2xl font-black uppercase tracking-[-0.03em] text-white">Before opening the PR</h2>
+            </div>
+            <ul class="space-y-3 text-sm leading-7 text-ink-300">
+              <li>Rename the file to lowercase kebab-case, for example <code class="text-white">my-example-api.json</code>.</li>
+              <li>Replace every placeholder value, especially <code class="text-white">Example API</code> and <code class="text-white">example.com</code>.</li>
+              <li>Use 1-3 categories copied from the allowed category list.</li>
+              <li>Submit only APIs with public docs and a free public plan or free public access.</li>
+            </ul>
+          </div>
+        </article>
+      </section>`
+    ].join("")
   });
 }
 

@@ -2,6 +2,8 @@
 
 Add one JSON file per API in this directory and open a pull request.
 
+GitHub cannot open the pull request screen until your API JSON exists on a branch. If you use the saxi.ai "Add your API" button, it first opens GitHub's new-file editor with a prefilled JSON template. Rename the file, replace every placeholder value, click "Propose changes", and GitHub will then open the pull request flow.
+
 Use a lowercase kebab-case filename, for example:
 
 ```text
@@ -29,6 +31,7 @@ Required fields:
 Rules:
 
 - The API must have a free public plan or free public access.
+- Replace every placeholder from the template before opening the pull request.
 - The docs URL must be public and reachable without logging in.
 - Do not submit affiliate links, parked domains, paid-only APIs, or private/internal APIs.
 - Put only factual product information in the JSON file.

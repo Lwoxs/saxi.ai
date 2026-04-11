@@ -9,6 +9,8 @@ saxi.ai accepts free public APIs through pull requests.
 3. Use a lowercase kebab-case filename, for example `my-example-api.json`.
 4. Open a pull request with the `add-api` template.
 
+The "Add your API" button on saxi.ai opens GitHub's new-file editor, not the final pull request screen. GitHub needs a branch with your JSON file before it can create a pull request. After you rename the file, replace the placeholders, and click "Propose changes", GitHub opens the pull request flow.
+
 Only submit APIs that have public documentation and a free public plan or free public access.
 
 Required JSON shape:
@@ -32,6 +34,7 @@ Required JSON shape:
 Review rules:
 
 - The API must be public and free to start using.
+- Replace every placeholder from the template before opening the pull request.
 - The docs URL must be reachable without login.
 - Paid-only APIs, private APIs, parked domains, and affiliate-only listings will be rejected.
 - Keep the description factual and short.

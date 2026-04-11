@@ -9,6 +9,7 @@ const ALLOWED_AUTH_TYPES = new Set(["No Auth", "API Key", "OAuth", "Basic Auth",
 const ALLOWED_CORS_VALUES = new Set(["Yes", "No", "Unknown"]);
 const ALLOWED_PROTOCOLS = new Set(["REST", "GraphQL", "WebSocket", "gRPC"]);
 const FILENAME_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*\.json$/;
+const PLACEHOLDER_FILENAMES = new Set(["replace-with-api-name.json", "your-api.json"]);
 
 interface ValidationIssue {
   file: string;
@@ -46,6 +47,11 @@ function validateCommunityApi(file: string, record: unknown): ValidationIssue[] 
       file,
       message: "Filename must be lowercase kebab-case, for example `my-example-api.json`."
     });
+  } else if (PLACEHOLDER_FILENAMES.has(file)) {
+    issues.push({
+      file,
+      message: "Filename still uses the template placeholder. Rename it to the real API name, for example `my-example-api.json`."
+    });
   }
 
   if (!isObject(record)) {
@@ -53,17 +59,19 @@ function validateCommunityApi(file: string, record: unknown): ValidationIssue[] 
   }
 
   const name = stringField(record, "name");
-  if (!name || name === "Example API" || name.length < 2 || name.length > 80) {
+  if (name === "Example API") {
+    issues.push({ file, message: "`name` still uses the template placeholder. Replace it with the real API name." });
+  } else if (!name || name.length < 2 || name.length > 80) {
     issues.push({ file, message: "`name` is required and must be 2-80 characters." });
   }
 
   const description = stringField(record, "description");
-  if (
-    !description ||
-    description === "One clear sentence describing what the API does." ||
-    description.length < 20 ||
-    description.length > 240
-  ) {
+  if (description === "One clear sentence describing what the API does.") {
+    issues.push({
+      file,
+      message: "`description` still uses the template placeholder. Replace it with a factual 20-240 character description."
+    });
+  } else if (!description || description.length < 20 || description.length > 240) {
     issues.push({
       file,
       message: "`description` is required, must be factual, and must be 20-240 characters."
@@ -71,12 +79,16 @@ function validateCommunityApi(file: string, record: unknown): ValidationIssue[] 
   }
 
   const docsUrl = urlField(record, "docsUrl");
-  if (!docsUrl || docsUrl.hostname === "example.com") {
+  if (docsUrl?.hostname === "example.com") {
+    issues.push({ file, message: "`docsUrl` still uses example.com. Replace it with the real public documentation URL." });
+  } else if (!docsUrl) {
     issues.push({ file, message: "`docsUrl` is required and must be a public http(s) URL." });
   }
 
   const websiteUrl = urlField(record, "websiteUrl");
-  if (!websiteUrl || websiteUrl.hostname === "example.com") {
+  if (websiteUrl?.hostname === "example.com") {
+    issues.push({ file, message: "`websiteUrl` still uses example.com. Replace it with the real public website URL." });
+  } else if (!websiteUrl) {
     issues.push({ file, message: "`websiteUrl` is required and must be a public http(s) URL." });
   }
 
@@ -136,7 +148,9 @@ function validateCommunityApi(file: string, record: unknown): ValidationIssue[] 
   }
 
   const notes = stringField(record, "notes");
-  if (!notes || notes === "Why should this API be listed on saxi.ai?" || notes.length < 10 || notes.length > 500) {
+  if (notes === "Why should this API be listed on saxi.ai?") {
+    issues.push({ file, message: "`notes` still uses the template placeholder. Explain why this API belongs in the directory." });
+  } else if (!notes || notes.length < 10 || notes.length > 500) {
     issues.push({ file, message: "`notes` is required and must explain why the API should be listed." });
   }
 
