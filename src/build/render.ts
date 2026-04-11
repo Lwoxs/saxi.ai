@@ -105,7 +105,7 @@ function renderHeader(): string {
       <a href="/" class="inline-flex items-center text-white">
         <span>
           <span class="block font-sans text-lg font-black uppercase tracking-[-0.02em] sm:text-xl">saxi.ai</span>
-          <span class="block font-mono text-[11px] uppercase tracking-[0.22em] text-ink-500">free public APIs for AI agents and developers</span>
+          <span class="block font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-300">free public APIs for AI agents and developers</span>
         </span>
       </a>
       <form action="/apis/" method="get" class="header-search">
