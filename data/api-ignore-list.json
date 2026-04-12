@@ -856,6 +856,16 @@
       "finalUrl": "https://api.gitguardian.com/doc"
     },
     {
+      "id": "glitterly::glitterly.app",
+      "name": "Glitterly",
+      "docsUrl": "https://developers.glitterly.app/",
+      "reason": "manual_removal_unrelated_redirect",
+      "checkedAt": "2026-04-12T04:56:03.000Z",
+      "status": 200,
+      "finalUrl": "https://glitterly.app/",
+      "title": "Redirects to unrelated Etsy page instead of API documentation"
+    },
+    {
       "id": "gitter::gitter.im",
       "name": "Gitter",
       "docsUrl": "https://developer.gitter.im/docs/welcome",
