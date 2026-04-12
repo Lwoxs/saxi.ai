@@ -1127,6 +1127,16 @@
       "finalUrl": "https://api.techniknews.net/ipgeo/[IP-Adress/Domain]"
     },
     {
+      "id": "ipinfodb::ipinfodb.com",
+      "name": "IPInfoDB",
+      "docsUrl": "https://ipinfodb.com/api",
+      "reason": "bot_protection_challenge",
+      "checkedAt": "2026-04-12T05:55:19.194Z",
+      "status": 403,
+      "finalUrl": "https://ipinfodb.com/api",
+      "title": "Just a moment..."
+    },
+    {
       "id": "ips-online::identity.ps",
       "name": "IPS Online",
       "docsUrl": "https://docs.identity.ps/docs",
