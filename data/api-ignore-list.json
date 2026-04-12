@@ -42,6 +42,26 @@
       "title": "Service Temporarily Unavailable - AddrZone"
     },
     {
+      "id": "airtel-ip::aether.epias.ltd",
+      "name": "Airtel IP",
+      "docsUrl": "https://aether.epias.ltd/ip2country/1.1.1.1?full=true",
+      "reason": "json_example_endpoint_no_docs",
+      "checkedAt": "2026-04-12T05:58:26.052Z",
+      "status": 200,
+      "finalUrl": "https://aether.epias.ltd/ip2country/1.1.1.1?full=true",
+      "title": ""
+    },
+    {
+      "id": "airtel-ip::sys.airtel.lv",
+      "name": "Airtel IP",
+      "docsUrl": "https://sys.airtel.lv/ip2country/1.1.1.1?full=true",
+      "reason": "json_redirect_to_replacement_endpoint_no_docs",
+      "checkedAt": "2026-04-12T05:58:26.053Z",
+      "status": 200,
+      "finalUrl": "https://sys.airtel.lv/ip2country/1.1.1.1?full=true",
+      "title": ""
+    },
+    {
       "id": "airportsapi::airport-web.appspot.com",
       "name": "airportsapi",
       "docsUrl": "https://airport-web.appspot.com/api/docs",
@@ -1422,6 +1442,16 @@
       "checkedAt": "2026-04-09T12:50:37.417Z"
     },
     {
+      "id": "nba-data::rapidapi.com",
+      "name": "NBA Data",
+      "docsUrl": "https://rapidapi.com/api-sports/api/api-nba",
+      "reason": "rapidapi_api_not_found",
+      "checkedAt": "2026-04-12T05:58:26.053Z",
+      "status": 200,
+      "finalUrl": "https://rapidapi.com/server-error?code=NOT_FOUND&message=API%20not%20found.",
+      "title": "API Hub"
+    },
+    {
       "id": "national-grid-eso::data.nationalgrideso.com",
       "name": "National Grid ESO",
       "docsUrl": "https://data.nationalgrideso.com/",
@@ -2128,6 +2158,16 @@
       "docsUrl": "https://trakt.tv/b/api-docs",
       "reason": "timeout",
       "checkedAt": "2026-04-09T12:50:46.756Z"
+    },
+    {
+      "id": "traileraddict::traileraddict.com",
+      "name": "TrailerAddict",
+      "docsUrl": "https://www.traileraddict.com/trailerapi",
+      "reason": "generic_error_page_redirect",
+      "checkedAt": "2026-04-12T05:59:18.586Z",
+      "status": 200,
+      "finalUrl": "https://www.dot-health.org/articles/how-to-choose-the-right-rehab-program.html?psystem=PW&domain=www.traileraddict.com&oref=https%3A%2F%2Fwww.traileraddict.com%2Ftrailerapi&trafficTarget=gd",
+      "title": "Access Denied"
     },
     {
       "id": "transport-for-budapest-hungary::bkkfutar.docs.apiary.io",
