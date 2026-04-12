@@ -1,4 +1,5 @@
 const MAX_RENDERED_RESULTS = 120;
+const REPORT_API_ISSUE_URL = "https://github.com/alexander-schneider/saxi.ai/issues/new";
 
 function escapeHtml(value) {
   return value
@@ -7,6 +8,93 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function createReportIssueBody(api) {
+  const categories = api.categories || api.sourceCategories || [];
+  const ignoreEntry = {
+    id: api.id || "",
+    name: api.name || "",
+    docsUrl: api.docsUrl || "",
+    reason: "user_reported_broken_or_outdated",
+    checkedAt: new Date().toISOString()
+  };
+
+  return `<!-- Generated from saxi.ai report link. -->
+
+## API listing
+
+- ID: ${api.id || ""}
+- Name: ${api.name || ""}
+- Docs URL: ${api.docsUrl || ""}
+- Website URL: ${api.websiteUrl || ""}
+- Domain: ${api.domain || ""}
+- Section: ${api.primaryCategory || ""}
+- Categories: ${categories.join(", ")}
+
+## Problem
+
+This listing appears broken, outdated, unrelated, or points to the wrong target.
+
+## Suggested removal code
+
+If this report is valid, add this object to the \`entries\` array in \`data/api-ignore-list.json\`:
+
+\`\`\`json
+${JSON.stringify(ignoreEntry, null, 2)}
+\`\`\`
+
+## Reviewer checklist
+
+- [ ] I checked the docs URL.
+- [ ] The target is broken, unrelated, paid-only, private, or no longer API documentation.
+- [ ] I added the suggested ignore-list entry or removed the source/community entry.`;
+}
+
+function createReportIssueUrl(api, includeBody = true) {
+  const params = new URLSearchParams({
+    template: "report-api.md",
+    title: `Report API listing: ${api.name || "Unknown API"}`
+  });
+
+  if (includeBody) {
+    params.set("body", createReportIssueBody(api));
+  }
+
+  return `${REPORT_API_ISSUE_URL}?${params.toString()}`;
+}
+
+function reportDataAttributes(api) {
+  return [
+    `data-report-id="${escapeHtml(api.id || "")}"`,
+    `data-report-name="${escapeHtml(api.name || "")}"`,
+    `data-report-docs-url="${escapeHtml(api.docsUrl || "")}"`,
+    `data-report-website-url="${escapeHtml(api.websiteUrl || "")}"`,
+    `data-report-domain="${escapeHtml(api.domain || "")}"`,
+    `data-report-section="${escapeHtml(api.primaryCategory || "")}"`,
+    `data-report-categories="${escapeHtml((api.sourceCategories || []).join("|"))}"`
+  ].join(" ");
+}
+
+function apiFromReportLink(link) {
+  const categories = (link.dataset.reportCategories || "")
+    .split("|")
+    .map((value) => value.trim())
+    .filter(Boolean);
+
+  return {
+    id: link.dataset.reportId || "",
+    name: link.dataset.reportName || "",
+    docsUrl: link.dataset.reportDocsUrl || "",
+    websiteUrl: link.dataset.reportWebsiteUrl || "",
+    domain: link.dataset.reportDomain || "",
+    primaryCategory: link.dataset.reportSection || "",
+    categories
+  };
+}
+
+function hydrateReportLink(link) {
+  link.href = createReportIssueUrl(apiFromReportLink(link));
 }
 
 function renderCard(api) {
@@ -41,7 +129,7 @@ function renderCard(api) {
     data-weight="${api.weight}"
     data-score="${api.freshnessScore}"
   >
-    <a href="${api.docsUrl}" target="_blank" rel="noreferrer" class="api-card-link" aria-label="${escapeHtml(api.name)} documentation">
+    <a href="${escapeHtml(api.docsUrl)}" target="_blank" rel="noreferrer" class="api-card-link" aria-label="${escapeHtml(api.name)} documentation">
       <div class="api-card-media">
         <img
           src="${api.screenshotPath}"
@@ -67,6 +155,21 @@ function renderCard(api) {
         </div>
         <div class="mt-auto flex flex-wrap gap-2">${badges}</div>
       </div>
+    </a>
+    <a
+      href="${escapeHtml(createReportIssueUrl(api, false))}"
+      target="_blank"
+      rel="noreferrer"
+      class="api-card-report"
+      title="Report this API listing"
+      aria-label="Report ${escapeHtml(api.name)} listing"
+      data-report-api
+      ${reportDataAttributes(api)}
+    >
+      <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+        <path d="M5 17V4.5M5 4.5H14.5L12.7 8L14.5 11.5H5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span class="sr-only">Report listing</span>
     </a>
   </article>`;
 }
@@ -196,4 +299,18 @@ function hydrateSearchPage() {
     });
 }
 
+function hydrateReportLinks() {
+  const updateLink = (event) => {
+    const link = event.target instanceof Element ? event.target.closest("[data-report-api]") : null;
+    if (link instanceof HTMLAnchorElement) {
+      hydrateReportLink(link);
+    }
+  };
+
+  document.addEventListener("pointerdown", updateLink);
+  document.addEventListener("focusin", updateLink);
+  document.addEventListener("click", updateLink);
+}
+
 hydrateSearchPage();
+hydrateReportLinks();

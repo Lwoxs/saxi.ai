@@ -42,6 +42,7 @@ const SIDEBAR_LINKS = [
 ];
 
 const ADD_API_GITHUB_URL = createGitHubAddApiUrl();
+const REPORT_API_ISSUE_URL = "https://github.com/alexander-schneider/saxi.ai/issues/new";
 
 export function renderDocument(definition: PageDefinition): string {
   const canonicalUrl = `${SITE_ORIGIN}${definition.path}`;
@@ -181,6 +182,15 @@ function createGitHubAddApiUrl(): string {
   });
 
   return `https://github.com/alexander-schneider/saxi.ai/new/main/data/community-apis?${params.toString()}`;
+}
+
+function createReportIssueFallbackUrl(api: ApiEntry): string {
+  const params = new URLSearchParams({
+    template: "report-api.md",
+    title: `Report API listing: ${api.name}`
+  });
+
+  return `${REPORT_API_ISSUE_URL}?${params.toString()}`;
 }
 
 function renderSidebar(site: SiteData, pathname: string): string {
@@ -443,7 +453,7 @@ function renderApiCard(api: ApiEntry): string {
     data-weight="${api.weight}"
     data-score="${api.freshnessScore}"
   >
-    <a href="${api.docsUrl}" target="_blank" rel="noreferrer" class="api-card-link" aria-label="${escapeHtml(api.name)} documentation">
+    <a href="${escapeHtml(api.docsUrl)}" target="_blank" rel="noreferrer" class="api-card-link" aria-label="${escapeHtml(api.name)} documentation">
       <div class="api-card-media">
         <img
           src="${api.screenshotPath}"
@@ -469,6 +479,27 @@ function renderApiCard(api: ApiEntry): string {
         </div>
         <div class="mt-auto flex flex-wrap gap-2">${badges}</div>
       </div>
+    </a>
+    <a
+      href="${escapeHtml(createReportIssueFallbackUrl(api))}"
+      target="_blank"
+      rel="noreferrer"
+      class="api-card-report"
+      title="Report this API listing"
+      aria-label="Report ${escapeHtml(api.name)} listing"
+      data-report-api
+      data-report-id="${escapeHtml(api.id)}"
+      data-report-name="${escapeHtml(api.name)}"
+      data-report-docs-url="${escapeHtml(api.docsUrl)}"
+      data-report-website-url="${escapeHtml(api.websiteUrl)}"
+      data-report-domain="${escapeHtml(api.domain)}"
+      data-report-section="${escapeHtml(api.primaryCategory)}"
+      data-report-categories="${escapeHtml(api.sourceCategories.join("|"))}"
+    >
+      <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+        <path d="M5 17V4.5M5 4.5H14.5L12.7 8L14.5 11.5H5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span class="sr-only">Report listing</span>
     </a>
   </article>`;
 }
