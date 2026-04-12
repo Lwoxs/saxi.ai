@@ -1,0 +1,15 @@
+{
+  "name": "Exa API",
+  "description": "AI search, contents, answer, and research API for agent web search and grounded retrieval workflows.",
+  "docsUrl": "https://exa.ai/docs/reference/search-api-guide",
+  "websiteUrl": "https://exa.ai/",
+  "categories": ["Search", "Machine Learning", "Development"],
+  "auth": "API Key",
+  "cors": "Unknown",
+  "https": true,
+  "free": true,
+  "addedAt": "2026-04-11",
+
+  "openapiUrl": "https://raw.githubusercontent.com/exa-labs/openapi-spec/refs/heads/master/exa-openapi-spec.yaml",
+  "notes": "Exa provides public API documentation, a free monthly request tier, OpenAPI documentation, and AI-focused search, contents, answer, and research endpoints."
+}
