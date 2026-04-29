@@ -1642,6 +1642,13 @@
       "finalUrl": "https://owo.vc/api"
     },
     {
+      "id": "pagecdn::pagecdn.com",
+      "name": "PageCDN",
+      "docsUrl": "https://pagecdn.com/docs/public-api",
+      "reason": "user_reported_broken_or_outdated",
+      "checkedAt": "2026-04-13T05:04:43.026Z"
+    },
+    {
       "id": "pastebin::pastebin.com",
       "name": "Pastebin",
       "docsUrl": "https://pastebin.com/api",
@@ -1729,6 +1736,13 @@
       "finalUrl": "https://postali.app/api"
     },
     {
+      "id": "postman::postman.com",
+      "name": "Postman",
+      "docsUrl": "https://www.postman.com/postman/workspace/postman-public-workspace/documentation/12959542-c8142d51-e97c-46b6-bd77-52bb66712c9a",
+      "reason": "user_reported_broken_or_outdated",
+      "checkedAt": "2026-04-13T05:05:14.570Z"
+    },
+    {
       "id": "prc-exam-schedule::whenisthenextboardexam.com",
       "name": "PRC Exam Schedule",
       "docsUrl": "https://api.whenisthenextboardexam.com/docs",
@@ -1810,6 +1824,13 @@
       "docsUrl": "https://api-docs.pgamerx.com/",
       "reason": "network_error",
       "checkedAt": "2026-04-09T12:50:41.754Z"
+    },
+    {
+      "id": "rejax::rejax.io",
+      "name": "Rejax",
+      "docsUrl": "https://rejax.io/",
+      "reason": "user_reported_broken_or_outdated",
+      "checkedAt": "2026-04-13T05:05:27.284Z"
     },
     {
       "id": "revolt::revolt.chat",
