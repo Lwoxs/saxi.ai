@@ -8,7 +8,7 @@
     "Data Validation",
     "Open Data"
   ],
-  "auth": "None",
+  "auth": "No Auth",
   "cors": "Unknown",
   "https": true,
   "free": true,
