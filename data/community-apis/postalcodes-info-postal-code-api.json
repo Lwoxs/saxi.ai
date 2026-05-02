@@ -1,0 +1,18 @@
+{
+  "name": "PostalCodes.info Postal Code API",
+  "description": "Postal code lookup and country-level reference API for address validation, checkout normalization, logistics, and geospatial workflows.",
+  "docsUrl": "https://postalcodes.info/api",
+  "websiteUrl": "https://postalcodes.info/",
+  "categories": [
+    "Geocoding",
+    "Data Validation",
+    "Open Data"
+  ],
+  "auth": "No Auth",
+  "cors": "Unknown",
+  "https": true,
+  "free": true,
+  "addedAt": "2026-05-01",
+  "openapiUrl": "",
+  "notes": "Useful for AI agents and developer tools that need postal-code lookup, address validation examples, country-level postal-code references, and geospatial normalization data."
+}
