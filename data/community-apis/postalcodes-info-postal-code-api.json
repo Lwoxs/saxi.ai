@@ -1,6 +1,6 @@
 {
   "name": "PostalCodes.info Postal Code API",
-  "description": "Postal code lookup and country-level postal-code reference API for address validation, checkout normalization, logistics, and geospatial workflows.",
+  "description": "Postal code lookup and country-level reference API for address validation, checkout normalization, logistics, and geospatial workflows.",
   "docsUrl": "https://postalcodes.info/api",
   "websiteUrl": "https://postalcodes.info/",
   "categories": [
