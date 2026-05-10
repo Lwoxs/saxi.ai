@@ -1,0 +1,18 @@
+{
+  "name": "OpenMercantil",
+  "description": "Independent public-data API for Spanish company search, BORME registry-event timelines, source traceability and public-source business context.",
+  "docsUrl": "https://openmercantil.es/api/documentacion",
+  "websiteUrl": "https://openmercantil.es/",
+  "categories": [
+    "Open Data",
+    "Government",
+    "Business"
+  ],
+  "auth": "No Auth",
+  "cors": "Yes",
+  "https": true,
+  "free": true,
+  "addedAt": "2026-05-10",
+  "openapiUrl": "https://openmercantil.es/openapi.json",
+  "notes": "OpenMercantil helps developers, SMEs, analysts, journalists, researchers and citizens reuse Spanish public mercantile data through search, BORME event timelines, downloads and a documented OpenAPI file. It is an independent informational project, not an official registry API or a substitute for certified registry documents."
+}
