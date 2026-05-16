@@ -1,0 +1,18 @@
+{
+  "name": "Talordata SERP API",
+  "description": "Real-time SERP API for structured search results from Google, Bing, Yandex, DuckDuckGo, and other major search engines.",
+  "docsUrl": "https://docs.talordata.com/",
+  "websiteUrl": "https://www.talordata.com/",
+  "categories": [
+    "Search",
+    "Marketing & SEO",
+    "Development"
+  ],
+  "auth": "API Key",
+  "cors": "Unknown",
+  "https": true,
+  "free": false,
+  "addedAt": "2026-05-15",
+  "openapiUrl": "",
+  "notes": "Talordata offers a free trial for its SERP API, but it does not currently provide a permanent free public plan. The API is designed for developers, SEO teams, AI agents, and data teams that need structured real-time search engine results for rank monitoring, competitor tracking, local SEO, trend monitoring, e-commerce intelligence, and search-driven workflows."
+}

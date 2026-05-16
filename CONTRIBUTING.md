@@ -2,7 +2,7 @@
 
 ## Add Your API
 
-saxi.ai accepts free public APIs through pull requests. Read the canonical submission rules first:
+saxi.ai accepts public APIs through pull requests. Read the canonical submission rules first:
 
 https://github.com/alexander-schneider/saxi.ai/blob/main/data/community-apis/README.md
 

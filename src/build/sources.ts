@@ -232,7 +232,7 @@ function normalizeCommunityRecord(entry: unknown): SourceRecord | null {
     ? candidate.categories.filter((value): value is string => typeof value === "string" && value.trim().length > 0)
     : [];
 
-  if (!name || !description || !docsUrl || categories.length === 0 || candidate.free !== true) {
+  if (!name || !description || !docsUrl || categories.length === 0 || typeof candidate.free !== "boolean") {
     return null;
   }
 
@@ -254,7 +254,7 @@ function normalizeCommunityRecord(entry: unknown): SourceRecord | null {
     docsUrl,
     websiteUrl: websiteUrl ?? docsUrl,
     categories,
-    isFree: true
+    isFree: candidate.free
   };
 
   if (typeof candidate.addedAt === "string" && candidate.addedAt.trim().length > 0) {

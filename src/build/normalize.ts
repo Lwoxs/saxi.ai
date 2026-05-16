@@ -329,10 +329,6 @@ export function normalizeRecords(records: SourceRecord[]): ApiEntry[] {
   const merged = new Map<string, ApiEntry>();
 
   for (const record of records) {
-    if (!record.isFree) {
-      continue;
-    }
-
     const docsUrl = safeUrl(record.docsUrl);
     if (!docsUrl) {
       continue;
@@ -369,7 +365,7 @@ export function normalizeRecords(records: SourceRecord[]): ApiEntry[] {
         hasOpenApi,
         protocols,
         isOfficial,
-        isFree: true,
+        isFree: record.isFree,
         sourceRepos: [record.sourceRepo],
         sourceLicenses: [record.sourceLicense],
         sourceLabels: [record.sourceLabel],
@@ -401,6 +397,7 @@ export function normalizeRecords(records: SourceRecord[]): ApiEntry[] {
     existing.hasOpenApi = existing.hasOpenApi || inferOpenApi(record, text);
     existing.protocols = unique([...existing.protocols, ...inferProtocols(record, text)]).sort(compareStrings);
     existing.isOfficial = existing.isOfficial && inferOfficialStatus(record.name, record.description, docsUrl);
+    existing.isFree = existing.isFree || record.isFree;
     existing.sourceRepos = unique([...existing.sourceRepos, record.sourceRepo]).sort(compareStrings);
     existing.sourceLicenses = unique([...existing.sourceLicenses, record.sourceLicense]).sort(compareStrings);
     existing.sourceLabels = unique([...existing.sourceLabels, record.sourceLabel]).sort(compareStrings);
@@ -424,6 +421,7 @@ export function normalizeRecords(records: SourceRecord[]): ApiEntry[] {
         ...api.sourceCategories,
         ...api.capabilities,
         api.authType,
+        api.isFree ? "free" : "paid trial",
         api.domain
       ]
         .join(" ")
@@ -506,7 +504,7 @@ function authSummary(apis: ApiEntry[]): string {
 
 function buildCategoryIntro(value: string, apis: ApiEntry[]): string {
   const topCapabilities = topLabels(apis.flatMap((api) => api.capabilities), 3);
-  return `${value} currently groups ${apis.length} free APIs on saxi.ai, with strong coverage across ${joinReadable(topCapabilities)}.`;
+  return `${value} currently groups ${apis.length} APIs on saxi.ai, with strong coverage across ${joinReadable(topCapabilities)}.`;
 }
 
 function buildCategoryEditorial(value: string, apis: ApiEntry[]): string[] {
@@ -521,7 +519,7 @@ function buildCategoryEditorial(value: string, apis: ApiEntry[]): string[] {
 
 function buildTopicIntro(value: string, apis: ApiEntry[]): string {
   const topSections = topLabels(apis.map((api) => api.primaryCategory), 2);
-  return `${value} is a source-level category with ${apis.length} free APIs, mostly spanning ${joinReadable(topSections)}.`;
+  return `${value} is a source-level category with ${apis.length} APIs, mostly spanning ${joinReadable(topSections)}.`;
 }
 
 function buildTopicEditorial(value: string, apis: ApiEntry[]): string[] {
@@ -536,7 +534,7 @@ function buildTopicEditorial(value: string, apis: ApiEntry[]): string[] {
 
 function buildCapabilityIntro(value: string, apis: ApiEntry[]): string {
   const topSections = topLabels(apis.map((api) => api.primaryCategory), 3);
-  return `${value} appears across ${apis.length} free APIs in the directory, especially inside ${joinReadable(topSections)}.`;
+  return `${value} appears across ${apis.length} APIs in the directory, especially inside ${joinReadable(topSections)}.`;
 }
 
 function buildCapabilityEditorial(value: string, apis: ApiEntry[]): string[] {
@@ -568,7 +566,7 @@ export function buildSiteData(apis: ApiEntry[], generatedAt: string): SiteData {
   const categories = buildTaxonomyPages(
     "category",
     (value) => value,
-    (value) => PRIMARY_CATEGORY_DESCRIPTIONS[value] ?? "Browse free public APIs in this category.",
+    (value) => PRIMARY_CATEGORY_DESCRIPTIONS[value] ?? "Browse public APIs in this category.",
     buildCategoryIntro,
     buildCategoryEditorial,
     categoriesMap
@@ -577,7 +575,7 @@ export function buildSiteData(apis: ApiEntry[], generatedAt: string): SiteData {
   const topics = buildTaxonomyPages(
     "topic",
     (value) => value,
-    (value) => `Browse free public APIs tagged under ${value}.`,
+    (value) => `Browse public APIs tagged under ${value}.`,
     buildTopicIntro,
     buildTopicEditorial,
     topicsMap,
@@ -588,7 +586,7 @@ export function buildSiteData(apis: ApiEntry[], generatedAt: string): SiteData {
   const capabilities = buildTaxonomyPages(
     "capability",
     (value) => value,
-    (value) => capabilityDescriptions.get(value) ?? "Browse free public APIs for this capability.",
+    (value) => capabilityDescriptions.get(value) ?? "Browse public APIs for this capability.",
     buildCapabilityIntro,
     buildCapabilityEditorial,
     capabilitiesMap,

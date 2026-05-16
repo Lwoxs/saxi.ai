@@ -103,8 +103,8 @@ function validateCommunityApi(file: string, record: unknown): ValidationIssue[] 
     });
   }
 
-  if (record.free !== true) {
-    issues.push({ file, message: "`free` is required and must be true. Paid-only APIs are not accepted." });
+  if (typeof record.free !== "boolean") {
+    issues.push({ file, message: "`free` is required and must be a boolean." });
   }
 
   const addedAt = stringField(record, "addedAt");
