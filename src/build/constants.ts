@@ -107,13 +107,13 @@ export const SOURCE_DEFINITIONS: SourceDefinition[] = [
 
 export const PRIMARY_CATEGORY_DESCRIPTIONS: Record<string, string> = {
   "AI & ML":
-    "Free APIs for language models, speech, vision, document processing, translation, and other AI agent capabilities.",
+    "APIs for language models, speech, vision, document processing, translation, and other AI agent capabilities.",
   "Developer Tools":
     "APIs for code, CI, testing, developer workflows, open source tooling, and software delivery automation.",
   "Search & Retrieval":
     "Search, indexing, crawling, scraping, and retrieval APIs for agent workflows, research, and RAG pipelines.",
   "Data & Analytics":
-    "Free APIs for metrics, analytics, reporting, structured data access, and data pipelines.",
+    "APIs for metrics, analytics, reporting, structured data access, and data pipelines.",
   Communication:
     "Messaging, email, chat, notifications, and communication APIs that AI tools and developer products can automate.",
   Productivity:
@@ -123,7 +123,7 @@ export const PRIMARY_CATEGORY_DESCRIPTIONS: Record<string, string> = {
   Security:
     "Threat intel, validation, scanning, fraud prevention, reputation, and security-focused APIs.",
   "Finance & Commerce":
-    "Payments, shopping, pricing, banking, market data, and commerce APIs available as free public developer resources.",
+    "Payments, shopping, pricing, banking, market data, and commerce APIs available as public developer resources.",
   "Maps & Mobility":
     "Geocoding, mapping, routing, travel, vehicles, and transport APIs for spatial and logistics workflows.",
   "Cloud & Infrastructure":
@@ -279,13 +279,13 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
   {
     slug: "best-apis-for-ai-agents",
     title: "Best APIs for AI Agents",
-    description: "The best free APIs for AI agents — search, browser automation, speech, translation, messaging, memory, and LLM inference.",
+    description: "The best APIs for AI agents — search, browser automation, speech, translation, messaging, memory, and LLM inference.",
     intro:
-      "A shortlist of free APIs for tool-calling agents: search, browser control, speech, translation, messaging, and state storage.",
+      "A shortlist of APIs for tool-calling agents: search, browser control, speech, translation, messaging, and state storage.",
     editorialSections: [
       "Predictable tool use starts with the API. Stable request shapes, clean JSON, clear docs, and enough capability coverage that an agent can plan, retrieve, act, and follow up without switching providers mid-chain.",
       "Relevant for research assistants, workflow automations, support copilots, trading tools, and multi-step developer agents. Each API listed here is realistic to call from prompts, chains, and tool routers.",
-      "Narrower landing pages cover specific subproblems: OCR, browser automation, translation, search for RAG, speech. Start here for the broadest view of reusable free APIs in the directory."
+      "Narrower landing pages cover specific subproblems: OCR, browser automation, translation, search for RAG, speech. Start here for the broadest view of reusable APIs in the directory."
     ],
     anyCapabilities: [
       "llm",
@@ -306,9 +306,9 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
   {
     slug: "browser-automation-apis",
     title: "Browser Automation APIs",
-    description: "Free APIs for taking screenshots, rendering pages, and automating browsers.",
+    description: "APIs for taking screenshots, rendering pages, and automating browsers.",
     intro:
-      "Free APIs for screenshots, page rendering, PDF export, and headless browser control.",
+      "APIs for screenshots, page rendering, PDF export, and headless browser control.",
     editorialSections: [
       "These APIs handle jobs where structured endpoints don't exist: taking screenshots, rendering pages, extracting DOM content, generating PDFs, and scripting navigation through real browser sessions.",
       "Common in QA tooling, growth automation, website monitoring, and research agents. They bridge unstructured web pages into artifacts that tools can process: images, text snapshots, structured extraction results.",
@@ -320,9 +320,9 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
   {
     slug: "speech-to-text-apis",
     title: "Speech to Text APIs",
-    description: "Free speech recognition and transcription APIs for turning audio into text.",
+    description: "Speech recognition and transcription APIs for turning audio into text.",
     intro:
-      "Free APIs for converting audio to text — voice interfaces, meeting transcription, audio processing.",
+      "APIs for converting audio to text — voice interfaces, meeting transcription, audio processing.",
     editorialSections: [
       "Audio becomes useful to agents once it's text. These APIs feed into call summarization, meeting notes, voice workflows, searchable media archives, and review pipelines.",
       "Beyond accuracy, look for operational simplicity: clear upload limits, consistent timestamps, output formats that plug directly into summarization or retrieval.",
@@ -334,7 +334,7 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
   {
     slug: "search-and-rag-apis",
     title: "Search and RAG APIs",
-    description: "Free search, retrieval, crawling, and discovery APIs for RAG pipelines and research workflows.",
+    description: "Search, retrieval, crawling, and discovery APIs for RAG pipelines and research workflows.",
     intro:
       "Web search, crawling, content discovery, and embedding APIs for retrieval-augmented generation and research pipelines.",
     editorialSections: [
@@ -348,9 +348,9 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
   {
     slug: "translation-apis",
     title: "Translation APIs",
-    description: "Free translation APIs for adding multilingual support to any application.",
+    description: "Translation APIs for adding multilingual support to any application.",
     intro:
-      "Free APIs for translating text, detecting languages, and localizing content across language pairs.",
+      "APIs for translating text, detecting languages, and localizing content across language pairs.",
     editorialSections: [
       "Any agent or product that handles multilingual input needs a translation layer. Chat products, support workflows, localization pipelines, and internal tools all use these APIs to normalize language before further processing.",
       "Most APIs here go beyond literal translation: language detection, batch mode, and output formats compatible with moderation, summarization, or retrieval steps.",
@@ -362,9 +362,9 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
   {
     slug: "ocr-apis",
     title: "OCR APIs",
-    description: "Free OCR APIs for extracting text from images, scans, PDFs, receipts, and documents.",
+    description: "OCR APIs for extracting text from images, scans, PDFs, receipts, and documents.",
     intro:
-      "Free APIs for extracting text from images, scans, PDFs, receipts, invoices, and screenshots.",
+      "APIs for extracting text from images, scans, PDFs, receipts, invoices, and screenshots.",
     editorialSections: [
       "Screenshots, scanned PDFs, invoices, forms, receipts, dashboards, mobile captures — all locked in pixels until OCR converts them to text. These APIs are the extraction step.",
       "Once extracted, text can be classified, summarized, routed, translated, or stored like any structured input. Most of the APIs listed work as a first step in a wider agent or automation pipeline.",
@@ -376,9 +376,9 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
   {
     slug: "text-to-speech-apis",
     title: "Text to Speech APIs",
-    description: "Free text to speech APIs for voice generation, spoken responses, and audio-first experiences.",
+    description: "Text to speech APIs for voice generation, spoken responses, and audio-first experiences.",
     intro:
-      "Free APIs for generating spoken audio from text — voice assistants, narration, accessibility, and audio-first products.",
+      "APIs for generating spoken audio from text — voice assistants, narration, accessibility, and audio-first products.",
     editorialSections: [
       "These APIs turn written output into audio. Useful for spoken assistants, narrated summaries, call flows, and products that deliver content in both visual and audio form.",
       "Synthesizing voice through an API avoids running a speech model yourself. That tradeoff makes sense when integration speed matters more than full control over the model.",
@@ -390,9 +390,9 @@ export const COLLECTION_DEFINITIONS: CollectionDefinition[] = [
   {
     slug: "developer-tool-apis",
     title: "Developer Tool APIs",
-    description: "Free APIs for CI/CD, testing, monitoring, code analysis, and infrastructure.",
+    description: "APIs for CI/CD, testing, monitoring, code analysis, and infrastructure.",
     intro:
-      "Free APIs for CI/CD, testing, monitoring, code analysis, deployment, and infrastructure management.",
+      "APIs for CI/CD, testing, monitoring, code analysis, deployment, and infrastructure management.",
     editorialSections: [
       "Coding agents, CI systems, internal engineering tools, and observability dashboards all consume these APIs. They cover build pipelines, code analysis, monitoring, deployment, and infrastructure controls.",
       "The value is in write access, not just reads. Fetching build results, triggering workflows, querying telemetry, pushing deployments — APIs that let tools act on engineering systems.",

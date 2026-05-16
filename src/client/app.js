@@ -47,7 +47,7 @@ ${JSON.stringify(ignoreEntry, null, 2)}
 ## Reviewer checklist
 
 - [ ] I checked the docs URL.
-- [ ] The target is broken, unrelated, paid-only, private, or no longer API documentation.
+- [ ] The target is broken, unrelated, private, or no longer API documentation.
 - [ ] I added the suggested ignore-list entry or removed the source/community entry.`;
 }
 
@@ -104,6 +104,7 @@ function renderCard(api) {
     .join("");
 
   const badges = [
+    api.isFree ? "Free" : "Paid/Trial",
     api.authType,
     api.https ? "HTTPS" : "HTTP",
     `CORS ${api.cors}`,

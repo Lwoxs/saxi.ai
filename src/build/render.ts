@@ -107,7 +107,7 @@ function renderHeader(): string {
       <a href="/" class="inline-flex items-center text-white">
         <span>
           <span class="block font-sans text-lg font-black uppercase tracking-[-0.02em] sm:text-xl">saxi.ai</span>
-          <span class="block font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-300">free public APIs for AI agents and developers</span>
+          <span class="block font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-300">public APIs for AI agents and developers</span>
         </span>
       </a>
       <form action="/apis/" method="get" class="header-search">
@@ -137,8 +137,8 @@ function renderFooter(): string {
       <div class="max-w-2xl space-y-3">
         <p class="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-500">About</p>
         <p>
-          saxi.ai indexes free public APIs from open-source lists and organizes them for AI agents
-          and developers. Every entry is free, links to real docs, and is tagged by capability.
+          saxi.ai indexes public APIs from open-source lists and community submissions for AI agents
+          and developers. Every entry links to real docs, carries availability metadata, and is tagged by capability.
         </p>
       </div>
       <div class="grid gap-6 sm:grid-cols-2">
@@ -299,7 +299,7 @@ function renderIndexEditorial(title: string, description: string): string {
   const copy =
     title === "Collections"
       ? [
-          "Collections are the strongest SEO landing pages in the directory because they group APIs by real-world workflow rather than only by vendor taxonomy. They are designed for people who know the job to be done, but still need a shortlist of credible free options.",
+          "Collections are the strongest SEO landing pages in the directory because they group APIs by real-world workflow rather than only by vendor taxonomy. They are designed for people who know the job to be done, but still need a shortlist of credible options.",
           "Use them when you are comparing solution patterns such as browser automation, OCR, translation, speech, or search for RAG. Each collection is static, crawlable, and intentionally curated to avoid the thin-content problem that faceted pages often create."
         ]
       : title === "Capabilities"
@@ -329,10 +329,10 @@ function renderSearchHero(site: SiteData): string {
   return `<form action="/apis/" method="get" class="hero-panel">
     <div class="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(250px,0.9fr)] lg:items-end">
       <div class="space-y-5">
-        <p class="meta-label">${site.apis.length} free APIs. ${site.topics.length} categories. Open data.</p>
+        <p class="meta-label">${site.apis.length} APIs. ${site.topics.length} categories. Open data.</p>
         <h1 class="max-w-4xl text-2xl font-black uppercase tracking-[-0.04em] text-white sm:text-4xl lg:text-[2.75rem]">${SITE_TAGLINE}</h1>
         <p class="max-w-3xl text-sm leading-8 text-ink-300 sm:text-base">
-          Discover free APIs across AI, search, browser automation, developer tools, messaging, maps, payments, and infrastructure.
+          Discover APIs across AI, search, browser automation, developer tools, messaging, maps, payments, and infrastructure.
         </p>
       </div>
       <div class="grid grid-cols-2 gap-3">
@@ -428,6 +428,7 @@ function renderTaxonomyTiles(items: Array<{ href: string; title: string; descrip
 function renderApiCard(api: ApiEntry): string {
   const capabilities = api.capabilities.slice(0, 4).map((capability) => `<span class="badge">${escapeHtml(capability)}</span>`).join("");
   const badges = [
+    api.isFree ? "Free" : "Paid/Trial",
     api.authType,
     api.https ? "HTTPS" : "HTTP",
     `CORS ${api.cors}`,
@@ -627,9 +628,9 @@ export function renderHomePage(site: SiteData): string {
   }));
 
   return renderDocument({
-    title: "Free Public API Directory for AI Agents and Developers",
+    title: "Public API Directory for AI Agents and Developers",
     description:
-      "Browse free public APIs across AI, browser automation, search, speech, developer tools, messaging, maps, and infrastructure.",
+      "Browse public APIs across AI, browser automation, search, speech, developer tools, messaging, maps, and infrastructure.",
     path: "/",
     structuredData: [
       {
@@ -660,7 +661,7 @@ export function renderHomePage(site: SiteData): string {
       {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        name: "Featured Free APIs",
+        name: "Featured APIs",
         numberOfItems: Math.min(site.featuredApis.length, 9),
         itemListElement: site.featuredApis.slice(0, 9).map((api, index) => ({
           "@type": "ListItem",
@@ -672,7 +673,7 @@ export function renderHomePage(site: SiteData): string {
       {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        name: "Newest Free APIs",
+        name: "Newest APIs",
         numberOfItems: Math.min(site.newestApis.length, 6),
         itemListElement: site.newestApis.slice(0, 6).map((api, index) => ({
           "@type": "ListItem",
@@ -688,12 +689,12 @@ export function renderHomePage(site: SiteData): string {
       renderSponsoredBanner(),
       site.newestApis.length > 0
         ? `<section class="space-y-5">
-          ${renderSectionTitle("Newest APIs", "Recently added community submissions with public docs, free access, and validation checks already attached.")}
+          ${renderSectionTitle("Newest APIs", "Recently added community submissions with public docs, availability metadata, and validation checks already attached.")}
           ${renderApiGrid(site.newestApis.slice(0, 6))}
         </section>`
         : "",
       `<section class="space-y-5">
-        ${renderSectionTitle("Featured APIs", "The most useful free APIs for building with AI, sorted by documentation quality, protocol support, and real-world utility.", "/apis/")}
+        ${renderSectionTitle("Featured APIs", "The most useful APIs for building with AI, sorted by documentation quality, protocol support, and real-world utility.", "/apis/")}
         ${renderApiGrid(site.featuredApis.slice(0, 9))}
       </section>`,
       `<section class="space-y-5">
@@ -720,9 +721,9 @@ export function renderApisLandingPage(site: SiteData, pager: PagerState): string
   </div>`;
 
   return renderDocument({
-    title: "All Free APIs",
+    title: "All APIs",
     description:
-      "Search and filter the saxi.ai directory of free public APIs for AI agents and developers.",
+      "Search and filter the saxi.ai directory of public APIs for AI agents and developers.",
     path: "/apis/",
     noIndex: true,
     structuredData: [
@@ -733,18 +734,18 @@ export function renderApisLandingPage(site: SiteData, pager: PagerState): string
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        name: "All Free APIs",
+        name: "All APIs",
         description:
-          "Search and filter the saxi.ai directory of free public APIs for AI agents and developers.",
+          "Search and filter the saxi.ai directory of public APIs for AI agents and developers.",
         url: `${SITE_ORIGIN}/apis/`
       }
     ],
     sidebar: renderSidebar(site, "/apis/"),
     body: [
       renderHero(
-        "Search the full free API directory",
+        "Search the full API directory",
         "All APIs",
-        "Filter by category, capability, auth type, or just search. Every API is free and links directly to its documentation."
+        "Filter by category, capability, auth type, or just search. Every API links directly to its documentation."
       ),
       `<section class="hero-note px-6 py-6 sm:px-8 sm:py-8">
         <div class="space-y-4">
@@ -758,7 +759,7 @@ export function renderApisLandingPage(site: SiteData, pager: PagerState): string
           <div class="flex flex-wrap items-center justify-between gap-4">
           <div>
               <p class="meta-label">Results</p>
-              <h2 class="text-2xl font-bold tracking-tight text-white">Free APIs for AI agents and developers</h2>
+              <h2 class="text-2xl font-bold tracking-tight text-white">APIs for AI agents and developers</h2>
             </div>
             <p class="badge" data-results-count>${site.apis.length} APIs</p>
           </div>
@@ -775,12 +776,12 @@ export function renderApisLandingPage(site: SiteData, pager: PagerState): string
 
 export function renderApisArchivePage(site: SiteData, apis: ApiEntry[], pager: PagerState): string {
   const path = pager.currentPage === 1 ? "/apis/" : `/apis/page/${pager.currentPage}/`;
-  const title = pager.currentPage === 1 ? "All Free APIs" : `All Free APIs - Page ${pager.currentPage}`;
+  const title = pager.currentPage === 1 ? "All APIs" : `All APIs - Page ${pager.currentPage}`;
 
   return renderDocument({
     title,
     description:
-      "Browse the crawlable archive of free public APIs for AI agents and developers.",
+      "Browse the crawlable archive of public APIs for AI agents and developers.",
     path,
     noIndex: true,
     structuredData: [
@@ -798,7 +799,7 @@ export function renderApisArchivePage(site: SiteData, apis: ApiEntry[], pager: P
       renderHero(
         pager.currentPage === 1 ? "All APIs" : `All APIs — page ${pager.currentPage}`,
         "Archive",
-        "The complete list of free public APIs in the directory. Use the main search page for filtering and sorting."
+        "The complete list of public APIs in the directory. Use the main search page for filtering and sorting."
       ),
       `<section class="space-y-5">
         ${renderApiGrid(apis)}
@@ -988,7 +989,7 @@ export function renderCollectionPage(site: SiteData, collection: CollectionPage)
 export function renderAddApiPage(site: SiteData): string {
   return renderDocument({
     title: "Add your API",
-    description: "How to submit a free public API to saxi.ai through GitHub pull requests.",
+    description: "How to submit a public API to saxi.ai through GitHub pull requests.",
     path: "/add-api/",
     noIndex: true,
     structuredData: [
@@ -1002,7 +1003,7 @@ export function renderAddApiPage(site: SiteData): string {
       renderHero(
         "Add your API",
         "Community submissions",
-        "saxi.ai accepts free public APIs through GitHub pull requests. GitHub can only open the PR screen after a contributor has created a branch with one JSON file, so the first step is the generated file editor."
+        "saxi.ai accepts public APIs through GitHub pull requests. GitHub can only open the PR screen after a contributor has created a branch with one JSON file, so the first step is the generated file editor."
       ),
       `<section class="grid gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)]">
         <article class="hero-note px-6 py-6 sm:px-8 sm:py-8">
@@ -1033,7 +1034,7 @@ export function renderAddApiPage(site: SiteData): string {
               <li>Rename the file to lowercase kebab-case, for example <code class="text-white">my-example-api.json</code>.</li>
               <li>Replace every placeholder value, especially <code class="text-white">Example API</code> and <code class="text-white">example.com</code>.</li>
               <li>Use 1-3 categories copied from the allowed category list.</li>
-              <li>Submit only APIs with public docs and a free public plan or free public access.</li>
+              <li>Submit only APIs with public docs and accurate availability metadata.</li>
             </ul>
           </div>
         </article>
@@ -1225,7 +1226,7 @@ export function renderApiManifest(site: SiteData): string {
     site: {
       name: SITE_NAME,
       url: SITE_ORIGIN,
-      description: "Free public API directory for AI agents and developers."
+      description: "Public API directory for AI agents and developers."
     },
     summary: {
       apis: site.apis.length,
@@ -1435,7 +1436,7 @@ export function renderLlmTxt(site: SiteData): string {
   return [
     `site: ${SITE_NAME}`,
     `url: ${SITE_ORIGIN}`,
-    `description: Free public API directory for AI agents and developers.`,
+    `description: Public API directory for AI agents and developers.`,
     `contact: ${CONTACT_EMAIL}`,
     `sitemap: ${SITE_ORIGIN}/sitemap.xml`,
     `robots: ${SITE_ORIGIN}/robots.txt`,
@@ -1449,7 +1450,7 @@ export function renderLlmTxt(site: SiteData): string {
     "",
     "overview:",
     "- saxi.ai aggregates public API repositories and normalizes them into a crawlable directory.",
-    "- V1 focuses on free public APIs only.",
+    "- V1 focuses on public APIs for AI agents and developers.",
     "- Prefer canonical HTML pages for browsing and citation; use the JSON search index for machine-assisted filtering.",
     "",
     "key_pages:",
@@ -1493,7 +1494,7 @@ export function renderLlmsTxt(site: SiteData): string {
   return [
     `# ${SITE_NAME}`,
     "",
-    "Free public API directory for AI agents and developers.",
+    "Public API directory for AI agents and developers.",
     "",
     "## Canonical HTML pages",
     `- Home: ${SITE_ORIGIN}/`,
@@ -1513,7 +1514,7 @@ export function renderLlmsTxt(site: SiteData): string {
     `- Search Index: ${SITE_ORIGIN}/search-index.json`,
     "",
     "## Notes for agents",
-    "- The site indexes free public APIs only.",
+    "- The site indexes public APIs and includes availability metadata.",
     "- Use /api/apis.json as the stable structured catalog.",
     "- Use /search-index.json only for light search or ranking signals.",
     "- Prefer docsUrl when selecting execution targets.",
@@ -1561,6 +1562,6 @@ export function renderSocialCardSvg(): string {
   <text x="132" y="188" fill="#B8E9FF" font-family="'IBM Plex Mono', monospace" font-size="28" letter-spacing="5">SAXI.AI</text>
   <text x="132" y="286" fill="#F5F8FC" font-family="'Sora', sans-serif" font-size="72" font-weight="600">The API directory for</text>
   <text x="132" y="372" fill="#F5F8FC" font-family="'Sora', sans-serif" font-size="72" font-weight="600">AI agents and developers.</text>
-  <text x="132" y="468" fill="#9BADC3" font-family="'Sora', sans-serif" font-size="34">Free public APIs. Build-time rendered. Searchable. Cloudflare-ready.</text>
+  <text x="132" y="468" fill="#9BADC3" font-family="'Sora', sans-serif" font-size="34">Public APIs. Build-time rendered. Searchable. Cloudflare-ready.</text>
 </svg>`;
 }

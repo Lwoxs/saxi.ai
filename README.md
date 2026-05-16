@@ -12,7 +12,7 @@ V1 is intentionally simple:
 
 - static, build-time rendered pages
 - Cloudflare Worker + static assets
-- free APIs only
+- public APIs with availability metadata
 - multiple public GitHub sources
 - strong category and capability landing pages
 - lightweight client-side search on top of a crawlable archive

@@ -31,10 +31,11 @@ Submission JSON shape:
 
 Rules:
 
-- The API must have a free public plan or free public access.
+- The API must have public documentation and be usable by external developers.
+- Set `free` to `true` only when the API has a free public plan or free public access. Use `false` for paid-only, trial-only, or sales-assisted APIs.
 - Replace every placeholder from the template before opening the pull request.
 - The docs URL must be public and reachable without logging in.
-- Do not submit affiliate links, parked domains, paid-only APIs, or private/internal APIs.
+- Do not submit affiliate links, parked domains, or private/internal APIs.
 - Put only factual product information in the JSON file.
 - Use only categories from the allowed list below.
 - `auth` must be one of `No Auth`, `API Key`, `OAuth`, `Basic Auth`, or `Unknown`.
