@@ -1,0 +1,18 @@
+{
+  "name": "TwitterAPI",
+  "description": "Twitter/X public data REST API for tweet and profile lookup, follower analysis, social listening, market intelligence, and AI-agent workflows.",
+  "docsUrl": "https://docs.twitterapi.io",
+  "websiteUrl": "https://twitterapi.io",
+  "categories": [
+    "Social",
+    "Analytics",
+    "Development"
+  ],
+  "auth": "API Key",
+  "cors": "Unknown",
+  "https": true,
+  "free": true,
+  "addedAt": "2026-05-21",
+  "openapiUrl": "https://twitterapi.io/openapi.json",
+  "notes": "TwitterAPI provides stable REST API access to Twitter/X public data for developers and AI agents, with a public OpenAPI specification and freemium/free-trial access."
+}
