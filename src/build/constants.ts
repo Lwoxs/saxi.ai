@@ -87,21 +87,24 @@ export const SOURCE_DEFINITIONS: SourceDefinition[] = [
     label: "Public API Lists",
     repoUrl: "https://github.com/public-api-lists/public-api-lists",
     license: "MIT",
-    dataUrl: "https://raw.githubusercontent.com/public-api-lists/public-api-lists/master/README.md"
+    dataUrl: "https://raw.githubusercontent.com/public-api-lists/public-api-lists/master/README.md",
+    snapshotPath: "data/vendor/public-api-lists/README.md"
   },
   {
     id: "public-apis",
     label: "public-apis/public-apis",
     repoUrl: "https://github.com/public-apis/public-apis",
     license: "MIT",
-    dataUrl: "https://raw.githubusercontent.com/public-apis/public-apis/master/README.md"
+    dataUrl: "https://raw.githubusercontent.com/public-apis/public-apis/master/README.md",
+    snapshotPath: "data/vendor/public-apis/README.md"
   },
   {
     id: "tools-collection",
     label: "tools-collection/apis-collection",
     repoUrl: "https://github.com/tools-collection/apis-collection",
     license: "MIT",
-    dataUrl: "https://raw.githubusercontent.com/tools-collection/apis-collection/main/dist/apis-list.yaml"
+    dataUrl: "https://github.com/tools-collection/apis-collection/tree/main/collection",
+    snapshotPath: "data/vendor/tools-collection/collection"
   }
 ];
 

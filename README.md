@@ -30,12 +30,16 @@ V1 is intentionally simple:
 - `public-apis/public-apis`
 - `tools-collection/apis-collection`
 
+The build reads versioned snapshots from `data/vendor/` instead of fetching these sources live. Run
+`npm run sources:refresh` to update the snapshots from upstream.
+
 ## Scripts
 
 - `npm run build` builds the full static site into `dist/`
 - `npm run typecheck` runs TypeScript checks
 - `npm run check` runs type checks plus `wrangler types --check`
 - `npm run cf:typegen` regenerates `worker-configuration.d.ts`
+- `npm run sources:refresh` refreshes versioned API source snapshots in `data/vendor/`
 - `npm run dev` builds the site, then starts Wrangler local development
 - `npm run audit:links` audits all target docs URLs with 10 parallel workers and refreshes the ignore list
 - `npm run screenshots:capture` captures up to 60 missing or stale real screenshots into `.cache/screenshots` using Playwright

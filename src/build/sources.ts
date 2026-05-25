@@ -32,18 +32,14 @@ interface CommunityApiRecord {
   openapiType?: unknown;
 }
 
-async function fetchSourceText(source: SourceDefinition): Promise<string> {
-  const response = await fetch(source.dataUrl, {
-    headers: {
-      "user-agent": "saxi-build/0.1 (+https://saxi.ai)"
-    }
-  });
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch ${source.id}: ${response.status} ${response.statusText}`);
+async function readSnapshotText(source: SourceDefinition): Promise<string> {
+  try {
+    return await readFile(resolve(process.cwd(), source.snapshotPath), "utf8");
+  } catch (error) {
+    throw new Error(`Missing vendor snapshot for ${source.id}. Run npm run sources:refresh.`, {
+      cause: error
+    });
   }
-
-  return response.text();
 }
 
 function createMarkdownRecord(
@@ -132,13 +128,11 @@ function parseMarkdownCatalog(source: SourceDefinition, markdown: string): Sourc
 
 function parseToolsCollectionCatalog(source: SourceDefinition, yamlText: string): SourceRecord[] {
   const parsed = parseYaml(yamlText);
-  if (!Array.isArray(parsed)) {
-    throw new Error("tools-collection dist/apis-list.yaml did not parse into an array");
-  }
+  const entries = Array.isArray(parsed) ? parsed : [parsed];
 
   const records: SourceRecord[] = [];
 
-  for (const entry of parsed) {
+  for (const entry of entries) {
     if (!entry || typeof entry !== "object") {
       continue;
     }
@@ -213,6 +207,31 @@ function parseToolsCollectionCatalog(source: SourceDefinition, yamlText: string)
     }
 
     records.push(record);
+  }
+
+  return records;
+}
+
+async function loadToolsCollectionRecords(source: SourceDefinition): Promise<SourceRecord[]> {
+  const snapshotDir = resolve(process.cwd(), source.snapshotPath);
+  let entries;
+  try {
+    entries = await readdir(snapshotDir, { withFileTypes: true });
+  } catch (error) {
+    throw new Error(`Missing vendor snapshot for ${source.id}. Run npm run sources:refresh.`, {
+      cause: error
+    });
+  }
+
+  const records: SourceRecord[] = [];
+
+  for (const entry of entries.sort((left, right) => left.name.localeCompare(right.name))) {
+    if (!entry.isFile() || !entry.name.endsWith(".yaml")) {
+      continue;
+    }
+
+    const raw = await readFile(resolve(snapshotDir, entry.name), "utf8");
+    records.push(...parseToolsCollectionCatalog(source, raw));
   }
 
   return records;
@@ -319,21 +338,15 @@ async function loadCommunityRecords(): Promise<SourceRecord[]> {
 }
 
 export async function loadSourceRecords(): Promise<SourceRecord[]> {
-  const sourceTexts = await Promise.all(
-    SOURCE_DEFINITIONS.map(async (source) => ({
-      source,
-      text: await fetchSourceText(source)
-    }))
-  );
-
   const records: SourceRecord[] = [];
 
-  for (const { source, text } of sourceTexts) {
+  for (const source of SOURCE_DEFINITIONS) {
     if (source.id === "tools-collection") {
-      records.push(...parseToolsCollectionCatalog(source, text));
+      records.push(...await loadToolsCollectionRecords(source));
       continue;
     }
 
+    const text = await readSnapshotText(source);
     records.push(...parseMarkdownCatalog(source, text));
   }
 

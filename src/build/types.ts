@@ -6,6 +6,7 @@ export interface SourceDefinition {
   repoUrl: string;
   license: string;
   dataUrl: string;
+  snapshotPath: string;
 }
 
 export interface SourceRecord {
